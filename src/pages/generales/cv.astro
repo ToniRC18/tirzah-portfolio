@@ -1,0 +1,141 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader';
+
+const subs = [
+  { key: 'autobiografia', label: 'Autobiografía' },
+  { key: 'cv', label: 'Curriculum Vitae' },
+  { key: 'tarjeta', label: 'Tarjeta de presentación' },
+  { key: 'declaracion', label: 'Declaración de afirmación' },
+  { key: 'datos', label: 'Datos actuales UM' },
+];
+
+const skills = [
+  { name: "Escucha clínica", lvl: 78 },
+  { name: "Redacción académica", lvl: 92 },
+  { name: "Análisis cualitativo", lvl: 70 },
+  { name: "SPSS / Jamovi", lvl: 60 },
+  { name: "APA 7ª edición", lvl: 95 },
+];
+---
+
+<Base title="Curriculum Vitae — Tirzah S. Kook">
+  <div class="page">
+    <PageHeader eyebrow="01 · Generales" title="Sobre mí" lead="Lo personal y lo institucional: quién soy, lo que me trajo hasta aquí y lo que me identifica como estudiante de la Universidad de Montemorelos." decor="01" client:load />
+
+    <section class="container" style="padding-bottom:var(--pad-section)">
+      <div class="with-sidebar">
+        <aside class="sidebar-nav">
+          {subs.map((s, i) => (
+            <a class={`sidebar-link ${s.key === 'cv' ? 'active' : ''}`} href={`/generales/${s.key}`}>
+              <span class="idx">0{i + 1}</span>{s.label}
+            </a>
+          ))}
+        </aside>
+
+        <article>
+          <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:24px; flex-wrap:wrap; gap:16px">
+            <div>
+              <span class="eyebrow">Curriculum Vitae</span>
+              <h2 style="margin-top:8px">Trayectoria académica</h2>
+            </div>
+            <button class="btn btn-secondary btn-sm">
+              ↓ Descargar PDF
+            </button>
+          </div>
+
+          <div class="cv">
+            <div class="cv-header">
+              <div>
+                <h3 class="cv-name">Tirzah S. Kook</h3>
+                <p style="margin:6px 0 0; color:var(--color-charcoal)">Estudiante de Psicología Clínica · 4° semestre</p>
+              </div>
+              <div style="text-align:right; font-size:13px; color:var(--color-taupe)">
+                <div>✉ tirzah.kook@um.edu.mx</div>
+                <div style="margin-top:4px">📍 Montemorelos, NL</div>
+                <div style="margin-top:4px">📸 @tirzah.kook</div>
+              </div>
+            </div>
+
+            <div class="cv-section">
+              <div class="cv-section-title">Educación</div>
+              <div class="cv-row">
+                <div class="cv-period">2024 — actual</div>
+                <div>
+                  <div class="cv-title">Lic. Psicología Clínica</div>
+                  <div class="cv-meta">Universidad de Montemorelos · Facultad de Ciencias de la Salud</div>
+                  <ul class="cv-bullets">
+                    <li>Promedio acumulado: 9.4 / 10</li>
+                    <li>Beca académica de excelencia (2024 – actual)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="cv-row">
+                <div class="cv-period">2021 — 2024</div>
+                <div>
+                  <div class="cv-title">Bachillerato General</div>
+                  <div class="cv-meta">Colegio Adventista de Aruba</div>
+                  <ul class="cv-bullets">
+                    <li>Mención honorífica en humanidades</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="cv-section">
+              <div class="cv-section-title">Experiencia y voluntariado</div>
+              <div class="cv-row">
+                <div class="cv-period">2025 — actual</div>
+                <div>
+                  <div class="cv-title">Asistente de cátedra · Psicología del Desarrollo</div>
+                  <div class="cv-meta">UM · Dra. R. Castañeda</div>
+                  <ul class="cv-bullets">
+                    <li>Apoyo en preparación de materiales y revisión de lecturas</li>
+                    <li>Tutoría académica a estudiantes de 1° semestre</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="cv-row">
+                <div class="cv-period">2024 — actual</div>
+                <div>
+                  <div class="cv-title">Voluntaria · Brigada de salud mental comunitaria</div>
+                  <div class="cv-meta">UM · Comunidad de General Terán, NL</div>
+                  <ul class="cv-bullets">
+                    <li>Talleres de bienestar emocional con mujeres adultas</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="cv-section">
+              <div class="cv-section-title">Habilidades</div>
+              {skills.map(s => (
+                <div class="skill-bar">
+                  <span>{s.name}</span>
+                  <div class="lvl-track"><div class="lvl-fill" style={`width:${s.lvl}%`}></div></div>
+                  <span class="lvl-num">{s.lvl}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="cv-section">
+              <div class="cv-section-title">Idiomas</div>
+              <div class="cv-row">
+                <div class="cv-period">Nativo</div>
+                <div><div class="cv-title">Español</div><div class="cv-meta">Escritura, oralidad, lectura académica</div></div>
+              </div>
+              <div class="cv-row">
+                <div class="cv-period">Avanzado</div>
+                <div><div class="cv-title">Inglés</div><div class="cv-meta">C1 · IELTS Academic 7.5 (2023)</div></div>
+              </div>
+              <div class="cv-row">
+                <div class="cv-period">Nativo</div>
+                <div><div class="cv-title">Papiamentu</div><div class="cv-meta">Lengua materna · uso cotidiano y familiar</div></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</Base>

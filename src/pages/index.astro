@@ -1,0 +1,120 @@
+---
+import Base from '../layouts/Base.astro';
+import Reveal from '../components/Reveal';
+import Icon from '../components/Icon';
+---
+
+<Base title="Tirzah S. Kook — Portafolio académico">
+  <div class="page">
+    <section class="hero container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <span class="eyebrow hero-eyebrow animate-in" style="animation-delay:0.05s">
+            Portafolio académico · 2024 — 2026
+          </span>
+          <h1 class="animate-in" style="animation-delay:0.20s">
+            Tirzah S. <span class="accent">Kook</span>
+          </h1>
+          <p class="hero-sub animate-in" style="animation-delay:0.35s">
+            Estudiante de Psicología Clínica
+            <span class="dot">·</span>
+            Universidad de Montemorelos
+          </p>
+          <p class="hero-intro animate-in" style="animation-delay:0.50s">
+            Bienvenidos a mi portafolio. Este espacio documenta dos años de mi formación como
+            psicóloga clínica: los aprendizajes, las preguntas, los trabajos y las personas que
+            han ido dándole forma a mi manera de pensar y de acompañar.
+          </p>
+          <div class="hero-cta-row animate-in" style="animation-delay:0.65s">
+            <a class="btn btn-primary" href="/perfil-egreso">
+              Explorar portafolio →
+            </a>
+            <a class="btn btn-secondary" href="/generales/cv">Ver CV</a>
+          </div>
+
+          <div class="hero-meta animate-in" style="animation-delay:0.85s">
+            <div class="hero-meta-item">
+              <span class="num">4°</span>
+              <span class="lbl">Semestre</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="num">3</span>
+              <span class="lbl">Idiomas</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="num">9.4</span>
+              <span class="lbl">Promedio</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-portrait-wrap animate-in" style="animation-delay:0.40s">
+          <div class="hero-portrait-frame"></div>
+          <div class="hero-portrait">
+            <div class="placeholder-photo">
+              retrato · 4:5
+              <!-- TODO: reemplazar con <Image> real -->
+            </div>
+          </div>
+          <div class="hero-tag-float t1"><span class="tag">Psicología clínica</span></div>
+          <div class="hero-tag-float t2"><span class="tag">Aprendiz · 2024–26</span></div>
+        </div>
+      </div>
+
+      <div class="hero-scroll">
+        <span>Recorrido</span>
+        <div class="hero-scroll-line"></div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <Reveal client:visible>
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px; margin-bottom:36px">
+          <div>
+            <span class="eyebrow">Áreas del portafolio</span>
+            <h2 style="margin-top:8px">Un mapa de lo aprendido</h2>
+          </div>
+          <p class="text-muted" style="max-width:360px; font-size:14px">
+            El portafolio está organizado en áreas. Cada una documenta una dimensión distinta de
+            mi formación: lo personal, lo académico y lo profesional.
+          </p>
+        </div>
+      </Reveal>
+
+      <div class="home-areas">
+        {[
+          { num: "01", title: "Generales", desc: "Autobiografía, CV, tarjeta de presentación, declaración de afirmación y datos académicos actuales.", path: "/generales/autobiografia" },
+          { num: "02", title: "Cosmovisión", desc: "Mi marco filosófico y de valores: cómo entiendo al ser humano, el sufrimiento y el cuidado.", path: "/cosmovision" },
+          { num: "03", title: "Perfil de Egreso", desc: "Las competencias formativas — cosmovisión, generación, integración — con evidencias de mi avance.", path: "/perfil-egreso" },
+          { num: "04", title: "Portafolios I, II y III", desc: "Trabajos académicos por semestre, organizados por materia y filtrables por categoría.", path: "/portafolio-i" },
+          { num: "05", title: "Línea de investigación", desc: "El área que me interesa explorar a profundidad y los hitos que voy alcanzando en ello.", path: "/linea-investigacion" },
+          { num: "06", title: "Profesional", desc: "Prácticas, voluntariados, habilidades clínicas y experiencias formativas fuera del aula.", path: "/portafolio-profesional" },
+        ].map((c, i) => (
+          <Reveal delay={i * 80} client:visible>
+            <a class="area-card" href={c.path}>
+              <div>
+                <span class="num">{c.num} ·</span>
+                <h3>{c.title}</h3>
+                <p>{c.desc}</p>
+              </div>
+              <div class="arrow">→</div>
+            </a>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+
+    <section class="container section">
+      <Reveal client:visible>
+        <div class="declaration">
+          <span class="eyebrow" style="display:block; margin-bottom:8px">Declaración</span>
+          <p class="declaration-quote">
+            «Aprendo para acompañar. Estudio para escuchar mejor. Crezco para que mi presencia
+            sea, para alguien, un lugar seguro.»
+          </p>
+          <div class="declaration-attr">— Tirzah S. Kook</div>
+        </div>
+      </Reveal>
+    </section>
+  </div>
+</Base>

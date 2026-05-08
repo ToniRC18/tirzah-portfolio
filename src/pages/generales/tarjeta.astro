@@ -1,0 +1,47 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader';
+import BizCard from '../../components/BizCard';
+
+const subs = [
+  { key: 'autobiografia', label: 'Autobiografía' },
+  { key: 'cv', label: 'Curriculum Vitae' },
+  { key: 'tarjeta', label: 'Tarjeta de presentación' },
+  { key: 'declaracion', label: 'Declaración de afirmación' },
+  { key: 'datos', label: 'Datos actuales UM' },
+];
+---
+
+<Base title="Tarjeta de presentación — Tirzah S. Kook">
+  <div class="page">
+    <PageHeader eyebrow="01 · Generales" title="Sobre mí" lead="Lo personal y lo institucional." decor="01" client:load />
+
+    <section class="container" style="padding-bottom:var(--pad-section)">
+      <div class="with-sidebar">
+        <aside class="sidebar-nav">
+          {subs.map((s, i) => (
+            <a class={`sidebar-link ${s.key === 'tarjeta' ? 'active' : ''}`} href={`/generales/${s.key}`}>
+              <span class="idx">0{i + 1}</span>{s.label}
+            </a>
+          ))}
+        </aside>
+
+        <article>
+          <span class="eyebrow">Tarjeta de presentación</span>
+          <h2 style="margin-top:8px; margin-bottom:12px">Identidad en formato de bolsillo</h2>
+          <p class="text-muted" style="margin-bottom:24px; font-size:15px">
+            Una versión digital de mi tarjeta de visita. Pasa el cursor para verla en movimiento.
+          </p>
+
+          <BizCard client:load />
+
+          <div style="margin-top:32px; text-align:center">
+            <div class="row" style="justify-content:center">
+              <button class="btn btn-secondary btn-sm">↓ Descargar PNG</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</Base>

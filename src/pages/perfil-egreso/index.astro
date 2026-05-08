@@ -1,0 +1,83 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader';
+import Reveal from '../../components/Reveal';
+
+const competencias = [
+  {
+    key: 'cosmovision',
+    icon: '◎',
+    eyebrow: 'Competencia 01',
+    title: 'Cosmovisión',
+    intro: 'Competencias relacionadas con la formación filosófica, ética y de valores que sustentan la práctica psicológica.',
+    count: 4,
+  },
+  {
+    key: 'generacion',
+    icon: '◈',
+    eyebrow: 'Competencia 02',
+    title: 'Generación y Aplicación',
+    intro: 'Competencias para producir conocimiento psicológico riguroso y aplicarlo en contextos reales.',
+    count: 4,
+  },
+  {
+    key: 'integracion',
+    icon: '◉',
+    eyebrow: 'Competencia 03',
+    title: 'Integración',
+    intro: 'Competencias para integrar la teoría, la técnica y la persona en una práctica clínica coherente.',
+    count: 4,
+  },
+];
+---
+
+<Base title="Perfil de Egreso — Tirzah S. Kook">
+  <div class="page">
+    <PageHeader
+      eyebrow="03 · Perfil de Egreso"
+      title="Las tres competencias que sostienen la formación"
+      lead="El perfil de egreso de Psicología Clínica en la UM se organiza en tres dimensiones complementarias. Cada una se evalúa con evidencias concretas a lo largo de los diez semestres del programa."
+      decor="03"
+      client:load
+    />
+
+    <section class="container section">
+      <div class="competency-cards">
+        {competencias.map((c, i) => (
+          <Reveal delay={i * 100} client:visible>
+            <a class="competency-card" href={`/perfil-egreso/${c.key}`}>
+              <div class="icon-wrap" style="width:56px; height:56px; border-radius:14px; background:var(--color-lavender-light); color:var(--color-lavender-dark); display:grid; place-items:center; margin-bottom:24px; font-size:24px">
+                {c.icon}
+              </div>
+              <span class="eyebrow">{c.eyebrow}</span>
+              <h3 style="margin-top:8px; margin-bottom:12px">{c.title}</h3>
+              <p style="font-size:14px; color:var(--color-charcoal); line-height:1.6">{c.intro}</p>
+              <div class="count">
+                <span>{c.count} competencias documentadas</span>
+                <span class="arrow">→</span>
+              </div>
+            </a>
+          </Reveal>
+        ))}
+      </div>
+
+      <Reveal client:visible>
+        <div class="card" style="margin-top:56px; padding:36px; background:var(--color-lavender-bg); border:1px solid rgba(175,154,201,0.3)">
+          <div class="perfil-cta">
+            <div class="icon-wrap" style="width:56px; height:56px; border-radius:14px; background:var(--color-lavender); color:white; display:grid; place-items:center; font-size:22px">◎</div>
+            <div>
+              <h3 style="font-size:20px; margin-bottom:6px">¿Cómo se evalúa cada competencia?</h3>
+              <p style="margin:0; font-size:14px; color:var(--color-charcoal)">
+                Cada competencia tiene asignadas evidencias específicas — trabajos académicos, bitácoras
+                de práctica, ensayos reflexivos — que documentan mi avance semestre a semestre.
+              </p>
+            </div>
+            <a class="btn btn-secondary btn-sm" href="/perfil-egreso/cosmovision">
+              Empezar recorrido →
+            </a>
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  </div>
+</Base>

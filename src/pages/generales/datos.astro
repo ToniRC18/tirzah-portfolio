@@ -1,0 +1,89 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader';
+
+const subs = [
+  { key: 'autobiografia', label: 'Autobiografía' },
+  { key: 'cv', label: 'Curriculum Vitae' },
+  { key: 'tarjeta', label: 'Tarjeta de presentación' },
+  { key: 'declaracion', label: 'Declaración de afirmación' },
+  { key: 'datos', label: 'Datos actuales UM' },
+];
+
+const dataCards = [
+  { lbl: "Matrícula", val: "202401834", sub: "Activa · regular" },
+  { lbl: "Programa", val: "Psicología Clínica", sub: "Plan 2023" },
+  { lbl: "Semestre", val: "4°", sub: "de 10 totales" },
+  { lbl: "Promedio", val: "9.4", sub: "acumulado" },
+  { lbl: "Créditos", val: "128", sub: "de 320 cursados" },
+  { lbl: "Beca", val: "Excelencia", sub: "renovada anualmente" },
+];
+
+const materias = [
+  ["PSI-401", "Psicopatología I", 8, "9.5"],
+  ["PSI-403", "Psicodiagnóstico", 8, "9.2"],
+  ["PSI-405", "Métodos cuantitativos en psicología", 6, "9.0"],
+  ["PSI-407", "Psicología del desarrollo III", 6, "9.6"],
+  ["FIL-201", "Bioética clínica", 4, "9.8"],
+  ["MET-301", "Seminario de investigación", 4, "—"],
+];
+---
+
+<Base title="Datos UM — Tirzah S. Kook">
+  <div class="page">
+    <PageHeader eyebrow="01 · Generales" title="Sobre mí" lead="Lo personal y lo institucional." decor="01" client:load />
+
+    <section class="container" style="padding-bottom:var(--pad-section)">
+      <div class="with-sidebar">
+        <aside class="sidebar-nav">
+          {subs.map((s, i) => (
+            <a class={`sidebar-link ${s.key === 'datos' ? 'active' : ''}`} href={`/generales/${s.key}`}>
+              <span class="idx">0{i + 1}</span>{s.label}
+            </a>
+          ))}
+        </aside>
+
+        <article>
+          <span class="eyebrow">Datos actuales UM</span>
+          <h2 style="margin-top:8px; margin-bottom:24px">Mi situación académica</h2>
+
+          <div class="data-grid">
+            {dataCards.map(d => (
+              <div class="data-card">
+                <div class="lbl">{d.lbl}</div>
+                <div class="val">{d.val}</div>
+                <div class="sub">{d.sub}</div>
+              </div>
+            ))}
+          </div>
+
+          <div class="card" style="margin-top:48px; padding:0; overflow:hidden">
+            <div style="padding:20px 28px; border-bottom:1px solid rgba(165,147,123,0.18)">
+              <h3 style="font-size:18px">Materias del semestre actual</h3>
+            </div>
+            <table class="data-table" style="margin:0">
+              <thead>
+                <tr>
+                  <th style="padding-left:28px">Clave</th>
+                  <th>Materia</th>
+                  <th>Créditos</th>
+                  <th>Calificación</th>
+                </tr>
+              </thead>
+              <tbody>
+                {materias.map(r => (
+                  <tr>
+                    <td style="padding-left:28px; color:var(--color-taupe); font-family:var(--font-serif); font-style:italic">{r[0]}</td>
+                    <td style="color:var(--color-dark); font-weight:500">{r[1]}</td>
+                    <td>{r[2]}</td>
+                    <td class="grade">{r[3]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</Base>

@@ -1,0 +1,98 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader';
+import Reveal from '../../components/Reveal';
+
+const subs = [
+  { key: 'autobiografia', label: 'Autobiografía', icon: 'users' },
+  { key: 'cv', label: 'Curriculum Vitae', icon: 'file-text' },
+  { key: 'tarjeta', label: 'Tarjeta de presentación', icon: 'id-card' },
+  { key: 'declaracion', label: 'Declaración de afirmación', icon: 'quote' },
+  { key: 'datos', label: 'Datos actuales UM', icon: 'bar-chart' },
+];
+---
+
+<Base title="Autobiografía — Tirzah S. Kook">
+  <div class="page">
+    <PageHeader
+      eyebrow="01 · Generales"
+      title="Sobre mí"
+      lead="Lo personal y lo institucional: quién soy, lo que me trajo hasta aquí y lo que me identifica como estudiante de la Universidad de Montemorelos."
+      decor="01"
+      client:load
+    />
+
+    <section class="container" style="padding-bottom: var(--pad-section)">
+      <div class="with-sidebar">
+        <aside class="sidebar-nav">
+          {subs.map((s, i) => (
+            <a
+              class={`sidebar-link ${s.key === 'autobiografia' ? 'active' : ''}`}
+              href={`/generales/${s.key}`}
+            >
+              <span class="idx">0{i + 1}</span>{s.label}
+            </a>
+          ))}
+        </aside>
+
+        <article>
+          <span class="eyebrow">Autobiografía</span>
+          <h2 style="margin-top:8px; margin-bottom:24px">Cómo llegué hasta aquí</h2>
+
+          <div class="autobio-grid">
+            <div class="cosmo-content" style="max-width:none">
+              <p>
+                Nací en una familia donde las conversaciones sobre lo que sentíamos eran tan
+                cotidianas como el café de la mañana. Crecí entre dos lenguas — el español y el
+                papiamentu de mi familia materna — y aprendí pronto que las palabras nunca traducen
+                del todo lo que una persona quiere decir. Quizá por eso me interesó tanto la psicología:
+                no como técnica, sino como una forma de escuchar lo que está debajo de las palabras.
+              </p>
+              <p>
+                Mi formación previa estuvo marcada por la música y la escritura. Toqué piano clásico
+                durante diez años y, aunque nunca consideré una carrera musical, esa disciplina me
+                enseñó a sostener la atención sobre algo durante mucho tiempo — algo que hoy resulta
+                imprescindible en mi vocación.
+              </p>
+              <div class="pull-quote">
+                La clínica, antes de ser una técnica, es una disposición ética: la de no apartarse del
+                otro cuando el otro nos cuenta lo que duele.
+              </div>
+              <p>
+                Llegué a la Universidad de Montemorelos en 2024 buscando una formación que no separara
+                la academia del cuidado integral de la persona. Encontré justamente eso. En estos dos
+                años he aprendido tanto en clase como en los pasillos, en las conversaciones nocturnas
+                con compañeras, en las visitas comunitarias y en el silencio de la primera vez que
+                acompañé a alguien en una crisis.
+              </p>
+              <h3>Lo que me mueve</h3>
+              <p>
+                Me interesa la psicología clínica como un oficio paciente. Me interesan, en particular,
+                los procesos de duelo y la salud mental en comunidades rurales — temas que confluyen en
+                mi línea de investigación actual.
+              </p>
+            </div>
+
+            <aside style="position:sticky; top:100px">
+              <div style="aspect-ratio:3/4; border-radius:var(--radius-card); overflow:hidden; margin-bottom:16px">
+                <div class="placeholder-photo" style="width:100%; height:100%">
+                  retrato 3:4
+                  <!-- TODO: reemplazar con <Image> real -->
+                </div>
+              </div>
+              <div class="card" style="padding:20px">
+                <span class="eyebrow" style="display:block; margin-bottom:8px">Datos rápidos</span>
+                <div class="stack-2" style="font-size:14px">
+                  <div><span class="text-muted">Origen:</span> Aruba 🇦🇼 / México 🇲🇽</div>
+                  <div><span class="text-muted">Idiomas:</span> ES, EN, Papiamentu</div>
+                  <div><span class="text-muted">Generación:</span> 2024–2028</div>
+                  <div><span class="text-muted">Ingreso UM:</span> Agosto 2024</div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</Base>

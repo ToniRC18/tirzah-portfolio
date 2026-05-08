@@ -1,0 +1,57 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader';
+import Reveal from '../../components/Reveal';
+
+const items = [
+  { icon: '♥', title: "Marco ético-clínico", desc: "Capacidad de reconocer dilemas éticos en la práctica y razonar desde un marco de valores explícito.", evidence: "Ensayo: Bioética en consulta (PSI-201)" },
+  { icon: '◎', title: "Sensibilidad cultural", desc: "Reconocimiento de las dimensiones culturales, religiosas y sociales que median la salud mental.", evidence: "Trabajo de campo: comunidad de Tampiquito" },
+  { icon: '❧', title: "Visión holística de la persona", desc: "Comprensión integrada de las dimensiones biológica, psicológica, social y espiritual del ser humano.", evidence: "Análisis de caso integrador" },
+  { icon: '⊕', title: "Compromiso con la dignidad", desc: "Reconocimiento del valor inherente de cada persona y aplicación práctica en la relación clínica.", evidence: "Reflexión: Voluntariado UM 2025" },
+];
+---
+
+<Base title="Perfil de Egreso · Cosmovisión — Tirzah S. Kook">
+  <div class="page">
+    <PageHeader
+      eyebrow="Perfil de Egreso · 01/3"
+      title="Cosmovisión"
+      lead="Competencias relacionadas con la formación filosófica, ética y de valores que sustentan la práctica psicológica."
+      client:load
+    />
+
+    <section class="container" style="padding-bottom:var(--pad-section)">
+      <div style="display:flex; gap:8px; margin-bottom:32px; flex-wrap:wrap">
+        <a class="btn btn-ghost btn-sm" href="/perfil-egreso">← Volver al perfil</a>
+        <a class="btn btn-primary btn-sm" href="/perfil-egreso/cosmovision">Cosmovisión</a>
+        <a class="btn btn-ghost btn-sm" href="/perfil-egreso/generacion">Generación y Aplicación</a>
+        <a class="btn btn-ghost btn-sm" href="/perfil-egreso/integracion">Integración</a>
+      </div>
+
+      <div class="competency-list">
+        {items.map((it, i) => (
+          <Reveal delay={i * 80} client:visible>
+            <div class="competency-item">
+              <div class="icon-wrap" style="flex-shrink:0; width:44px; height:44px; border-radius:10px; background:var(--color-lavender-light); color:var(--color-lavender-dark); display:grid; place-items:center; font-size:20px">
+                {it.icon}
+              </div>
+              <div style="flex:1">
+                <h4>{it.title}</h4>
+                <p>{it.desc}</p>
+                <span class="evidence">📄 {it.evidence}</span>
+              </div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+
+      <div style="margin-top:64px; display:flex; justify-content:space-between; align-items:center; padding:24px 0; border-top:1px solid rgba(165,147,123,0.2); border-bottom:1px solid rgba(165,147,123,0.2); flex-wrap:wrap; gap:16px">
+        <div>
+          <div class="eyebrow">Siguiente competencia</div>
+          <h3 style="font-size:22px; margin-top:6px">Generación y Aplicación</h3>
+        </div>
+        <a class="btn btn-primary" href="/perfil-egreso/generacion">Continuar →</a>
+      </div>
+    </section>
+  </div>
+</Base>

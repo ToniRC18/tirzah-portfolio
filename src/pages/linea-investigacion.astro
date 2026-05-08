@@ -1,0 +1,145 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader';
+import Reveal from '../components/Reveal';
+
+const timeline = [
+  { date: "Marzo 2026", title: "Protocolo TFG presentado", body: "Primer borrador entregado al Seminario de Investigación. En proceso de revisión metodológica.", current: true },
+  { date: "Febrero 2026", title: "Curso intensivo · Análisis cualitativo con ATLAS.ti", body: "20 horas de formación en codificación temática y análisis narrativo." },
+  { date: "Noviembre 2025", title: "Estado del arte · 32 fuentes", body: "Revisión sistemática de literatura en español e inglés sobre duelo en contextos rurales latinoamericanos." },
+  { date: "Octubre 2025", title: "Primer trabajo de campo exploratorio", body: "Cinco entrevistas piloto con adultos mayores en General Terán, NL. Análisis temático preliminar." },
+  { date: "Agosto 2025", title: "Definición del tema", body: "Tras un semestre de voluntariado en brigadas de salud mental, definí el área tras conversar con la Dra. Castañeda." },
+  { date: "Junio 2025", title: "Lectura fundacional", body: "Trabajo monográfico sobre las dimensiones culturales del duelo (W. Worden, P. Ariès, A. Marcos)." },
+];
+
+const referencias = [
+  { type: "Libro", year: 2009, title: "El tratamiento del duelo: asesoramiento psicológico y terapia", authors: "Worden, J. W.", icon: "📚" },
+  { type: "Libro", year: 1977, title: "L'homme devant la mort", authors: "Ariès, P.", icon: "📚" },
+  { type: "Artículo", year: 2018, title: "Cultural variations in mourning: implications for clinical practice", authors: "Rosenblatt, P. C.", icon: "📄" },
+  { type: "Libro", year: 2014, title: "El cuerpo lleva la cuenta", authors: "Van der Kolk, B.", icon: "📚" },
+  { type: "Tesis", year: 2021, title: "Acompañamiento del duelo en comunidades indígenas de Oaxaca", authors: "Marcos Ramírez, A.", icon: "📄" },
+  { type: "Artículo", year: 2020, title: "Continuing bonds and grief in Latin America: a narrative review", authors: "Hernández, L. & Ortiz, M.", icon: "📄" },
+];
+---
+
+<Base title="Línea de investigación — Tirzah S. Kook">
+  <div class="page">
+    <PageHeader
+      eyebrow="05 · Línea de investigación"
+      title="Duelo y salud mental en comunidades rurales"
+      lead="El área de investigación que estoy desarrollando articula tres preguntas: cómo se nombra el duelo en comunidades de tradición oral, qué rol juegan los vínculos comunitarios en su elaboración, y qué estrategias de acompañamiento son culturalmente pertinentes."
+      decor="05"
+      client:load
+    />
+
+    <section class="container" style="padding-bottom:32px">
+      <Reveal client:visible>
+        <div class="research-hero">
+          <div class="research-hero-grid">
+            <div>
+              <span class="eyebrow">Pregunta de investigación</span>
+              <h2 style="margin-top:12px; font-size:28px; line-height:1.3">
+                ¿Cómo se elabora el duelo en comunidades rurales del noreste de México, y qué
+                papel juegan los vínculos comunitarios en este proceso?
+              </h2>
+              <p style="margin-top:20px; color:var(--color-charcoal); font-size:15px">
+                La investigación parte de mi experiencia de voluntariado en General Terán, NL.
+                Busca documentar las formas locales de acompañamiento del duelo y dialogar con
+                ellas desde la psicología clínica contemporánea.
+              </p>
+              <div class="research-keywords">
+                <span class="tag">duelo</span>
+                <span class="tag">salud mental rural</span>
+                <span class="tag">métodos cualitativos</span>
+                <span class="tag">psicología comunitaria</span>
+                <span class="tag">narrativas</span>
+              </div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:16px">
+              <div class="card" style="padding:20px; background:var(--color-bg)">
+                <span class="eyebrow">Asesora</span>
+                <div style="margin-top:8px; font-family:var(--font-serif); font-style:italic; font-size:18px; color:var(--color-dark)">
+                  Dra. Ruth Castañeda
+                </div>
+                <div style="font-size:13px; color:var(--color-taupe); margin-top:4px">
+                  Facultad de Ciencias de la Salud · UM
+                </div>
+              </div>
+              <div class="card" style="padding:20px; background:var(--color-bg)">
+                <span class="eyebrow">Estado</span>
+                <div style="margin-top:8px; color:var(--color-dark); font-weight:500">Protocolo en revisión</div>
+                <div style="font-size:13px; color:var(--color-taupe); margin-top:4px">Defensa estimada: marzo 2028</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+    </section>
+
+    <section class="container section" style="padding-top:0">
+      <div class="research-grid">
+        <div>
+          <span class="eyebrow">Avances</span>
+          <h2 style="margin-top:8px; margin-bottom:32px">Hitos de la línea</h2>
+
+          <div class="timeline">
+            {timeline.map((it, i) => (
+              <Reveal delay={i * 80} client:visible>
+                <div class={`timeline-item ${it.current ? 'is-current' : ''}`}>
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-date">{it.date}</div>
+                  <div class="timeline-title">{it.title}</div>
+                  <div class="timeline-body">{it.body}</div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        <div style="position:sticky; top:100px" class="research-side">
+          <div class="card" style="padding:28px">
+            <span class="eyebrow">En cifras</span>
+            <div style="margin-top:16px; display:grid; grid-template-columns:1fr 1fr; gap:16px">
+              <div>
+                <div style="font-family:var(--font-serif); font-size:36px; color:var(--color-dark); line-height:1">32</div>
+                <div style="font-size:12px; color:var(--color-taupe); margin-top:4px; letter-spacing:0.06em">Fuentes revisadas</div>
+              </div>
+              <div>
+                <div style="font-family:var(--font-serif); font-size:36px; color:var(--color-dark); line-height:1">5</div>
+                <div style="font-size:12px; color:var(--color-taupe); margin-top:4px; letter-spacing:0.06em">Entrevistas piloto</div>
+              </div>
+              <div>
+                <div style="font-family:var(--font-serif); font-size:36px; color:var(--color-dark); line-height:1">2</div>
+                <div style="font-size:12px; color:var(--color-taupe); margin-top:4px; letter-spacing:0.06em">Comunidades de campo</div>
+              </div>
+              <div>
+                <div style="font-family:var(--font-serif); font-size:36px; color:var(--color-dark); line-height:1">18</div>
+                <div style="font-size:12px; color:var(--color-taupe); margin-top:4px; letter-spacing:0.06em">Meses de trabajo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <span class="eyebrow">Bibliografía clave</span>
+      <h2 style="margin-top:8px; margin-bottom:24px">Algunas referencias que sostienen la línea</h2>
+
+      <div class="references">
+        {referencias.map((r, i) => (
+          <Reveal delay={i * 50} client:visible>
+            <div class="ref-card">
+              <div class="ref-icon" style="font-size:18px">{r.icon}</div>
+              <div>
+                <div class="ref-meta">{r.type} · {r.year}</div>
+                <div class="ref-title">{r.title}</div>
+                <div class="ref-authors">{r.authors}</div>
+              </div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  </div>
+</Base>
