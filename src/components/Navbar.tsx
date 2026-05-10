@@ -131,6 +131,7 @@ export default function Navbar({ currentPath }: NavbarProps) {
                 ))}
               </div>
             </li>
+            <li><a className={`nav-link ${isActive('/repositorio') ? 'active' : ''}`} href="/repositorio">Repositorio</a></li>
             <li><a className={`nav-link ${isActive('/linea-investigacion') ? 'active' : ''}`} href="/linea-investigacion">Investigación</a></li>
             <li><a className={`nav-link ${isActive('/portafolio-profesional') ? 'active' : ''}`} href="/portafolio-profesional">Profesional</a></li>
             <li><a className={`nav-link ${isActive('/contacto') ? 'active' : ''}`} href="/contacto">Contacto</a></li>
@@ -172,6 +173,7 @@ export default function Navbar({ currentPath }: NavbarProps) {
         {ROUTES.portfolios.iii.map(c => (
           <a key={c.path} className="mobile-sub" href={c.path}>{c.label}</a>
         ))}
+        <a className={`mobile-link ${isActive('/repositorio') ? 'active' : ''}`} href="/repositorio">Repositorio</a>
         <a className={`mobile-link ${isActive('/linea-investigacion') ? 'active' : ''}`} href="/linea-investigacion">Línea de investigación</a>
         <a className={`mobile-link ${isActive('/portafolio-profesional') ? 'active' : ''}`} href="/portafolio-profesional">Portafolio profesional</a>
         <a className={`mobile-link ${isActive('/contacto') ? 'active' : ''}`} href="/contacto">Contacto</a>

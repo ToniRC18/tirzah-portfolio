@@ -22,6 +22,7 @@ export default function Footer() {
             <a href="/">Inicio</a>
             <a href="/cosmovision">Cosmovisión</a>
             <a href="/perfil-egreso">Perfil de Egreso</a>
+            <a href="/repositorio">Repositorio</a>
             <a href="/linea-investigacion">Investigación</a>
             <a href="/contacto">Contacto</a>
           </div>

@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader';
+import RepositorioGrid from '../components/RepositorioGrid';
+import { evidencias } from '../data/repositorio';
+---
+
+<Base title="Repositorio de evidencias — Tirzah S. Kook">
+  <div class="page">
+    <PageHeader
+      eyebrow="Repositorio de evidencias"
+      title="Acervo de evidencias"
+      lead="Colección de trabajos, documentos, imágenes y reflexiones de distintos semestres que documentan mi proceso formativo. Filtra por tipo o por competencia."
+      decor="R"
+      client:load
+    />
+    <section class="container" style="padding-bottom: var(--pad-section)">
+      <RepositorioGrid evidencias={evidencias} client:load />
+    </section>
+  </div>
+</Base>

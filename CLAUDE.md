@@ -36,6 +36,7 @@ src/
 │   ├── contacto.astro
 │   ├── linea-investigacion.astro
 │   ├── portafolio-profesional.astro
+│   ├── repositorio.astro
 │   ├── portafolio-i/
 │   │   ├── index.astro
 │   │   ├── eclesiastico.astro
@@ -80,11 +81,17 @@ Cada portafolio tiene cinco secciones:
 - `/portafolio-i/personal`, `/portafolio-ii/personal`, `/portafolio-iii/personal`
 - `/portafolio-i/competencias`, `/portafolio-ii/competencias`, `/portafolio-iii/competencias`
 
+## Repositorio de evidencias
+
+- `/repositorio` — acervo general de evidencias con filtros por tipo y competencia
+- El contenido del repositorio lo agrega Tirzah directamente en `src/data/repositorio.ts`
+
 ## Datos agregados
 
 - `src/data/portafolios.ts` — trabajos académico-profesionales de Portafolio I, II y III
 - `src/data/portfolioSubpages.ts` — trabajos eclesiásticos, artísticos y personales
 - `src/data/competencias.ts` — marco institucional y competencias alcanzadas por portafolio
+- `src/data/repositorio.ts` — evidencias generales agregadas manualmente por Tirzah
 
 ## Componentes agregados
 
@@ -92,6 +99,7 @@ Cada portafolio tiene cinco secciones:
 - `SubpageWorkGrid.astro` — cards reutilizables para subpáginas eclesiásticas, artísticas y personales
 - `CompetencyTable.astro` — tabla visual previa para competencias alcanzadas/en desarrollo
 - `CompetenciasTable.tsx` — tabla React con porcentajes reales y barras de progreso para competencias
+- `RepositorioGrid.tsx` — grid React filtrable por tipo de evidencia y competencia
 
 ## Componentes: estáticos vs islands
 
@@ -106,6 +114,7 @@ Cada portafolio tiene cinco secciones:
 | SubpageWorkGrid | Estático + Reveal islands | — |
 | CompetencyTable | Estático + Reveal islands | — |
 | CompetenciasTable | Island con barras de progreso | `client:load` |
+| RepositorioGrid | Island con filtros interactivos | `client:load` |
 | ContactForm | Island (formulario con estado) | `client:load` |
 | BizCard | Island (hover 3D via CSS) | `client:load` |
 
