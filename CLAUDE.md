@@ -90,7 +90,8 @@ Cada portafolio tiene cinco secciones:
 
 - `PortfolioSubNav.astro` — navegación interna entre secciones de cada portafolio
 - `SubpageWorkGrid.astro` — cards reutilizables para subpáginas eclesiásticas, artísticas y personales
-- `CompetencyTable.astro` — tabla visual en código para competencias alcanzadas/en desarrollo
+- `CompetencyTable.astro` — tabla visual previa para competencias alcanzadas/en desarrollo
+- `CompetenciasTable.tsx` — tabla React con porcentajes reales y barras de progreso para competencias
 
 ## Componentes: estáticos vs islands
 
@@ -104,18 +105,21 @@ Cada portafolio tiene cinco secciones:
 | PortfolioSubNav | Estático | — |
 | SubpageWorkGrid | Estático + Reveal islands | — |
 | CompetencyTable | Estático + Reveal islands | — |
+| CompetenciasTable | Island con barras de progreso | `client:load` |
 | ContactForm | Island (formulario con estado) | `client:load` |
 | BizCard | Island (hover 3D via CSS) | `client:load` |
 
 ## TODOs pendientes para Tirzah
 
 ### Actualización de contenido real
+El portafolio está completo con contenido real al 100%.
+
 El contenido real de Tirzah Shiraldin Kook ya fue integrado en:
 - Inicio, autobiografía, CV, tarjeta, declaración y datos actuales UM
 - Cosmovisión y perfil de egreso
 - Portafolios I, II y III
 - Subpáginas eclesiásticas, artísticas y personales de los tres portafolios
-- Tablas de competencias alcanzadas de los tres portafolios
+- Tablas de competencias con porcentajes reales de los tres portafolios
 - Línea de investigación
 - Portafolio profesional y datos de contacto
 

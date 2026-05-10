@@ -1,21 +1,63 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../../components/PageHeader';
-import CompetencyTable from '../../components/CompetencyTable.astro';
 import PortfolioSubNav from '../../components/PortfolioSubNav.astro';
+import CompetenciasTable from '../../components/CompetenciasTable';
+
+const cosmovision = [
+  { texto: "Tomar decisiones sabias basadas en los principios de la Santa Biblia.", porcentaje: 22 },
+  { texto: "Al proyectar una vida profesional, personal y familiar en el marco de un compromiso moral y misional.", porcentaje: 20 },
+  { texto: "Al vivir una vida equilibrada teniendo especial cuidado en el uso del tiempo, las finanzas, las habilidades y la salud.", porcentaje: 20 },
+  { texto: "Al desarrollar un gusto sano por la recreación, las manifestaciones artísticas y culturales y los medios.", porcentaje: 25 },
+  { texto: "Al practicar los aspectos éticos, morales y legales del ejercicio profesional de la psicología clínica, sustentados en una cosmovisión bíblica.", porcentaje: 20 },
+];
+
+const generacion = [
+  { texto: "Transferir de modo pertinente e innovador el conocimiento profesional a situaciones laborales reales.", porcentaje: 12 },
+  { texto: "Elaborar diagnósticos y tratamientos de padecimientos psicológicos fundamentados en la evaluación oportuna, de manera ética y responsable, utilizando las bases neuroanatómicas, neurofisiológicas, orgánicas y genéticas.", porcentaje: 8 },
+  { texto: "Modificar conductas y pensamientos disfuncionales de los pacientes utilizando tratamientos psicológicos que alivien el sufrimiento físico, psíquico y espiritual, con sensibilidad al contexto y necesidades personales.", porcentaje: 5 },
+  { texto: "Diseñar e implementar programas y proyectos que promuevan el bienestar psicológico de la comunidad, encaminados a fortalecer la salud mental, mostrando un compromiso con el servicio abnegado.", porcentaje: 10 },
+  { texto: "Realizar intervenciones psicológicas positivas potenciando las fortalezas y virtudes de los pacientes, gestionando su bienestar integral bajo una perspectiva bíblico-cristiana.", porcentaje: 10 },
+  { texto: "Generar aportes significativos y de calidad relacionados con su profesión a partir de proyectos de investigación o de la aplicación de investigaciones.", porcentaje: 10 },
+  { texto: "Al comunicarse en forma oral y escrita en español.", porcentaje: 22 },
+  { texto: "Al identificar, plantear y resolver problemas aplicando el pensamiento crítico.", porcentaje: 20 },
+  { texto: "Al usar correctamente las tecnologías de la información y comunicación.", porcentaje: 22 },
+  { texto: "Al trabajar en equipos inter y multidisciplinarios, con apertura y respeto pero manteniendo sus convicciones personales.", porcentaje: 15 },
+];
+
+const integracion = [
+  { texto: "Concretar proyectos emprendedores de servicio, con una visión misionera, en distintos contextos para promover el bienestar integral.", porcentaje: 17 },
+  { texto: "Al identificar y atender las necesidades de los demás.", porcentaje: 14 },
+  { texto: "Al comunicarse en un segundo idioma.", porcentaje: 85 },
+  { texto: "Al autofinanciar el proyecto educativo.", porcentaje: 5 },
+  { texto: "Al valorar y respetar la diversidad y multiculturalidad.", porcentaje: 25 },
+  { texto: "Al mantener buenas relaciones interpersonales.", porcentaje: 22 },
+  { texto: "Al tomar iniciativas para el servicio abnegado.", porcentaje: 14 },
+  { texto: "Al tomar iniciativas para la preservación del medio ambiente y la sustentabilidad.", porcentaje: 20 },
+  { texto: "Al trabajar de modo colaborativo con organizaciones gubernamentales u ONG para el bienestar integral individual y de la comunidad.", porcentaje: 15 },
+  { texto: "Al Promover el desarrollo integral y el bienestar de las comunidades, con un liderazgo de servicio cristiano y una visión misionera, trabajando en equipos multidisciplinarios de atención psicológica.", porcentaje: 15 },
+];
 ---
 
-<Base title="Portafolio I · Tabla de competencias — Tirzah S. Kook">
+<Base title="Tabla de competencias — Portafolio I">
   <div class="page">
     <PageHeader
-      eyebrow="Portafolio I · Tabla de competencias"
-      title="Competencias alcanzadas"
-      lead="Tabla visual de las competencias institucionales alcanzadas durante el Portafolio I."
+      eyebrow="Portafolio I · Competencias alcanzadas"
+      title="Tabla de competencias"
+      lead="Porcentaje de alcance de cada competencia del perfil de egreso documentado a lo largo del primer año de formación."
       decor="I"
       client:load
     />
-    <section class="container" style="padding-bottom:var(--pad-section)">
-      <CompetencyTable portfolio="i" />
+    <section class="container" style="padding-bottom: var(--pad-section)">
+      <h2 style="margin-bottom: 20px; font-size: 22px;">Competencias de Cosmovisión</h2>
+      <CompetenciasTable titulo="Cosmovisión" competencias={cosmovision} client:load />
+
+      <h2 style="margin-bottom: 20px; margin-top: 48px; font-size: 22px;">Competencias de Generación y Aplicación del Conocimiento</h2>
+      <CompetenciasTable titulo="Generación" competencias={generacion} client:load />
+
+      <h2 style="margin-bottom: 20px; margin-top: 48px; font-size: 22px;">Competencias de Integración</h2>
+      <CompetenciasTable titulo="Integración" competencias={integracion} client:load />
+
       <PortfolioSubNav portfolio="i" current="Tabla de competencias" />
     </section>
   </div>

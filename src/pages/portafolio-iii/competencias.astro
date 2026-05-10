@@ -1,21 +1,63 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../../components/PageHeader';
-import CompetencyTable from '../../components/CompetencyTable.astro';
 import PortfolioSubNav from '../../components/PortfolioSubNav.astro';
+import CompetenciasTable from '../../components/CompetenciasTable';
+
+const cosmovision = [
+  { texto: "Tomar decisiones sabias basadas en los principios de la Santa Biblia.", porcentaje: 72 },
+  { texto: "Al proyectar una vida profesional, personal y familiar en el marco de un compromiso moral y misional.", porcentaje: 70 },
+  { texto: "Al vivir una vida equilibrada teniendo especial cuidado en el uso del tiempo, las finanzas, las habilidades y la salud.", porcentaje: 75 },
+  { texto: "Al desarrollar un gusto sano por la recreación, las manifestaciones artísticas y culturales y los medios.", porcentaje: 75 },
+  { texto: "Al practicar los aspectos éticos, morales y legales del ejercicio profesional de la psicología clínica, sustentados en una cosmovisión bíblica.", porcentaje: 72 },
+];
+
+const generacion = [
+  { texto: "Transferir de modo pertinente e innovador el conocimiento profesional a situaciones laborales reales.", porcentaje: 70 },
+  { texto: "Elaborar diagnósticos y tratamientos de padecimientos psicológicos.", porcentaje: 70 },
+  { texto: "Modificar conductas y pensamientos disfuncionales de los pacientes.", porcentaje: 70 },
+  { texto: "Diseñar e implementar programas y proyectos que promuevan el bienestar psicológico.", porcentaje: 73 },
+  { texto: "Realizar intervenciones psicológicas positivas potenciando las fortalezas y virtudes de los pacientes.", porcentaje: 72 },
+  { texto: "Generar aportes significativos a partir de proyectos de investigación.", porcentaje: 73 },
+  { texto: "Al comunicarse en forma oral y escrita en español.", porcentaje: 75 },
+  { texto: "Al identificar, plantear y resolver problemas aplicando el pensamiento crítico.", porcentaje: 70 },
+  { texto: "Al usar correctamente las tecnologías de la información y comunicación.", porcentaje: 75 },
+  { texto: "Al trabajar en equipos inter y multidisciplinarios.", porcentaje: 72 },
+];
+
+const integracion = [
+  { texto: "Concretar proyectos emprendedores de servicio con visión misionera.", porcentaje: 70 },
+  { texto: "Al identificar y atender las necesidades de los demás.", porcentaje: 73 },
+  { texto: "Al comunicarse en un segundo idioma.", porcentaje: 100 },
+  { texto: "Al autofinanciar el proyecto educativo.", porcentaje: 75 },
+  { texto: "Al valorar y respetar la diversidad y multiculturalidad.", porcentaje: 75 },
+  { texto: "Al mantener buenas relaciones interpersonales.", porcentaje: 75 },
+  { texto: "Al tomar iniciativas para el servicio abnegado.", porcentaje: 72 },
+  { texto: "Al tomar iniciativas para la preservación del medio ambiente y la sustentabilidad.", porcentaje: 70 },
+  { texto: "Al trabajar de modo colaborativo con organizaciones gubernamentales u ONG.", porcentaje: 70 },
+  { texto: "Al Promover el desarrollo integral y el bienestar de las comunidades.", porcentaje: 71 },
+];
 ---
 
-<Base title="Portafolio III · Tabla de competencias — Tirzah S. Kook">
+<Base title="Tabla de competencias — Portafolio III">
   <div class="page">
     <PageHeader
-      eyebrow="Portafolio III · Tabla de competencias"
-      title="Competencias alcanzadas"
-      lead="Tabla visual de las competencias institucionales alcanzadas hasta el Portafolio III."
+      eyebrow="Portafolio III · Competencias alcanzadas"
+      title="Tabla de competencias"
+      lead="Porcentaje de alcance de cada competencia del perfil de egreso documentado durante el tercer periodo de formación."
       decor="III"
       client:load
     />
-    <section class="container" style="padding-bottom:var(--pad-section)">
-      <CompetencyTable portfolio="iii" />
+    <section class="container" style="padding-bottom: var(--pad-section)">
+      <h2 style="margin-bottom: 20px; font-size: 22px;">Competencias de Cosmovisión</h2>
+      <CompetenciasTable titulo="Cosmovisión" competencias={cosmovision} client:load />
+
+      <h2 style="margin-bottom: 20px; margin-top: 48px; font-size: 22px;">Competencias de Generación y Aplicación del Conocimiento</h2>
+      <CompetenciasTable titulo="Generación" competencias={generacion} client:load />
+
+      <h2 style="margin-bottom: 20px; margin-top: 48px; font-size: 22px;">Competencias de Integración</h2>
+      <CompetenciasTable titulo="Integración" competencias={integracion} client:load />
+
       <PortfolioSubNav portfolio="iii" current="Tabla de competencias" />
     </section>
   </div>
