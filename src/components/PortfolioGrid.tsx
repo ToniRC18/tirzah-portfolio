@@ -6,14 +6,18 @@ interface Work {
   title: string;
   subj: string;
   cat: string;
-  grade: string;
+  grade?: string;
+  periodo?: string;
   desc: string;
+  competencias?: string[];
+  reflexion?: string;
 }
 
 interface PortfolioData {
   semester: string;
   period: string;
   desc: string;
+  finalReflection?: string;
   works: Work[];
 }
 
@@ -21,8 +25,6 @@ interface Props {
   data: PortfolioData;
   which: 'i' | 'ii' | 'iii';
 }
-
-const CATEGORIES = ["Todos", "Ensayo", "Estudio de caso", "Bitácora", "Investigación", "Reseña", "Protocolo", "Trabajo gráfico", "Reporte técnico"];
 
 const gradients = [
   "linear-gradient(135deg, var(--color-lavender-light), var(--color-tan))",
@@ -33,17 +35,13 @@ const gradients = [
 export default function PortfolioGrid({ data, which }: Props) {
   const [filter, setFilter] = useState("Todos");
 
+  const categories = ["Todos", ...Array.from(new Set(data.works.map(w => w.cat)))];
   const filtered = filter === "Todos" ? data.works : data.works.filter(w => w.cat === filter);
 
-  const counts = CATEGORIES.reduce((acc: Record<string, number>, cat) => {
+  const counts = categories.reduce((acc: Record<string, number>, cat) => {
     acc[cat] = cat === "Todos" ? data.works.length : data.works.filter(w => w.cat === cat).length;
     return acc;
   }, {});
-
-  const totalGraded = data.works.filter(w => w.grade !== "—");
-  const avg = totalGraded.length
-    ? (totalGraded.reduce((a, w) => a + parseFloat(w.grade), 0) / totalGraded.length).toFixed(1)
-    : "—";
 
   return (
     <>
@@ -62,14 +60,14 @@ export default function PortfolioGrid({ data, which }: Props) {
             <div className="val">{new Set(data.works.map(w => w.subj)).size}</div>
           </div>
           <div>
-            <div className="lbl">Promedio</div>
-            <div className="val">{avg}</div>
+            <div className="lbl">Categorías</div>
+            <div className="val">{categories.length - 1}</div>
           </div>
         </div>
       </Reveal>
 
       <div className="filter-tabs">
-        {CATEGORIES.filter(c => counts[c] > 0).map(cat => (
+        {categories.filter(c => counts[c] > 0).map(cat => (
           <button
             key={cat}
             className={`filter-tab ${filter === cat ? 'active' : ''}`}
@@ -99,13 +97,29 @@ export default function PortfolioGrid({ data, which }: Props) {
                 <div className="work-meta">
                   <span>{w.subj}</span>
                   <span className="sep">·</span>
-                  <span>{data.period.split("·")[0].trim()}</span>
+                  <span>{w.periodo || data.period}</span>
                 </div>
                 <h3>{w.title}</h3>
                 <p>{w.desc}</p>
+                {w.competencias && (
+                  <div style={{marginTop:16}}>
+                    <div className="eyebrow" style={{fontSize:10, marginBottom:8}}>Competencias</div>
+                    <ul className="cv-bullets" style={{margin:0}}>
+                      {w.competencias.map((competencia) => (
+                        <li key={competencia}>{competencia}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {w.reflexion && (
+                  <div style={{marginTop:16, paddingTop:14, borderTop:'1px solid rgba(165,147,123,0.16)'}}>
+                    <div className="eyebrow" style={{fontSize:10, marginBottom:8}}>Reflexión</div>
+                    <p style={{fontSize:13, margin:0}}>{w.reflexion}</p>
+                  </div>
+                )}
                 <div className="work-foot">
                   <span className="work-link">Ver trabajo <Icon name="arrow-right" size={14}/></span>
-                  {w.grade !== "—" && <span className="work-grade">{w.grade}</span>}
+                  {w.grade && w.grade !== "—" && <span className="work-grade">{w.grade}</span>}
                 </div>
               </div>
             </article>
@@ -117,6 +131,18 @@ export default function PortfolioGrid({ data, which }: Props) {
         <div style={{padding:64, textAlign:'center', color:'var(--color-taupe)', fontStyle:'italic', fontFamily:'var(--font-serif)'}}>
           No hay trabajos en esta categoría todavía.
         </div>
+      )}
+
+      {data.finalReflection && (
+        <Reveal>
+          <div className="declaration" style={{marginTop:64, padding:'56px 40px'}}>
+            <span className="eyebrow" style={{display:'block', marginBottom:12}}>Reflexión final</span>
+            <p className="declaration-quote" style={{fontSize:'clamp(22px, 3vw, 34px)'}}>
+              «{data.finalReflection}»
+            </p>
+            <div className="declaration-attr">— Tirzah S. Kook</div>
+          </div>
+        </Reveal>
       )}
 
       <Reveal>

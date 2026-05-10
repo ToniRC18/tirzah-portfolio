@@ -1,0 +1,19 @@
+---
+const { portfolio, current } = Astro.props;
+const base = `/portafolio-${portfolio}`;
+const links = [
+  { href: base, label: "Académico-profesional" },
+  { href: `${base}/eclesiastico`, label: "Eclesiástico" },
+  { href: `${base}/artistico`, label: "Artístico" },
+  { href: `${base}/personal`, label: "Personal" },
+  { href: `${base}/competencias`, label: "Tabla de competencias" },
+];
+---
+
+<nav class="portfolio-subnav">
+  {links.map(l => (
+    <a href={l.href} class={`subnav-link ${current === l.label ? 'active' : ''}`}>
+      {l.label}
+    </a>
+  ))}
+</nav>

@@ -3,65 +3,33 @@ import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader';
 import Reveal from '../components/Reveal';
 
+const canvaUrl = "https://canva.link/cup5b5f8qw1yb7v";
+
 const experiences = [
   {
-    logo: "U", status: "Actual", statusType: "current",
-    period: "Enero 2025 — actual", hours: "120+ hrs",
-    title: "Asistente de cátedra · Psicología del Desarrollo I",
-    org: "Universidad de Montemorelos · Dra. R. Castañeda",
-    bullets: [
-      "Apoyo en la preparación de materiales didácticos y selección de lecturas",
-      "Tutoría académica semanal a estudiantes de 1er semestre",
-      "Coordinación logística de seminarios invitados",
-    ],
+    logo: "J",
+    status: "Completada",
+    statusType: "complete",
+    period: "2023",
+    title: "Voluntaria en atención psicológica a jóvenes",
+    org: "Instituto Municipal de la Juventud",
   },
   {
-    logo: "B", status: "Actual", statusType: "current",
-    period: "Agosto 2024 — actual", hours: "80+ hrs",
-    title: "Voluntaria · Brigada de salud mental comunitaria",
-    org: "Universidad de Montemorelos · General Terán, NL",
-    bullets: [
-      "Talleres mensuales de bienestar emocional con grupos de mujeres adultas",
-      "Aplicación de tamizajes breves de malestar emocional bajo supervisión",
-      "Coordinación con la clínica comunitaria de la UM para derivaciones",
-    ],
+    logo: "I",
+    status: "Completada",
+    statusType: "complete",
+    period: "2023 — 2025",
+    title: "Docente de Inglés",
+    org: "Instituto de Idiomas",
   },
   {
-    logo: "C", status: "Completada", statusType: "complete",
-    period: "Verano 2025", hours: "60 hrs",
-    title: "Práctica de observación · Centro de atención psicológica",
-    org: "CAP-UM · Supervisora: Mtra. L. Velasco",
-    bullets: [
-      "Observación de 14 sesiones de terapia en setting institucional",
-      "Bitácora reflexiva semanal con énfasis en transferencia y encuadre",
-      "Participación en sesiones quincenales de discusión clínica",
-    ],
+    logo: "C",
+    status: "Completada",
+    statusType: "complete",
+    period: "2019",
+    title: "Representante editorial IADPA",
+    org: "Colportaje",
   },
-  {
-    logo: "T", status: "Completada", statusType: "complete",
-    period: "Verano 2024", hours: "40 hrs",
-    title: "Curso intensivo · Primeros auxilios psicológicos",
-    org: "Cruz Roja Mexicana · Delegación Monterrey",
-    bullets: [
-      "Certificación en primeros auxilios psicológicos (PAP) post-crisis",
-      "Práctica supervisada en simulacros de intervención",
-    ],
-  },
-];
-
-const habilidadesClinicas = [
-  { name: "Entrevista clínica inicial", lvl: 70 },
-  { name: "Aplicación de pruebas psicométricas", lvl: 75 },
-  { name: "Formulación de caso", lvl: 65 },
-  { name: "Intervención en crisis (PAP)", lvl: 60 },
-  { name: "Documentación clínica", lvl: 80 },
-];
-
-const competenciasTransversales = [
-  "Escucha activa", "Redacción APA 7", "Pensamiento crítico",
-  "Análisis cualitativo (ATLAS.ti)", "SPSS / Jamovi", "Trabajo en equipo",
-  "Comunicación intercultural", "Ética clínica", "Investigación bibliográfica",
-  "Gestión del tiempo", "Mentoring entre pares", "Lectura científica en inglés",
 ];
 ---
 
@@ -69,15 +37,29 @@ const competenciasTransversales = [
   <div class="page">
     <PageHeader
       eyebrow="06 · Portafolio profesional"
-      title="Experiencia formativa fuera del aula"
-      lead="Las prácticas, voluntariados y formaciones complementarias que han ido configurando mi identidad profesional como psicóloga clínica en formación."
+      title="Experiencia formativa y profesional"
+      lead="Mi portafolio profesional está disponible en Canva, donde encontrarás mi experiencia formativa, voluntariados y habilidades desarrolladas a lo largo de la carrera."
       decor="06"
       client:load
     />
 
     <section class="container" style="padding-bottom:var(--pad-section)">
-      <span class="eyebrow">Experiencias</span>
-      <h2 style="margin-top:8px; margin-bottom:32px">Trayectoria reciente</h2>
+      <Reveal client:visible>
+        <div class="declaration" style="padding:64px 40px; margin-bottom:48px">
+          <span class="eyebrow" style="display:block; margin-bottom:12px">Canva</span>
+          <p class="declaration-quote" style="font-size:clamp(24px, 4vw, 42px)">
+            Mi portafolio profesional está disponible en Canva.
+          </p>
+          <div style="margin-top:28px">
+            <a class="btn btn-primary" href={canvaUrl} target="_blank" rel="noreferrer">
+              Ver portafolio profesional →
+            </a>
+          </div>
+        </div>
+      </Reveal>
+
+      <span class="eyebrow">Experiencias reales</span>
+      <h2 style="margin-top:8px; margin-bottom:32px">Trayectoria</h2>
 
       <div class="experience-list">
         {experiences.map((e, i) => (
@@ -87,14 +69,9 @@ const competenciasTransversales = [
               <div>
                 <div class="exp-meta">
                   <span>📅 {e.period}</span>
-                  <span style="color:var(--color-tan)">·</span>
-                  <span>{e.hours}</span>
                 </div>
                 <div class="exp-title">{e.title}</div>
                 <div class="exp-org">{e.org}</div>
-                <ul class="exp-bullets">
-                  {e.bullets.map(b => <li>{b}</li>)}
-                </ul>
               </div>
               <div>
                 <span class={`exp-status ${e.statusType === 'complete' ? 'complete' : ''}`}>
@@ -104,39 +81,6 @@ const competenciasTransversales = [
             </div>
           </Reveal>
         ))}
-      </div>
-
-      <div class="skills-section">
-        <Reveal client:visible>
-          <div>
-            <span class="eyebrow">Habilidades clínicas</span>
-            <h3 style="margin-top:8px; margin-bottom:24px; font-size:24px">En desarrollo</h3>
-            <div>
-              {habilidadesClinicas.map(s => (
-                <div class="skill-bar" style="grid-template-columns:180px 1fr 50px">
-                  <span style="font-size:14px">{s.name}</span>
-                  <div class="lvl-track"><div class="lvl-fill" style={`width:${s.lvl}%`}></div></div>
-                  <span class="lvl-num">{s.lvl}</span>
-                </div>
-              ))}
-            </div>
-            <p class="text-muted" style="font-size:12px; font-style:italic; margin-top:16px; font-family:var(--font-serif)">
-              * Autoevaluación. Las habilidades clínicas se profundizan en supervisión a partir del 5° semestre.
-            </p>
-          </div>
-        </Reveal>
-
-        <Reveal delay={100} client:visible>
-          <div>
-            <span class="eyebrow">Competencias transversales</span>
-            <h3 style="margin-top:8px; margin-bottom:24px; font-size:24px">Lo que llevo en la mochila</h3>
-            <div class="tag-cloud">
-              {competenciasTransversales.map(c => (
-                <span class="tag" style="padding:8px 16px; font-size:14px">{c}</span>
-              ))}
-            </div>
-          </div>
-        </Reveal>
       </div>
     </section>
   </div>

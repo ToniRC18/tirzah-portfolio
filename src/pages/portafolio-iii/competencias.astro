@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader';
+import CompetencyTable from '../../components/CompetencyTable.astro';
+import PortfolioSubNav from '../../components/PortfolioSubNav.astro';
+---
+
+<Base title="Portafolio III · Tabla de competencias — Tirzah S. Kook">
+  <div class="page">
+    <PageHeader
+      eyebrow="Portafolio III · Tabla de competencias"
+      title="Competencias alcanzadas"
+      lead="Tabla visual de las competencias institucionales alcanzadas hasta el Portafolio III."
+      decor="III"
+      client:load
+    />
+    <section class="container" style="padding-bottom:var(--pad-section)">
+      <CompetencyTable portfolio="iii" />
+      <PortfolioSubNav portfolio="iii" current="Tabla de competencias" />
+    </section>
+  </div>
+</Base>

@@ -4,10 +4,15 @@ import PageHeader from '../../components/PageHeader';
 import Reveal from '../../components/Reveal';
 
 const items = [
-  { icon: '◎', title: "Relación terapéutica", desc: "Habilidades de escucha activa, encuadre, empatía clínica y sostenimiento del vínculo.", evidence: "Bitácora · prácticas supervisadas" },
-  { icon: '◉', title: "Formulación de caso", desc: "Articulación de hipótesis clínicas integrando datos biográficos, sintomáticos y vinculares.", evidence: "Estudio de caso · PSI-403" },
-  { icon: '⊙', title: "Autoconocimiento", desc: "Conciencia de los propios procesos, supuestos y puntos ciegos en el ejercicio clínico.", evidence: "Diario reflexivo · grupo Balint" },
-  { icon: '◈', title: "Aprendizaje continuo", desc: "Disposición permanente a la formación, supervisión y revisión de la propia práctica.", evidence: "Plan de desarrollo profesional" },
+  { icon: '1', title: "Atención a necesidades", desc: "Al identificar y atender las necesidades de los demás." },
+  { icon: '2', title: "Segundo idioma", desc: "Al comunicarse en un segundo idioma." },
+  { icon: '3', title: "Autofinanciamiento", desc: "Al autofinanciar el proyecto educativo." },
+  { icon: '4', title: "Diversidad y multiculturalidad", desc: "Al valorar y respetar la diversidad y multiculturalidad." },
+  { icon: '5', title: "Relaciones interpersonales", desc: "Al mantener buenas relaciones interpersonales." },
+  { icon: '6', title: "Servicio abnegado", desc: "Al tomar iniciativas para el servicio abnegado." },
+  { icon: '7', title: "Sustentabilidad", desc: "Al tomar iniciativas para la preservación del medio ambiente y la sustentabilidad." },
+  { icon: '8', title: "Colaboración con organizaciones", desc: "Al trabajar de modo colaborativo con organizaciones gubernamentales u ONG para el bienestar integral individual y de la comunidad." },
+  { icon: '9', title: "Liderazgo de servicio cristiano", desc: "Al promover el desarrollo integral y el bienestar de las comunidades, con un liderazgo de servicio cristiano y una visión misionera, trabajando en equipos multidisciplinarios de atención psicológica." },
 ];
 ---
 
@@ -16,7 +21,7 @@ const items = [
     <PageHeader
       eyebrow="Perfil de Egreso · 03/3"
       title="Integración"
-      lead="Competencias para integrar la teoría, la técnica y la persona en una práctica clínica coherente."
+      lead="Concretar proyectos emprendedores de servicio, con una visión misionera, en distintos contextos para promover el bienestar integral."
       client:load
     />
 
@@ -38,7 +43,7 @@ const items = [
               <div style="flex:1">
                 <h4>{it.title}</h4>
                 <p>{it.desc}</p>
-                <span class="evidence">📄 {it.evidence}</span>
+                <span class="evidence">Competencia de egreso</span>
               </div>
             </div>
           </Reveal>

@@ -15,6 +15,29 @@ const ROUTES = {
     { label: "Generación y Aplicación", path: "/perfil-egreso/generacion", icon: "lightbulb" },
     { label: "Integración", path: "/perfil-egreso/integracion", icon: "puzzle" },
   ],
+  portfolios: {
+    i: [
+      { label: "Académico-profesional", path: "/portafolio-i", icon: "file-text" },
+      { label: "Eclesiástico", path: "/portafolio-i/eclesiastico", icon: "compass" },
+      { label: "Artístico", path: "/portafolio-i/artistico", icon: "id-card" },
+      { label: "Personal", path: "/portafolio-i/personal", icon: "users" },
+      { label: "Tabla de competencias", path: "/portafolio-i/competencias", icon: "bar-chart" },
+    ],
+    ii: [
+      { label: "Académico-profesional", path: "/portafolio-ii", icon: "file-text" },
+      { label: "Eclesiástico", path: "/portafolio-ii/eclesiastico", icon: "compass" },
+      { label: "Artístico", path: "/portafolio-ii/artistico", icon: "id-card" },
+      { label: "Personal", path: "/portafolio-ii/personal", icon: "users" },
+      { label: "Tabla de competencias", path: "/portafolio-ii/competencias", icon: "bar-chart" },
+    ],
+    iii: [
+      { label: "Académico-profesional", path: "/portafolio-iii", icon: "file-text" },
+      { label: "Eclesiástico", path: "/portafolio-iii/eclesiastico", icon: "compass" },
+      { label: "Artístico", path: "/portafolio-iii/artistico", icon: "id-card" },
+      { label: "Personal", path: "/portafolio-iii/personal", icon: "users" },
+      { label: "Tabla de competencias", path: "/portafolio-iii/competencias", icon: "bar-chart" },
+    ],
+  },
 };
 
 interface NavbarProps {
@@ -36,7 +59,7 @@ export default function Navbar({ currentPath }: NavbarProps) {
           <div className="brand-mark">T</div>
           <div>
             <div className="brand-name">Tirzah S. Kook</div>
-            <span className="brand-sub">Portafolio académico</span>
+            <span className="brand-sub">Portafolio de aprendizaje</span>
           </div>
         </a>
 
@@ -72,9 +95,42 @@ export default function Navbar({ currentPath }: NavbarProps) {
                 ))}
               </div>
             </li>
-            <li><a className={`nav-link ${isActive('/portafolio-i') ? 'active' : ''}`} href="/portafolio-i">Portafolio I</a></li>
-            <li><a className={`nav-link ${isActive('/portafolio-ii') ? 'active' : ''}`} href="/portafolio-ii">Portafolio II</a></li>
-            <li><a className={`nav-link ${isActive('/portafolio-iii') ? 'active' : ''}`} href="/portafolio-iii">Portafolio III</a></li>
+            <li className="nav-item-drop">
+              <a className={`nav-link ${isActive('/portafolio-i') ? 'active' : ''}`}>
+                Portafolio I <span className="nav-caret"><Icon name="chevron-down" size={12}/></span>
+              </a>
+              <div className="nav-dropdown">
+                {ROUTES.portfolios.i.map(c => (
+                  <a key={c.path} className="nav-dropdown-link" href={c.path}>
+                    <Icon name={c.icon} size={16}/>{c.label}
+                  </a>
+                ))}
+              </div>
+            </li>
+            <li className="nav-item-drop">
+              <a className={`nav-link ${isActive('/portafolio-ii') ? 'active' : ''}`}>
+                Portafolio II <span className="nav-caret"><Icon name="chevron-down" size={12}/></span>
+              </a>
+              <div className="nav-dropdown">
+                {ROUTES.portfolios.ii.map(c => (
+                  <a key={c.path} className="nav-dropdown-link" href={c.path}>
+                    <Icon name={c.icon} size={16}/>{c.label}
+                  </a>
+                ))}
+              </div>
+            </li>
+            <li className="nav-item-drop">
+              <a className={`nav-link ${isActive('/portafolio-iii') ? 'active' : ''}`}>
+                Portafolio III <span className="nav-caret"><Icon name="chevron-down" size={12}/></span>
+              </a>
+              <div className="nav-dropdown">
+                {ROUTES.portfolios.iii.map(c => (
+                  <a key={c.path} className="nav-dropdown-link" href={c.path}>
+                    <Icon name={c.icon} size={16}/>{c.label}
+                  </a>
+                ))}
+              </div>
+            </li>
             <li><a className={`nav-link ${isActive('/linea-investigacion') ? 'active' : ''}`} href="/linea-investigacion">Investigación</a></li>
             <li><a className={`nav-link ${isActive('/portafolio-profesional') ? 'active' : ''}`} href="/portafolio-profesional">Profesional</a></li>
             <li><a className={`nav-link ${isActive('/contacto') ? 'active' : ''}`} href="/contacto">Contacto</a></li>
@@ -104,9 +160,18 @@ export default function Navbar({ currentPath }: NavbarProps) {
         {ROUTES.perfil.map(c => (
           <a key={c.path} className="mobile-sub" href={c.path}>{c.label}</a>
         ))}
-        <a className={`mobile-link ${isActive('/portafolio-i') ? 'active' : ''}`} href="/portafolio-i">Portafolio I</a>
-        <a className={`mobile-link ${isActive('/portafolio-ii') ? 'active' : ''}`} href="/portafolio-ii">Portafolio II</a>
-        <a className={`mobile-link ${isActive('/portafolio-iii') ? 'active' : ''}`} href="/portafolio-iii">Portafolio III</a>
+        <div className="mobile-section-title">Portafolio I</div>
+        {ROUTES.portfolios.i.map(c => (
+          <a key={c.path} className="mobile-sub" href={c.path}>{c.label}</a>
+        ))}
+        <div className="mobile-section-title">Portafolio II</div>
+        {ROUTES.portfolios.ii.map(c => (
+          <a key={c.path} className="mobile-sub" href={c.path}>{c.label}</a>
+        ))}
+        <div className="mobile-section-title">Portafolio III</div>
+        {ROUTES.portfolios.iii.map(c => (
+          <a key={c.path} className="mobile-sub" href={c.path}>{c.label}</a>
+        ))}
         <a className={`mobile-link ${isActive('/linea-investigacion') ? 'active' : ''}`} href="/linea-investigacion">Línea de investigación</a>
         <a className={`mobile-link ${isActive('/portafolio-profesional') ? 'active' : ''}`} href="/portafolio-profesional">Portafolio profesional</a>
         <a className={`mobile-link ${isActive('/contacto') ? 'active' : ''}`} href="/contacto">Contacto</a>

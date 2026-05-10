@@ -1,100 +1,63 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader';
-import Reveal from '../components/Reveal';
+
+const valores = [
+  "Fe",
+  "Amor",
+  "Respeto",
+  "Honestidad",
+  "Responsabilidad",
+  "Consistencia",
+  "Crecimiento",
+  "Creatividad",
+  "Dominio propio",
+];
 ---
 
 <Base title="Cosmovisión — Tirzah S. Kook">
   <div class="page">
     <PageHeader
       eyebrow="02 · Cosmovisión"
-      title="Cómo entiendo el mundo, a la persona y al cuidado"
-      lead="Una cosmovisión no es un dogma; es un mapa provisional. Estas son las premisas desde las que pienso, leo y acompaño — sabiendo que se irán reescribiendo con los años."
+      title="Filosofía, misión, visión y valores"
+      lead="Mi manera de comprender la vida, la vocación y el servicio desde una perspectiva bíblico-cristiana."
       decor="02"
       client:load
     />
 
     <section class="container" style="padding-bottom:var(--pad-section)">
       <div class="cosmo-content">
-        <p class="lead">
-          Crecí entre dos tradiciones: la fe adventista de mi familia y la curiosidad académica
-          que me trajo a la psicología. Lejos de oponerse, ambas convergen en una pregunta
-          sencilla — <em class="serif">¿qué necesita un ser humano para florecer?</em>
-        </p>
-
-        <h2>El ser humano como totalidad</h2>
+        <h2>Filosofía</h2>
         <p>
-          Veo a la persona como una unidad indivisible: cuerpo, mente, vínculos y espíritu son
-          dimensiones del mismo hecho de existir. Esta visión holística no es una metáfora
-          poética, es una decisión metodológica: cuando reduzco a la persona a uno solo de esos
-          ejes, dejo de ver lo que está pasando.
+          Creo en Dios como el único Dios verdadero que gobierna sobre la tierra. Aunque Él es el
+          gobernante, tiene un amor incondicional por nosotros los humanos, que somos creados a su
+          imagen y semejanza. El pecado entró al mundo e hizo muchos daños, entre otros en la salud
+          mental de las personas, y Dios dio sabiduría a las personas que quieren restaurar la salud
+          mental por medio de la Psicología. Todos somos pecadores y aunque lo somos, Dios nos
+          perdona. Creo que vendrá de nuevo para juzgar y acabar con toda malicia y llevar consigo a
+          los que creyeron en Él.
         </p>
 
-        <div class="pull-quote">
-          La salud mental no es la ausencia del sufrimiento, sino la capacidad de habitarlo
-          con dignidad y, si es posible, con alguien al lado.
+        <h2>Misión</h2>
+        <p>
+          Mi misión es ser sierva de Dios y hacer su voluntad a través de mi carrera y todo lo que
+          hago. Quiero ser su instrumento en la carrera de Psicología a través de intervenciones
+          profesionales y por artículos de divulgación escritos.
+        </p>
+
+        <h2>Visión</h2>
+        <p>
+          Me veo felizmente sirviendo a los demás a través de mi vocación. Ser luz en este mundo
+          lleno de aflicción. Ayudar a los demás por medio de intervenciones profesionales, sabiendo
+          que Dios estará conmigo en cada paso del camino. Aceptando mi llamado, mi visión es seguir
+          sirviendo incluso cuando esté jubilada.
+        </p>
+        <h2>Valores</h2>
+        <div class="tag-cloud">
+          {valores.map((valor) => (
+            <span class="tag" style="padding:8px 16px; font-size:14px">{valor}</span>
+          ))}
         </div>
-
-        <h2>El sufrimiento como vínculo, no como falla</h2>
-        <p>
-          Vengo de una tradición clínica que considera el síntoma no como un defecto a eliminar,
-          sino como un mensaje a leer. El dolor psíquico casi siempre cuenta una historia — sobre
-          relaciones, sobre pérdidas, sobre lo que la persona no ha podido nombrar todavía.
-          Acompañar es ayudar a poner palabras donde solo había malestar.
-        </p>
-
-        <h3>Tres convicciones que me orientan</h3>
-        <p style="margin-bottom:8px">
-          <strong style="color:var(--color-dark)">Primera.</strong> El otro nunca es
-          transparente para mí. Mi tarea es aproximarme a él sin reducirlo a mis categorías.
-        </p>
-        <p style="margin-bottom:8px">
-          <strong style="color:var(--color-dark)">Segunda.</strong> Toda intervención clínica
-          tiene un componente ético que precede al técnico. Antes de saber qué hacer, importa
-          saber por qué hacerlo.
-        </p>
-        <p>
-          <strong style="color:var(--color-dark)">Tercera.</strong> El cuidado se aprende
-          siendo cuidada. Por eso valoro la supervisión, la terapia personal y el acompañamiento
-          entre colegas como parte fundamental de mi formación.
-        </p>
-
-        <div class="cosmo-image-grid">
-          <div class="cosmo-image">
-            <div class="placeholder-photo" style="width:100%; height:100%">
-              imagen 4:3
-              <!-- TODO: reemplazar con <Image> real -->
-            </div>
-          </div>
-          <div class="cosmo-image">
-            <div class="placeholder-photo" style="width:100%; height:100%">
-              imagen 4:3
-              <!-- TODO: reemplazar con <Image> real -->
-            </div>
-          </div>
-        </div>
-
-        <h2>El lugar de la fe en mi clínica</h2>
-        <p>
-          La fe — para quien la tiene — es una experiencia psicológica antes que doctrinal. En la
-          consulta, no introduzco mis creencias; sí escucho con cuidado las del otro, porque
-          muchas veces ahí están las claves de su esperanza, de su culpa o de su sentido. Mi
-          cosmovisión cristiana no me hace una mejor clínica; me obliga a una. La obligación
-          ética del Evangelio es, antes que nada, no apartarse del que sufre.
-        </p>
-
-        <div class="pull-quote">
-          «Lo que importa es la calidad del contacto humano». — D. W. Winnicott, en una carta
-          que llevo subrayada desde primer semestre.
-        </div>
-
-        <h2>Lo que sigo aprendiendo</h2>
-        <p>
-          Esta cosmovisión es, en gran medida, heredada. Mi tarea en estos cinco años es
-          ponerla a prueba: leer autores que la incomoden, escuchar a pacientes que no piensen
-          como yo, y permitir que la formación clínica corrija lo que tenga que corregir.
-          Espero, al egresar, que este texto se vea muy distinto. Esa es la idea.
-        </p>
       </div>
     </section>
   </div>

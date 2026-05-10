@@ -35,10 +35,25 @@ src/
 │   ├── cosmovision.astro
 │   ├── contacto.astro
 │   ├── linea-investigacion.astro
-│   ├── portafolio-i.astro
-│   ├── portafolio-ii.astro
-│   ├── portafolio-iii.astro
 │   ├── portafolio-profesional.astro
+│   ├── portafolio-i/
+│   │   ├── index.astro
+│   │   ├── eclesiastico.astro
+│   │   ├── artistico.astro
+│   │   ├── personal.astro
+│   │   └── competencias.astro
+│   ├── portafolio-ii/
+│   │   ├── index.astro
+│   │   ├── eclesiastico.astro
+│   │   ├── artistico.astro
+│   │   ├── personal.astro
+│   │   └── competencias.astro
+│   ├── portafolio-iii/
+│   │   ├── index.astro
+│   │   ├── eclesiastico.astro
+│   │   ├── artistico.astro
+│   │   ├── personal.astro
+│   │   └── competencias.astro
 │   ├── generales/
 │   │   ├── index.astro       (redirect a /autobiografia)
 │   │   ├── autobiografia.astro
@@ -52,9 +67,30 @@ src/
 │       ├── generacion.astro
 │       └── integracion.astro
 └── styles/
-    ├── global.css        # design tokens + todos los estilos (merge de los 3 CSS del diseño)
+    ├── global.css        # design tokens + estilos globales
     └── fonts.css         # imports de @fontsource
 ```
+
+## Rutas de portafolios
+
+Cada portafolio tiene cinco secciones:
+- `/portafolio-i`, `/portafolio-ii`, `/portafolio-iii` — Académico-profesional
+- `/portafolio-i/eclesiastico`, `/portafolio-ii/eclesiastico`, `/portafolio-iii/eclesiastico`
+- `/portafolio-i/artistico`, `/portafolio-ii/artistico`, `/portafolio-iii/artistico`
+- `/portafolio-i/personal`, `/portafolio-ii/personal`, `/portafolio-iii/personal`
+- `/portafolio-i/competencias`, `/portafolio-ii/competencias`, `/portafolio-iii/competencias`
+
+## Datos agregados
+
+- `src/data/portafolios.ts` — trabajos académico-profesionales de Portafolio I, II y III
+- `src/data/portfolioSubpages.ts` — trabajos eclesiásticos, artísticos y personales
+- `src/data/competencias.ts` — marco institucional y competencias alcanzadas por portafolio
+
+## Componentes agregados
+
+- `PortfolioSubNav.astro` — navegación interna entre secciones de cada portafolio
+- `SubpageWorkGrid.astro` — cards reutilizables para subpáginas eclesiásticas, artísticas y personales
+- `CompetencyTable.astro` — tabla visual en código para competencias alcanzadas/en desarrollo
 
 ## Componentes: estáticos vs islands
 
@@ -65,21 +101,45 @@ src/
 | PageHeader | Island (simplicidad de uso) | `client:load` |
 | Reveal | Island (IntersectionObserver) | `client:visible` |
 | PortfolioGrid | Island (filtros interactivos) | `client:load` |
+| PortfolioSubNav | Estático | — |
+| SubpageWorkGrid | Estático + Reveal islands | — |
+| CompetencyTable | Estático + Reveal islands | — |
 | ContactForm | Island (formulario con estado) | `client:load` |
 | BizCard | Island (hover 3D via CSS) | `client:load` |
 
 ## TODOs pendientes para Tirzah
 
-### 1. Formspree — formulario de contacto
+### Actualización de contenido real
+El contenido real de Tirzah Shiraldin Kook ya fue integrado en:
+- Inicio, autobiografía, CV, tarjeta, declaración y datos actuales UM
+- Cosmovisión y perfil de egreso
+- Portafolios I, II y III
+- Subpáginas eclesiásticas, artísticas y personales de los tres portafolios
+- Tablas de competencias alcanzadas de los tres portafolios
+- Línea de investigación
+- Portafolio profesional y datos de contacto
+
+### 1. Foto de Tirzah para el hero
+Reemplazar el placeholder del hero por un retrato real.
+
+### 2. Fotos de actividades para los portafolios
+Buscar `placeholder-photo` en las páginas y componentes. Cada uno tiene un comentario `TODO: reemplazar con <Image> real`.
+
+### 3. Formspree ID para el formulario de contacto
 En `src/components/ContactForm.tsx` buscar:
 ```
 action="https://formspree.io/f/REPLACE_WITH_ID"
 ```
 Crear cuenta en formspree.io, crear un formulario y reemplazar `REPLACE_WITH_ID` con el ID real.
 
-### 2. Imágenes reales
-Buscar `placeholder-photo` en las páginas. Cada uno tiene un comentario `TODO: reemplazar con <Image> real`.
-Pasos:
+### 4. Hacer nuevo commit
+Comando sugerido para esta actualización:
+```bash
+git add . && git commit -m "feat: add ecclesiastic/artistic/personal subpages + competency tables for all 3 portfolios"
+```
+
+## Notas para imágenes reales
+Pasos recomendados:
 1. Colocar imágenes en `public/images/`
 2. Importar y usar el componente `<Image>` de Astro:
    ```astro
@@ -88,16 +148,7 @@ Pasos:
    <Image src={retrato} alt="Tirzah S. Kook" />
    ```
 
-### 3. Datos reales de Tirzah
-Archivos a actualizar con información real:
-- `src/pages/generales/autobiografia.astro` — texto de autobiografía y foto retrato
-- `src/pages/generales/cv.astro` — datos académicos, experiencia, calificaciones
-- `src/pages/generales/datos.astro` — matrícula, calificaciones por materia
-- `src/data/portafolios.ts` — trabajos reales de cada semestre
-- `src/pages/linea-investigacion.astro` — hitos actualizados, referencias
-- `src/pages/portafolio-profesional.astro` — experiencias reales
-
-### 4. Deploy
+## Deploy
 Opciones recomendadas:
 - **Netlify**: conectar repo GitHub, comando `npm run build`, directorio `dist/`
 - **Vercel**: `npx vercel` o conectar repo GitHub
@@ -118,7 +169,7 @@ Los design tokens están en `src/styles/global.css` bajo `:root`. Paleta: perlad
 - Variable de entorno requerida en Vercel: `PUBLIC_FORMSPREE_ID`
 
 ## Pendientes antes de go-live
-1. Crear cuenta en formspree.io, obtener form ID, setear var en Vercel dashboard
-2. Reemplazar placeholder-photo con imágenes reales de Tirzah
-3. Actualizar datos ficticios (matrícula, trabajos, CV, contacto real)
-4. Cambiar `site` en astro.config.mjs con la URL final de Vercel
+1. Foto de Tirzah para el hero (retrato)
+2. Fotos de actividades para los portafolios
+3. Formspree ID para el formulario de contacto
+4. Hacer nuevo commit: `git add . && git commit -m "feat: add ecclesiastic/artistic/personal subpages + competency tables for all 3 portfolios"`

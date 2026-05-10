@@ -10,12 +10,12 @@ const subs = [
   { key: 'datos', label: 'Datos actuales UM' },
 ];
 
-const skills = [
-  { name: "Escucha clínica", lvl: 78 },
-  { name: "Redacción académica", lvl: 92 },
-  { name: "Análisis cualitativo", lvl: 70 },
-  { name: "SPSS / Jamovi", lvl: 60 },
-  { name: "APA 7ª edición", lvl: 95 },
+const idiomas = [
+  ["Nativo", "Papiamentu"],
+  ["Avanzado", "Holandés"],
+  ["Avanzado", "Inglés"],
+  ["Avanzado", "Español"],
+  ["Intermedio medio", "Francés"],
 ];
 ---
 
@@ -47,91 +47,93 @@ const skills = [
           <div class="cv">
             <div class="cv-header">
               <div>
-                <h3 class="cv-name">Tirzah S. Kook</h3>
-                <p style="margin:6px 0 0; color:var(--color-charcoal)">Estudiante de Psicología Clínica · 4° semestre</p>
+                <h3 class="cv-name">Tirzah S Kook</h3>
+                <p style="margin:6px 0 0; color:var(--color-charcoal)">Licenciatura en Psicología Clínica</p>
               </div>
               <div style="text-align:right; font-size:13px; color:var(--color-taupe)">
-                <div>✉ tirzah.kook@um.edu.mx</div>
+                <div>✉ tirzahkook0126@gmail.com</div>
                 <div style="margin-top:4px">📍 Montemorelos, NL</div>
-                <div style="margin-top:4px">📸 @tirzah.kook</div>
+                <div style="margin-top:4px">📸 @__txr.zxh__</div>
               </div>
             </div>
 
             <div class="cv-section">
-              <div class="cv-section-title">Educación</div>
-              <div class="cv-row">
-                <div class="cv-period">2024 — actual</div>
-                <div>
-                  <div class="cv-title">Lic. Psicología Clínica</div>
-                  <div class="cv-meta">Universidad de Montemorelos · Facultad de Ciencias de la Salud</div>
-                  <ul class="cv-bullets">
-                    <li>Promedio acumulado: 9.4 / 10</li>
-                    <li>Beca académica de excelencia (2024 – actual)</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="cv-row">
-                <div class="cv-period">2021 — 2024</div>
-                <div>
-                  <div class="cv-title">Bachillerato General</div>
-                  <div class="cv-meta">Colegio Adventista de Aruba</div>
-                  <ul class="cv-bullets">
-                    <li>Mención honorífica en humanidades</li>
-                  </ul>
-                </div>
-              </div>
+              <div class="cv-section-title">Cualidades</div>
+              <p style="margin:0; color:var(--color-charcoal)">
+                Trabajadora, ambiciosa y proactiva. Desarrollar constantemente nuevas habilidades
+                y capacidades.
+              </p>
             </div>
 
             <div class="cv-section">
-              <div class="cv-section-title">Experiencia y voluntariado</div>
+              <div class="cv-section-title">Formación y Educación</div>
               <div class="cv-row">
-                <div class="cv-period">2025 — actual</div>
+                <div class="cv-period">Presente</div>
                 <div>
-                  <div class="cv-title">Asistente de cátedra · Psicología del Desarrollo</div>
-                  <div class="cv-meta">UM · Dra. R. Castañeda</div>
-                  <ul class="cv-bullets">
-                    <li>Apoyo en preparación de materiales y revisión de lecturas</li>
-                    <li>Tutoría académica a estudiantes de 1° semestre</li>
-                  </ul>
+                  <div class="cv-title">Licenciatura en Psicología Clínica</div>
+                  <div class="cv-meta">Universidad de Montemorelos</div>
                 </div>
               </div>
               <div class="cv-row">
-                <div class="cv-period">2024 — actual</div>
+                <div class="cv-period">2016 — 2022</div>
                 <div>
-                  <div class="cv-title">Voluntaria · Brigada de salud mental comunitaria</div>
-                  <div class="cv-meta">UM · Comunidad de General Terán, NL</div>
-                  <ul class="cv-bullets">
-                    <li>Talleres de bienestar emocional con mujeres adultas</li>
-                  </ul>
+                  <div class="cv-title">Preparatoria</div>
+                  <div class="cv-meta">Maria Immaculata Lyceum</div>
+                </div>
+              </div>
+              <div class="cv-row">
+                <div class="cv-period">2008 — 2016</div>
+                <div>
+                  <div class="cv-title">Escuela primaria y secundaria</div>
+                  <div class="cv-meta">Adventschool Mahuma Zuid</div>
                 </div>
               </div>
             </div>
 
             <div class="cv-section">
-              <div class="cv-section-title">Habilidades</div>
-              {skills.map(s => (
-                <div class="skill-bar">
-                  <span>{s.name}</span>
-                  <div class="lvl-track"><div class="lvl-fill" style={`width:${s.lvl}%`}></div></div>
-                  <span class="lvl-num">{s.lvl}</span>
+              <div class="cv-section-title">Experiencia laboral</div>
+              <div class="cv-row">
+                <div class="cv-period">2023</div>
+                <div>
+                  <div class="cv-title">Instituto Municipal de la Juventud</div>
+                  <ul class="cv-bullets">
+                    <li>Voluntaria en atención psicológica a los jóvenes.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="cv-row">
+                <div class="cv-period">2019</div>
+                <div>
+                  <div class="cv-title">Colportaje</div>
+                  <ul class="cv-bullets">
+                    <li>Venta de libros como representante de la editorial IADPA.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="cv-row">
+                <div class="cv-period">2023 — 2025</div>
+                <div>
+                  <div class="cv-title">Instituto de Idiomas</div>
+                  <ul class="cv-bullets">
+                    <li>Docente de Inglés</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="cv-section">
+              <div class="cv-section-title">Idiomas</div>
+              {idiomas.map(([nivel, idioma]) => (
+                <div class="cv-row">
+                  <div class="cv-period">{nivel}</div>
+                  <div><div class="cv-title">{idioma}</div></div>
                 </div>
               ))}
             </div>
 
             <div class="cv-section">
-              <div class="cv-section-title">Idiomas</div>
-              <div class="cv-row">
-                <div class="cv-period">Nativo</div>
-                <div><div class="cv-title">Español</div><div class="cv-meta">Escritura, oralidad, lectura académica</div></div>
-              </div>
-              <div class="cv-row">
-                <div class="cv-period">Avanzado</div>
-                <div><div class="cv-title">Inglés</div><div class="cv-meta">C1 · IELTS Academic 7.5 (2023)</div></div>
-              </div>
-              <div class="cv-row">
-                <div class="cv-period">Nativo</div>
-                <div><div class="cv-title">Papiamentu</div><div class="cv-meta">Lengua materna · uso cotidiano y familiar</div></div>
-              </div>
+              <div class="cv-section-title">Referencias</div>
+              <p style="margin:0; color:var(--color-charcoal)">Disponibles bajo petición.</p>
             </div>
           </div>
         </article>

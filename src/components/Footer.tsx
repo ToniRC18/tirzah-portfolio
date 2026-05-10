@@ -13,7 +13,7 @@ export default function Footer() {
             </div>
           </div>
           <p style={{fontSize:14, color:'var(--color-charcoal)', maxWidth:320}}>
-            Portafolio académico que documenta mi proceso formativo en la Universidad de Montemorelos.
+            Portafolio de aprendizaje que documenta mi proceso formativo en la Universidad de Montemorelos.
           </p>
         </div>
         <div>
@@ -29,13 +29,13 @@ export default function Footer() {
         <div>
           <h5>Contacto</h5>
           <div className="footer-links">
-            <a href="mailto:tirzah.kook@um.edu.mx">
+            <a href="mailto:tirzahkook0126@gmail.com">
               <Icon name="mail" size={14} style={{display:'inline-block', verticalAlign:'-2px', marginRight:6}}/>
-              tirzah.kook@um.edu.mx
+              tirzahkook0126@gmail.com
             </a>
-            <a href="https://instagram.com/tirzah.kook" target="_blank" rel="noreferrer">
+            <a href="https://instagram.com/__txr.zxh__" target="_blank" rel="noreferrer">
               <Icon name="instagram" size={14} style={{display:'inline-block', verticalAlign:'-2px', marginRight:6}}/>
-              @tirzah.kook
+              @__txr.zxh__
             </a>
             <span>
               <Icon name="map-pin" size={14} style={{display:'inline-block', verticalAlign:'-2px', marginRight:6}}/>

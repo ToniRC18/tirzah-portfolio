@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader';
+import PortfolioSubNav from '../../components/PortfolioSubNav.astro';
+import SubpageWorkGrid from '../../components/SubpageWorkGrid.astro';
+import { PORTFOLIO_SUBPAGES } from '../../data/portfolioSubpages';
+
+const page = PORTFOLIO_SUBPAGES.ii.personal;
+---
+
+<Base title="Portafolio II · Personal — Tirzah S. Kook">
+  <div class="page">
+    <PageHeader eyebrow={page.eyebrow} title={page.title} lead={page.lead} decor="II" client:load />
+    <section class="container" style="padding-bottom:var(--pad-section)">
+      <SubpageWorkGrid works={page.works} finalReflection={page.finalReflection} />
+      <PortfolioSubNav portfolio="ii" current="Personal" />
+    </section>
+  </div>
+</Base>

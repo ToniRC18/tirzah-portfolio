@@ -1,0 +1,54 @@
+---
+import { achievedByPortfolio, competencyGroups } from '../data/competencias';
+import Reveal from './Reveal';
+
+type PortfolioKey = keyof typeof achievedByPortfolio;
+type GroupKey = keyof typeof achievedByPortfolio[PortfolioKey];
+
+const { portfolio } = Astro.props as { portfolio: PortfolioKey };
+const achieved = achievedByPortfolio[portfolio];
+const summaries = competencyGroups.map((group) => {
+  const groupKey = group.key as GroupKey;
+  return {
+    title: group.title,
+    achieved: achieved[groupKey].length,
+    total: group.items.length,
+  };
+});
+const groups = competencyGroups.map((group) => {
+  const groupKey = group.key as GroupKey;
+  const achievedSet = new Set<string>(achieved[groupKey]);
+  return {
+    title: group.title,
+    items: group.items.map((competencia) => ({
+      text: competencia,
+      achieved: achievedSet.has(competencia),
+    })),
+  };
+});
+---
+
+<div class="competencias-summary">
+  {summaries.map((summary) => (
+    <div class="summary-card">
+      <div class="fraction">{summary.achieved}<span>/{summary.total}</span></div>
+      <div class="label">{summary.title}</div>
+    </div>
+  ))}
+</div>
+
+{groups.map((group, groupIndex) => (
+  <Reveal delay={groupIndex * 80} client:visible>
+    <section class="competencias-section">
+      <h2>{group.title}</h2>
+      <div class="competencias-list">
+        {group.items.map((competencia) => (
+          <div class={`competencia-row ${competencia.achieved ? 'alcanzada' : 'pendiente'}`}>
+            <div class="check-icon">{competencia.achieved ? '✓' : ''}</div>
+            <div class="competencia-text">{competencia.text}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </Reveal>
+))}
