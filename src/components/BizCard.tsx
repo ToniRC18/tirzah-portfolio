@@ -19,7 +19,7 @@ export default function BizCard() {
         </div>
         <div style={{position:'relative', zIndex:1, display:'flex', justifyContent:'space-between', alignItems:'flex-end'}}>
           <span className="bizcard-handle"><Icon name="instagram" size={14}/> @__txr.zxh__</span>
-          <span className="bizcard-handle"><Icon name="mail" size={14}/> tirzahkook0126@gmail.com</span>
+          <span className="bizcard-handle"><Icon name="mail" size={14}/> +52 81 2632 1572 · tirzahkook0126@gmail.com</span>
         </div>
       </div>
     </div>

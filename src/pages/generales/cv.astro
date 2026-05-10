@@ -10,12 +10,41 @@ const subs = [
   { key: 'datos', label: 'Datos actuales UM' },
 ];
 
-const idiomas = [
-  ["Nativo", "Papiamentu"],
-  ["Avanzado", "Holandés"],
-  ["Avanzado", "Inglés"],
-  ["Avanzado", "Español"],
-  ["Intermedio medio", "Francés"],
+const experiencias = [
+  {
+    periodo: "Abril 2026 — Mayo 2026",
+    titulo: "Hospital de Especialidades en Salud Mental",
+    meta: "Practicante",
+  },
+  {
+    periodo: "Enero 2026 — Marzo 2026",
+    titulo: 'Colegio Militarizado "Mariano Escobedo" Plantel Montemorelos',
+    meta: "Practicante",
+  },
+  {
+    periodo: "Noviembre 2025",
+    titulo: "CAISMA Zona Sur",
+    meta: "Practicante",
+  },
+  {
+    periodo: "2023 — presente",
+    titulo: "Instituto de Idiomas",
+    meta: "Docente de idioma extranjero Inglés · Traductora de documentos",
+  },
+  {
+    periodo: "Agosto 2025 — Diciembre 2025",
+    titulo: "Escuela Preparatoria Ignacio Carrillo Franco",
+    meta: "Docente de idioma extranjero Inglés",
+  },
+];
+
+const habilidades = [
+  "Aplicación e interpretación de pruebas psicométricas",
+  "Diseño e implementación de intervenciones terapéuticas",
+  "Aplicación e interpretación de pruebas proyectivas",
+  "Desarrollo de programas de intervención para grupos específicos",
+  "Diseño de programas de intervención comunitaria",
+  "Planeación y organización de congresos y actividades académicas",
 ];
 ---
 
@@ -47,28 +76,31 @@ const idiomas = [
           <div class="cv">
             <div class="cv-header">
               <div>
-                <h3 class="cv-name">Tirzah S Kook</h3>
-                <p style="margin:6px 0 0; color:var(--color-charcoal)">Licenciatura en Psicología Clínica</p>
+                <h3 class="cv-name">Tirzah S. Kook</h3>
+                <p style="margin:6px 0 0; color:var(--color-charcoal)">Lic. Psicología Clínica</p>
               </div>
               <div style="text-align:right; font-size:13px; color:var(--color-taupe)">
                 <div>✉ tirzahkook0126@gmail.com</div>
-                <div style="margin-top:4px">📍 Montemorelos, NL</div>
+                <div style="margin-top:4px">☎ +52 81 2632 1572</div>
+                <div style="margin-top:4px">📍 Montemorelos, Nuevo León, México</div>
                 <div style="margin-top:4px">📸 @__txr.zxh__</div>
               </div>
             </div>
 
             <div class="cv-section">
-              <div class="cv-section-title">Cualidades</div>
+              <div class="cv-section-title">Sobre mí</div>
               <p style="margin:0; color:var(--color-charcoal)">
-                Trabajadora, ambiciosa y proactiva. Desarrollar constantemente nuevas habilidades
-                y capacidades.
+                Nací en Curazao el 26 de enero de 2004. Me considero una persona proactiva, con
+                gran interés por aprender cosas nuevas y enfrentar retos que me permitan desarrollar
+                mi máximo potencial. Disfruto actividades como la lectura, la natación, la cocina y
+                la repostería, así como cantar, viajar y explorar nuevos lugares.
               </p>
             </div>
 
             <div class="cv-section">
-              <div class="cv-section-title">Formación y Educación</div>
+              <div class="cv-section-title">Formación</div>
               <div class="cv-row">
-                <div class="cv-period">Presente</div>
+                <div class="cv-period">2022 — presente</div>
                 <div>
                   <div class="cv-title">Licenciatura en Psicología Clínica</div>
                   <div class="cv-meta">Universidad de Montemorelos</div>
@@ -81,59 +113,52 @@ const idiomas = [
                   <div class="cv-meta">Maria Immaculata Lyceum</div>
                 </div>
               </div>
-              <div class="cv-row">
-                <div class="cv-period">2008 — 2016</div>
-                <div>
-                  <div class="cv-title">Escuela primaria y secundaria</div>
-                  <div class="cv-meta">Adventschool Mahuma Zuid</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="cv-section">
-              <div class="cv-section-title">Experiencia laboral</div>
-              <div class="cv-row">
-                <div class="cv-period">2023</div>
-                <div>
-                  <div class="cv-title">Instituto Municipal de la Juventud</div>
-                  <ul class="cv-bullets">
-                    <li>Voluntaria en atención psicológica a los jóvenes.</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="cv-row">
-                <div class="cv-period">2019</div>
-                <div>
-                  <div class="cv-title">Colportaje</div>
-                  <ul class="cv-bullets">
-                    <li>Venta de libros como representante de la editorial IADPA.</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="cv-row">
-                <div class="cv-period">2023 — 2025</div>
-                <div>
-                  <div class="cv-title">Instituto de Idiomas</div>
-                  <ul class="cv-bullets">
-                    <li>Docente de Inglés</li>
-                  </ul>
-                </div>
-              </div>
             </div>
 
             <div class="cv-section">
               <div class="cv-section-title">Idiomas</div>
-              {idiomas.map(([nivel, idioma]) => (
+              <p style="margin:0; color:var(--color-charcoal)">
+                Papiamentu · Holandés · Inglés · Español · Francés
+              </p>
+            </div>
+
+            <div class="cv-section">
+              <div class="cv-section-title">Línea de investigación</div>
+              <p style="margin:0; color:var(--color-charcoal); font-family:var(--font-serif); font-style:italic; font-size:18px">
+                "Funcionamiento familiar y conducta disocial como predictores de la autoeficacia académica"
+              </p>
+            </div>
+
+            <div class="cv-section">
+              <div class="cv-section-title">Experiencia laboral</div>
+              {experiencias.map((exp) => (
                 <div class="cv-row">
-                  <div class="cv-period">{nivel}</div>
-                  <div><div class="cv-title">{idioma}</div></div>
+                  <div class="cv-period">{exp.periodo}</div>
+                  <div>
+                    <div class="cv-title">{exp.titulo}</div>
+                    <div class="cv-meta">{exp.meta}</div>
+                  </div>
                 </div>
               ))}
             </div>
 
             <div class="cv-section">
-              <div class="cv-section-title">Referencias</div>
-              <p style="margin:0; color:var(--color-charcoal)">Disponibles bajo petición.</p>
+              <div class="cv-section-title">Habilidades</div>
+              <ul class="cv-bullets" style="margin:0">
+                {habilidades.map((habilidad) => (
+                  <li>{habilidad}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="cv-section">
+              <div class="cv-section-title">Contacto</div>
+              <div class="stack-2" style="font-size:14px; color:var(--color-charcoal)">
+                <div>Montemorelos, Nuevo León, México</div>
+                <div><a href="mailto:tirzahkook0126@gmail.com">tirzahkook0126@gmail.com</a></div>
+                <div><a href="tel:+528126321572">+52 81 2632 1572</a></div>
+                <div>Instagram: <a href="https://instagram.com/__txr.zxh__" target="_blank" rel="noreferrer">@__txr.zxh__</a></div>
+              </div>
             </div>
           </div>
         </article>
