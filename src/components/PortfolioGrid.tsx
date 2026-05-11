@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import type { ArchivoRef } from '../data/portafolios';
+import FilePreview from './FilePreview';
 import Icon from './Icon';
 import Reveal from './Reveal';
 
@@ -11,6 +13,7 @@ interface Work {
   desc: string;
   competencias?: string[];
   reflexion?: string;
+  archivo?: ArchivoRef;
 }
 
 interface PortfolioData {
@@ -116,6 +119,13 @@ export default function PortfolioGrid({ data, which }: Props) {
                     <div className="eyebrow" style={{fontSize:10, marginBottom:8}}>Reflexión</div>
                     <p style={{fontSize:13, margin:0}}>{w.reflexion}</p>
                   </div>
+                )}
+                {w.archivo && (
+                  <FilePreview
+                    nombre={w.archivo.nombre}
+                    tipo={w.archivo.tipo}
+                    ruta={w.archivo.ruta}
+                  />
                 )}
                 <div className="work-foot">
                   <span className="work-link">Ver trabajo <Icon name="arrow-right" size={14}/></span>

@@ -1,4 +1,6 @@
 ---
+import type { ArchivoRef } from "../data/portafolios";
+import FilePreview from "./FilePreview";
 import Reveal from './Reveal';
 
 interface Work {
@@ -6,6 +8,7 @@ interface Work {
   desc: string;
   competencias: string[];
   reflexion: string;
+  archivo?: ArchivoRef;
 }
 
 const { works, finalReflection } = Astro.props as {
@@ -48,6 +51,14 @@ const gradients = [
             <div class="eyebrow" style="font-size:10px; margin-bottom:8px">Reflexión</div>
             <p style="font-size:13px; margin:0">{work.reflexion}</p>
           </div>
+          {work.archivo && (
+            <FilePreview
+              nombre={work.archivo.nombre}
+              tipo={work.archivo.tipo}
+              ruta={work.archivo.ruta}
+              client:visible
+            />
+          )}
         </div>
       </article>
     </Reveal>

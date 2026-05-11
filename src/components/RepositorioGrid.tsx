@@ -1,4 +1,5 @@
 import { useState } from "react";
+import FilePreview from "./FilePreview";
 import type { CategoriaCompetencia, Evidencia, TipoEvidencia } from "../data/repositorio";
 
 const TIPOS: TipoEvidencia[] = ["PDF", "Imagen", "Texto", "Enlace"];
@@ -107,6 +108,13 @@ export default function RepositorioGrid({ evidencias }: { evidencias: Evidencia[
                 </div>
                 <h3 className="repo-card-title">{ev.titulo}</h3>
                 <p className="repo-card-desc">{ev.descripcion}</p>
+                {ev.archivo && (
+                  <FilePreview
+                    nombre={ev.archivo.nombre}
+                    tipo={ev.archivo.tipo}
+                    ruta={ev.archivo.ruta}
+                  />
+                )}
 
                 {ev.tipo === "Texto" && ev.contenido && (
                   <>
@@ -124,24 +132,14 @@ export default function RepositorioGrid({ evidencias }: { evidencias: Evidencia[
                 )}
 
                 <div className="repo-card-foot">
-                  {(ev.tipo === "PDF" || ev.tipo === "Enlace") && ev.url && (
+                  {ev.tipo === "Enlace" && ev.url && (
                     <a
                       href={ev.url}
                       target="_blank"
                       rel="noreferrer"
                       className="btn btn-secondary btn-sm"
                     >
-                      {ev.tipo === "PDF" ? "Ver PDF →" : "Abrir enlace →"}
-                    </a>
-                  )}
-                  {ev.tipo === "Imagen" && ev.imagen && (
-                    <a
-                      href={ev.imagen}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="btn btn-secondary btn-sm"
-                    >
-                      Ver imagen →
+                      Abrir enlace →
                     </a>
                   )}
                 </div>

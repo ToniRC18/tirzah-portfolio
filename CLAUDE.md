@@ -23,6 +23,7 @@ src/
 │   ├── Footer.tsx        # footer (island client:load)
 │   ├── PageHeader.tsx    # cabecera de página reutilizable (island client:load)
 │   ├── Reveal.tsx        # animación scroll con IntersectionObserver (island client:visible)
+│   ├── FilePreview.tsx   # preview inline de imagen/PDF (island reutilizable)
 │   ├── PortfolioGrid.tsx # grid filtrable de trabajos (island client:load)
 │   ├── ContactForm.tsx   # formulario de contacto con validación (island client:load)
 │   └── BizCard.tsx       # tarjeta de presentación con hover 3D (island client:load)
@@ -70,6 +71,15 @@ src/
 └── styles/
     ├── global.css        # design tokens + estilos globales
     └── fonts.css         # imports de @fontsource
+
+public/
+└── assets/
+    ├── foto-perfil/
+    ├── portafolio-i/
+    ├── portafolio-ii/
+    ├── portafolio-iii/
+    ├── repositorio/
+    └── README.md         # guía para subir assets y convención de nombres
 ```
 
 ## Rutas de portafolios
@@ -100,6 +110,18 @@ Cada portafolio tiene cinco secciones:
 - `CompetencyTable.astro` — tabla visual previa para competencias alcanzadas/en desarrollo
 - `CompetenciasTable.tsx` — tabla React con porcentajes reales y barras de progreso para competencias
 - `RepositorioGrid.tsx` — grid React filtrable por tipo de evidencia y competencia
+- `FilePreview.tsx` — preview inline para imágenes y PDFs con placeholder cuando la ruta sigue en `PENDIENTE`
+
+## Assets y nombres de archivo
+
+- Todos los recursos públicos viven bajo `public/assets/`
+- Convención obligatoria: `[portafolio]-[seccion]-[slug-del-titulo].[ext]`
+- Extensiones válidas: `.jpg`, `.jpeg`, `.png`, `.webp`, `.pdf`
+- Mientras el archivo no exista físicamente, en los datos se usa `ruta: "PENDIENTE"`
+- Cuando Tirzah suba el archivo, debe cambiar `ruta` por la ruta real desde `/public`, por ejemplo:
+  - `/assets/portafolio-i/academico/p1-academico-proyecto-integrador-1.pdf`
+  - `/assets/foto-perfil/tirzah-kook.jpg`
+- Referencia operativa: `public/assets/README.md`
 
 ## Componentes: estáticos vs islands
 
@@ -133,10 +155,10 @@ El contenido real de Tirzah Shiraldin Kook ya fue integrado en:
 - Portafolio profesional y datos de contacto
 
 ### 1. Foto de Tirzah para el hero
-Reemplazar el placeholder del hero por un retrato real.
+Subir `/public/assets/foto-perfil/tirzah-kook.jpg` y reemplazar la ruta `PENDIENTE` o el placeholder cuando corresponda.
 
 ### 2. Fotos de actividades para los portafolios
-Buscar `placeholder-photo` en las páginas y componentes. Cada uno tiene un comentario `TODO: reemplazar con <Image> real`.
+Subir los archivos a `public/assets/...` con el nombre exacto que aparece en cada `FilePreview` y reemplazar `ruta: "PENDIENTE"` por la ruta real en los archivos de datos.
 
 ### 3. Formspree ID para el formulario de contacto
 En `src/components/ContactForm.tsx` buscar:
@@ -153,11 +175,11 @@ git add . && git commit -m "feat: add ecclesiastic/artistic/personal subpages + 
 
 ## Notas para imágenes reales
 Pasos recomendados:
-1. Colocar imágenes en `public/images/`
+1. Colocar imágenes o PDFs en `public/assets/` según la carpeta indicada
 2. Importar y usar el componente `<Image>` de Astro:
    ```astro
    import { Image } from 'astro:assets';
-   import retrato from '../../../public/images/retrato.jpg';
+   import retrato from '../../../public/assets/foto-perfil/tirzah-kook.jpg';
    <Image src={retrato} alt="Tirzah S. Kook" />
    ```
 

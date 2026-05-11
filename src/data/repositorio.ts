@@ -1,3 +1,5 @@
+import type { ArchivoRef } from "./portafolios";
+
 export type TipoEvidencia = "PDF" | "Imagen" | "Texto" | "Enlace";
 
 export type CategoriaCompetencia =
@@ -16,6 +18,7 @@ export interface Evidencia {
   url?: string;
   imagen?: string;
   contenido?: string;
+  archivo?: ArchivoRef;
 }
 
 export const evidencias: Evidencia[] = [
@@ -27,7 +30,11 @@ export const evidencias: Evidencia[] = [
     tipo: "PDF",
     competencia: "Generación y Aplicación",
     semestre: "2do semestre",
-    url: "/evidencias/ejemplo.pdf",
+    archivo: {
+      nombre: "repositorio-ev-001.pdf",
+      tipo: "pdf",
+      ruta: "PENDIENTE",
+    },
   },
   {
     id: "ev-002",
@@ -36,7 +43,11 @@ export const evidencias: Evidencia[] = [
     tipo: "Imagen",
     competencia: "Integración",
     semestre: "1er semestre",
-    imagen: "/evidencias/ejemplo.jpg",
+    archivo: {
+      nombre: "repositorio-ev-002.jpg",
+      tipo: "imagen",
+      ruta: "PENDIENTE",
+    },
   },
   {
     id: "ev-003",
