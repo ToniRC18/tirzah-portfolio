@@ -149,10 +149,6 @@ export default function PortfolioGrid({ data, which }: Props) {
                     <p style={{fontSize:13, margin:0}}>{w.reflexion}</p>
                   </div>
                 )}
-                <div className="work-foot">
-                  <span className="work-link">Ver trabajo <Icon name="arrow-right" size={14}/></span>
-                  {w.grade && w.grade !== "—" && <span className="work-grade">{w.grade}</span>}
-                </div>
               </div>
             </article>
           </Reveal>

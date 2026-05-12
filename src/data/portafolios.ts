@@ -15,6 +15,7 @@ export interface Trabajo {
   reflexion: string;
   archivo?: ArchivoRef;
   archivo2?: ArchivoRef;
+  archivo3?: ArchivoRef;
 }
 
 export interface Portafolio {
@@ -180,6 +181,11 @@ export const PORTFOLIO_DATA = {
           tipo: "pdf",
           ruta: "/assets/portafolio-i/academico/oido.pdf",
         },
+        archivo3: {
+          nombre: "organos-sentidos.pdf",
+          tipo: "pdf",
+          ruta: "/assets/portafolio-i/academico/organos-sentidos.pdf",
+        },
       },
       {
         title: "Cuadro sinóptico",
@@ -212,9 +218,9 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Como futura psicóloga es muy importante estar al tanto de todos los avances. Mi fortaleza fue saber realizar un informe en estilo APA. Mi debilidad fue encontrar artículos científicos confiables sobre el tema.",
         archivo: {
-          nombre: "Avances en la Psicología.pdf",
+          nombre: "avances.pdf",
           tipo: "pdf",
-          ruta: "/assets/portafolio-i/academico/Avances en la Psicología.pdf",
+          ruta: "/assets/portafolio-i/academico/avances.pdf",
         },
       },
       {

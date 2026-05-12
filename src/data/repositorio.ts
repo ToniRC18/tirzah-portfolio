@@ -57,7 +57,7 @@ export const evidencias: Evidencia[] = [
     tipo: "Imagen",
     competencia: "Integración",
     archivos: [
-      { nombre: "comisión de inscripciones.jpeg", tipo: "imagen", ruta: "/assets/repositorio/comisión de inscripciones.jpeg" },
+      { nombre: "inscripcion.jpeg", tipo: "imagen", ruta: "/assets/repositorio/inscripcion.jpeg" },
     ],
   },
   {
