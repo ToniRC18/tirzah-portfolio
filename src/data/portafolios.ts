@@ -322,9 +322,13 @@ export const PORTFOLIO_DATA = {
         subj: "Psicología Social",
         cat: "Investigación",
         periodo: "2do semestre",
-        desc: "TODO: Tirzah agrega descripción",
-        competencias: [],
-        reflexion: "TODO: Tirzah agrega reflexión",
+        desc: "En esta actividad teníamos que realizar un análisis sociométrico sobre la sexualidad y afectividad en 3 diferentes poblaciones.",
+        competencias: [
+          "Al identificar, plantear y resolver problemas aplicando el pensamiento crítico.",
+          "Al identificar, plantear y resolver problemas aplicando el pensamiento crítico..",
+          "Al identificar y atender las necesidades de los demás.",
+        ],
+        reflexion: "Mi fortaleza en esta actividad fue aplicar las encuestas. Mi debilidad en esta actividad fue contar y poner todos los resultados juntos.",
         archivo: {
           nombre: "analisis sociometrico.pdf",
           tipo: "pdf",
@@ -336,9 +340,16 @@ export const PORTFOLIO_DATA = {
         subj: "Psicología del Desarrollo",
         cat: "Manual",
         periodo: "2do semestre",
-        desc: "TODO: Tirzah agrega descripción",
-        competencias: [],
-        reflexion: "TODO: Tirzah agrega reflexión",
+        desc: "En esta actividad teníamos que realizar un manual de actividades estimuladores para el área cognitivo, motora etc.",
+        competencias: [
+          "Diseñar programas y proyectos que promuevan el bienestar psicológico de la comunidad, encaminados a fortalecer la salud mental, mostrando un compromiso con el servicio abnegado.",
+          "Al identificar, plantear y resolver problemas aplicando el pensamiento crítico.",
+          "Al identificar y atender las necesidades de los demás.",
+          "Al usar correctamente las tecnologías de la información y comunicación.",
+          "Al promover el desarrollo integral y el bienestar de las comunidades, con un liderazgo de servicio cristiano y una visión misionera, trabajando en equipos multidisciplinarios de atención psicológica.",
+
+        ],
+        reflexion: "Mi fortaleza en esta actividad fue diseñar actividades de acuerdo con los aspectos de los niños y adolescentes. Mi debilidad en esta actividad fue estimular mi propia creatividad para diseñar actividades para las áreas asignadas. ",
         archivo: {
           nombre: "manual actividades estimulatorias.pdf",
           tipo: "pdf",
