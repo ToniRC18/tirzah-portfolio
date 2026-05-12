@@ -1,5 +1,5 @@
 import { useState } from "react";
-import FilePreview from "./FilePreview";
+import PreviewModal from "./PreviewModal";
 import type { CategoriaCompetencia, Evidencia, TipoEvidencia } from "../data/repositorio";
 
 const TIPOS: TipoEvidencia[] = ["PDF", "Imagen", "Texto", "Enlace"];
@@ -23,6 +23,13 @@ const TIPO_COLORS: Record<TipoEvidencia, string> = {
   Texto: "var(--color-surface)",
   Enlace: "rgba(165, 147, 123, 0.15)",
 };
+
+const coverMediaStyle = {
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+  display: "block",
+} as const;
 
 type TipoFiltro = TipoEvidencia | "Todos";
 type CompetenciaFiltro = CategoriaCompetencia | "Todas";
@@ -90,10 +97,21 @@ export default function RepositorioGrid({ evidencias }: { evidencias: Evidencia[
         <div className="repo-grid">
           {filtered.map((ev) => (
             <div key={ev.id} className="repo-card">
-              <div className="repo-card-cover" style={{ background: TIPO_COLORS[ev.tipo] }}>
-                <span className="repo-tipo-icon">{TIPO_ICONS[ev.tipo]}</span>
-                <span className="repo-tipo-badge">{ev.tipo}</span>
-              </div>
+              <PreviewModal
+                titulo={ev.titulo}
+                items={[ev.archivo && { tipo: ev.archivo.tipo, ruta: ev.archivo.ruta }].filter(Boolean)}
+              >
+                <div className="repo-card-cover" style={{ background: TIPO_COLORS[ev.tipo] }}>
+                  {ev.archivo?.tipo === "imagen" ? (
+                    <img src={ev.archivo.ruta} alt={ev.titulo} style={coverMediaStyle} />
+                  ) : (
+                    <span className="repo-tipo-icon">
+                      {ev.archivo?.tipo === "pdf" ? "📄" : ev.archivo?.tipo === "video" ? "▶" : TIPO_ICONS[ev.tipo]}
+                    </span>
+                  )}
+                  <span className="repo-tipo-badge">{ev.tipo}</span>
+                </div>
+              </PreviewModal>
 
               <div className="repo-card-body">
                 <div className="repo-card-meta">
@@ -108,13 +126,6 @@ export default function RepositorioGrid({ evidencias }: { evidencias: Evidencia[
                 </div>
                 <h3 className="repo-card-title">{ev.titulo}</h3>
                 <p className="repo-card-desc">{ev.descripcion}</p>
-                {ev.archivo && (
-                  <FilePreview
-                    nombre={ev.archivo.nombre}
-                    archivo={ev.archivo}
-                  />
-                )}
-
                 {ev.tipo === "Texto" && ev.contenido && (
                   <>
                     {expandida === ev.id && (

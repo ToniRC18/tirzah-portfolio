@@ -23,7 +23,7 @@ src/
 │   ├── Footer.tsx        # footer (island client:load)
 │   ├── PageHeader.tsx    # cabecera de página reutilizable (island client:load)
 │   ├── Reveal.tsx        # animación scroll con IntersectionObserver (island client:visible)
-│   ├── FilePreview.tsx   # preview inline de imagen/PDF (island reutilizable)
+│   ├── PreviewModal.tsx  # modal de preview para imagen/PDF/video desde la portada de cada card
 │   ├── PortfolioGrid.tsx # grid filtrable de trabajos (island client:load)
 │   ├── ContactForm.tsx   # formulario de contacto con validación (island client:load)
 │   └── BizCard.tsx       # tarjeta de presentación con hover 3D (island client:load)
@@ -110,7 +110,8 @@ Cada portafolio tiene cinco secciones:
 - `CompetencyTable.astro` — tabla visual previa para competencias alcanzadas/en desarrollo
 - `CompetenciasTable.tsx` — tabla React con porcentajes reales y barras de progreso para competencias
 - `RepositorioGrid.tsx` — grid React filtrable por tipo de evidencia y competencia
-- `FilePreview.tsx` — preview inline para imágenes y PDFs con placeholder cuando la ruta sigue en `PENDIENTE`
+- `PreviewModal.tsx` — modal reutilizable para preview de imagen/PDF/video con carrusel de 2 archivos
+- `FilePreview.tsx` fue eliminado y reemplazado por `PreviewModal.tsx`
 
 ## Assets y nombres de archivo
 
@@ -160,7 +161,7 @@ El contenido real de Tirzah Shiraldin Kook ya fue integrado en:
 Subir `/public/assets/foto-perfil/tirzah-kook.jpg` y reemplazar la ruta `PENDIENTE` o el placeholder cuando corresponda.
 
 ### 2. Fotos de actividades para los portafolios
-Subir los archivos a `public/assets/...` con el nombre exacto que aparece en cada `FilePreview` y reemplazar `ruta: "PENDIENTE"` por la ruta real en los archivos de datos.
+Subir los archivos a `public/assets/...` con el nombre exacto que aparece en cada trabajo y reemplazar `ruta: "PENDIENTE"` por la ruta real en los archivos de datos.
 
 ### 3. Formspree ID para el formulario de contacto
 En `src/components/ContactForm.tsx` buscar:

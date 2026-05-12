@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { ArchivoRef } from '../data/portafolios';
-import FilePreview from './FilePreview';
 import Icon from './Icon';
+import PreviewModal from './PreviewModal';
 import Reveal from './Reveal';
 
 interface Work {
@@ -35,6 +35,13 @@ const gradients = [
   "linear-gradient(135deg, var(--color-tan), var(--color-surface))",
   "linear-gradient(135deg, var(--color-lavender), var(--color-lavender-light))",
 ];
+
+const coverMediaStyle = {
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+  display: "block",
+} as const;
 
 export default function PortfolioGrid({ data, which }: Props) {
   const [filter, setFilter] = useState("Todos");
@@ -86,17 +93,32 @@ export default function PortfolioGrid({ data, which }: Props) {
         {filtered.map((w, i) => (
           <Reveal key={w.title} delay={i * 60}>
             <article className="work-card">
-              <div className="work-cover">
+              <PreviewModal
+                titulo={w.title}
+                items={[
+                  w.archivo && { tipo: w.archivo.tipo, ruta: w.archivo.ruta },
+                  w.archivo2 && { tipo: w.archivo2.tipo, ruta: w.archivo2.ruta, label: "Adicional" },
+                ].filter(Boolean)}
+              >
                 <div className="placeholder-photo" style={{
                   width:'100%', height:'100%',
                   background: gradients[i % 3],
                   fontSize:13,
                 }}>
-                  {/* TODO: reemplazar con <Image> real */}
-                  {w.cat}
+                  {w.archivo?.tipo === "imagen" ? (
+                    <img src={w.archivo.ruta} alt={w.title} style={coverMediaStyle} />
+                  ) : w.archivo?.tipo === "pdf" ? (
+                    <span style={{ fontSize: 40 }}>📄</span>
+                  ) : w.archivo?.tipo === "video" ? (
+                    <span style={{ fontSize: 40 }}>▶</span>
+                  ) : (
+                    <span style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: 13 }}>
+                      {w.cat}
+                    </span>
+                  )}
                 </div>
                 <span className="work-type">{w.cat}</span>
-              </div>
+              </PreviewModal>
               <div className="work-body">
                 <div className="work-meta">
                   <span>{w.subj}</span>
@@ -120,13 +142,6 @@ export default function PortfolioGrid({ data, which }: Props) {
                     <div className="eyebrow" style={{fontSize:10, marginBottom:8}}>Reflexión</div>
                     <p style={{fontSize:13, margin:0}}>{w.reflexion}</p>
                   </div>
-                )}
-                {w.archivo && (
-                  <FilePreview
-                    nombre={w.archivo.nombre}
-                    archivo={w.archivo}
-                    archivo2={w.archivo2}
-                  />
                 )}
                 <div className="work-foot">
                   <span className="work-link">Ver trabajo <Icon name="arrow-right" size={14}/></span>

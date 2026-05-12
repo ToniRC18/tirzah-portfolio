@@ -1,6 +1,6 @@
 ---
 import type { ArchivoRef } from "../data/portafolios";
-import FilePreview from "./FilePreview";
+import PreviewModal from "./PreviewModal";
 import Reveal from './Reveal';
 
 interface Work {
@@ -28,15 +28,35 @@ const gradients = [
   {works.map((work, i) => (
     <Reveal delay={i * 60} client:visible>
       <article class="work-card">
-        <div class="work-cover">
+        <PreviewModal
+          titulo={work.title}
+          items={[
+            work.archivo && { tipo: work.archivo.tipo, ruta: work.archivo.ruta },
+            work.archivo2 && { tipo: work.archivo2.tipo, ruta: work.archivo2.ruta, label: "Adicional" },
+          ].filter(Boolean)}
+          client:load
+        >
           <div
             class="placeholder-photo"
             style={`width:100%; height:100%; background:${gradients[i % gradients.length]}; font-size:13px`}
           >
-            {/* TODO: reemplazar con <Image> real */}
-            {work.title}
+            {work.archivo?.tipo === "imagen" ? (
+              <img
+                src={work.archivo.ruta}
+                alt={work.title}
+                style="width:100%;height:100%;object-fit:cover;display:block"
+              />
+            ) : work.archivo?.tipo === "pdf" ? (
+              <span style="font-size:40px">📄</span>
+            ) : work.archivo?.tipo === "video" ? (
+              <span style="font-size:40px">▶</span>
+            ) : (
+              <span style="font-family:var(--font-serif);font-style:italic;font-size:13px">
+                {work.title}
+              </span>
+            )}
           </div>
-        </div>
+        </PreviewModal>
         <div class="work-body">
           <h3>{work.title}</h3>
           <p>{work.desc}</p>
@@ -52,14 +72,6 @@ const gradients = [
             <div class="eyebrow" style="font-size:10px; margin-bottom:8px">Reflexión</div>
             <p style="font-size:13px; margin:0">{work.reflexion}</p>
           </div>
-          {work.archivo && (
-            <FilePreview
-              nombre={work.archivo.nombre}
-              archivo={work.archivo}
-              archivo2={work.archivo2}
-              client:visible
-            />
-          )}
         </div>
       </article>
     </Reveal>
