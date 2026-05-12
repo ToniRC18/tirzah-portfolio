@@ -419,11 +419,18 @@ em.serif, .serif-italic {
   box-shadow: var(--shadow-hover);
 }
 .repo-card-cover {
-  height: 110px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
   position: relative;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+.repo-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 .repo-tipo-icon { font-size: 36px; }
 .repo-tipo-badge {
@@ -1574,9 +1581,18 @@ body.menu-open {
   box-shadow: var(--shadow-hover);
 }
 .work-cover {
-  aspect-ratio: 4/3;
+  width: 100%;
+  aspect-ratio: 4 / 3;
   position: relative;
   overflow: hidden;
+  background: var(--color-surface);
+}
+.work-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 .work-cover .placeholder-photo { width: 100%; height: 100%; }
 .work-cover .work-type {

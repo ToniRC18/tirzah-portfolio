@@ -42,7 +42,10 @@ const coverMediaStyle = {
   width: "100%",
   height: "100%",
   objectFit: "cover",
+  objectPosition: "center",
   display: "block",
+  position: "absolute",
+  inset: 0,
 } as const;
 
 export default function PortfolioGrid({ data, which }: Props) {
