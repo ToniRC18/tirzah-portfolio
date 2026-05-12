@@ -4,6 +4,7 @@ import Icon from './Icon';
 export default function ContactForm() {
   const [form, setForm] = useState({ nombre: '', email: '', mensaje: '' });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validate = () => {
@@ -15,12 +16,31 @@ export default function ContactForm() {
     return e;
   };
 
-  const submit = (ev: React.FormEvent) => {
+  const submit = async (ev: React.FormEvent) => {
     ev.preventDefault();
     const e = validate();
     setErrors(e);
-    if (Object.keys(e).length === 0) {
-      setSent(true);
+    if (Object.keys(e).length > 0) return;
+
+    setLoading(true);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        setSent(true);
+      } else {
+        setErrors({ general: data.error || 'Error al enviar. Intenta de nuevo.' });
+      }
+    } catch {
+      setErrors({ general: 'Error de red. Intenta de nuevo.' });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -42,11 +62,7 @@ export default function ContactForm() {
   }
 
   return (
-    // TODO: reemplazar con ID real de Formspree
-    <form className="card contact-form" style={{padding:36}}
-          action={`https://formspree.io/f/${import.meta.env.PUBLIC_FORMSPREE_ID || 'REPLACE_WITH_ID'}`}
-          method="POST"
-          onSubmit={submit}>
+    <form className="card contact-form" style={{padding:36}} onSubmit={submit}>
       <span className="eyebrow">Formulario</span>
       <h3 style={{marginTop:8, marginBottom:4, fontSize:22}}>Escríbeme</h3>
       <p className="text-muted" style={{fontSize:14, marginBottom:24}}>
@@ -77,8 +93,12 @@ export default function ContactForm() {
         {errors.mensaje && <span style={{color:'#b1474b', fontSize:12, marginTop:2}}>{errors.mensaje}</span>}
       </div>
 
-      <button className="btn btn-primary" type="submit" style={{marginTop:24}}>
-        Enviar mensaje <Icon name="send" size={14}/>
+      {errors.general && (
+        <p style={{ color: '#b1474b', fontSize: 13, marginTop: 8 }}>{errors.general}</p>
+      )}
+
+      <button className="btn btn-primary" type="submit" style={{marginTop:24}} disabled={loading}>
+        {loading ? 'Enviando...' : <>Enviar mensaje <Icon name="send" size={14}/></>}
       </button>
 
       <p className="text-muted" style={{fontSize:12, marginTop:16, fontStyle:'italic', fontFamily:'var(--font-serif)'}}>

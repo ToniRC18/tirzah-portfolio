@@ -3,18 +3,32 @@ import { useCallback } from "react";
 export default function TarjetaDownload() {
   const descargar = useCallback(async () => {
     const { default: html2canvas } = await import("html2canvas");
-    const el = document.querySelector(".bizcard") as HTMLElement | null;
+    const card = document.querySelector(".bizcard") as HTMLElement | null;
+    const stage = document.querySelector(".bizcard-stage") as HTMLElement | null;
 
-    if (!el) return;
+    if (!card) return;
 
-    const prevTransform = el.style.transform;
-    el.style.transform = "none";
+    const prevCardTransform = card.style.transform;
+    const prevCardTransition = card.style.transition;
+    const prevStageTransform = stage?.style.transform ?? "";
+    const prevStagePerspective = stage?.style.perspective ?? "";
 
     try {
-      const canvas = await html2canvas(el, {
+      card.style.transform = "none";
+      card.style.transition = "none";
+
+      if (stage) {
+        stage.style.transform = "none";
+        stage.style.perspective = "none";
+      }
+
+      await new Promise((resolve) => setTimeout(resolve, 60));
+
+      const canvas = await html2canvas(card, {
         scale: 2,
         useCORS: true,
         backgroundColor: null,
+        logging: false,
       });
 
       const link = document.createElement("a");
@@ -22,7 +36,13 @@ export default function TarjetaDownload() {
       link.href = canvas.toDataURL("image/png");
       link.click();
     } finally {
-      el.style.transform = prevTransform;
+      card.style.transform = prevCardTransform;
+      card.style.transition = prevCardTransition;
+
+      if (stage) {
+        stage.style.transform = prevStageTransform;
+        stage.style.perspective = prevStagePerspective;
+      }
     }
   }, []);
 
