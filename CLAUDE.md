@@ -206,6 +206,10 @@ Los design tokens están en `src/styles/global.css` bajo `:root`. Paleta: perlad
 - Config: `vercel.json` en raíz
 - Variable de entorno requerida en Vercel: `PUBLIC_FORMSPREE_ID`
 
+## Notas recientes
+
+- Fix navbar mobile: `html { overflow-x: hidden; }`, `body.menu-open` bloquea scroll al abrir el panel, y `mobile-panel`/`mobile-overlay` permanecen ocultos fuera del flujo hasta activarse para evitar scroll horizontal residual.
+
 ## Pendientes antes de go-live
 1. Foto de Tirzah para el hero (retrato)
 2. Fotos de actividades para los portafolios

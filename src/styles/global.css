@@ -35,6 +35,10 @@
 
 * { box-sizing: border-box; }
 
+html {
+  overflow-x: hidden;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -741,29 +745,48 @@ html { scroll-behavior: smooth; }
 
 .mobile-panel {
   position: fixed;
-  top: 0; right: 0; bottom: 0;
-  width: min(360px, 88vw);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(340px, 88vw);
   background: var(--color-bg);
   border-left: 1px solid rgba(165, 147, 123, 0.2);
   z-index: 200;
   padding: 24px;
   overflow-y: auto;
+  overflow-x: hidden;
+  /* Always keep the panel fully off-canvas when closed. */
   transform: translateX(100%);
   transition: transform 0.3s var(--ease);
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
+  visibility: hidden;
 }
-.mobile-panel.open { transform: translateX(0); }
+.mobile-panel.open {
+  transform: translateX(0);
+  visibility: visible;
+}
 .mobile-overlay {
-  position: fixed; inset: 0;
-  background: rgba(61, 56, 56, 0.32);
+  position: fixed;
+  inset: 0;
+  background: rgba(61, 56, 56, 0.4);
+  backdrop-filter: blur(2px);
   z-index: 199;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s;
+  visibility: hidden;
 }
-.mobile-overlay.open { opacity: 1; pointer-events: auto; }
+.mobile-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
 
 .mobile-link {
   padding: 14px 12px;
