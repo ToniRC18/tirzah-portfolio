@@ -110,7 +110,7 @@ Cada portafolio tiene cinco secciones:
 - `CompetencyTable.astro` — tabla visual previa para competencias alcanzadas/en desarrollo
 - `CompetenciasTable.tsx` — tabla React con porcentajes reales y barras de progreso para competencias
 - `RepositorioGrid.tsx` — grid React filtrable por tipo de evidencia y competencia
-- `PreviewModal.tsx` — modal reutilizable para preview de imagen/PDF/video con carrusel de 2 archivos
+- `PreviewModal.tsx` — modal reutilizable para preview de imagen/PDF/video con carrusel de N archivos
 - `FilePreview.tsx` fue eliminado y reemplazado por `PreviewModal.tsx`
 
 ## Assets y nombres de archivo
@@ -209,6 +209,7 @@ Los design tokens están en `src/styles/global.css` bajo `:root`. Paleta: perlad
 ## Notas recientes
 
 - Fix navbar mobile: `html { overflow-x: hidden; }`, `body.menu-open` bloquea scroll al abrir el panel, y `mobile-panel`/`mobile-overlay` permanecen ocultos fuera del flujo hasta activarse para evitar scroll horizontal residual.
+- `PreviewModal` ahora recibe `archivos[]` en lugar de `archivo`/`archivo2`; el carrusel usa flechas laterales y dots para navegar entre N imágenes, PDFs o videos.
 
 ## Pendientes antes de go-live
 1. Foto de Tirzah para el hero (retrato)

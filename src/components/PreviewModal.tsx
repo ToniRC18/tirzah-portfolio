@@ -1,17 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
-import type { ReactNode } from "react";
-
-export type TipoArchivo = "imagen" | "pdf" | "video";
-
-export interface ArchivoItem {
-  tipo: TipoArchivo;
-  ruta: string;
-  label?: string;
-}
+import type { Dispatch, ReactNode, SetStateAction } from "react";
+import type { ArchivoItem } from "../data/repositorio";
 
 interface PreviewModalProps {
-  items: ArchivoItem[];
+  archivos: ArchivoItem[];
   titulo: string;
   trigger?: ReactNode;
   children?: ReactNode;
@@ -22,32 +15,38 @@ function getVideoMime(ruta: string) {
 }
 
 function ModalPortal({
-  items,
+  archivos,
   titulo,
   idx,
   setIdx,
   cerrar,
 }: {
-  items: ArchivoItem[];
+  archivos: ArchivoItem[];
   titulo: string;
   idx: number;
-  setIdx: (i: number) => void;
+  setIdx: Dispatch<SetStateAction<number>>;
   cerrar: () => void;
 }) {
-  const actual = items[idx];
-  const tieneVarios = items.length > 1;
+  const actual = archivos[idx];
+  const total = archivos.length;
+
+  const prev = () => setIdx((current) => (current - 1 + total) % total);
+  const next = () => setIdx((current) => (current + 1) % total);
 
   return createPortal(
     <div className="modal-overlay" onClick={cerrar}>
       <div className="modal-box" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <h3 className="modal-titulo">{titulo}</h3>
-          <button className="modal-close" onClick={cerrar} aria-label="Cerrar">
-            ✕
-          </button>
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            {total > 1 && <span className="modal-counter">{idx + 1} / {total}</span>}
+            <button className="modal-close" onClick={cerrar} aria-label="Cerrar">
+              ✕
+            </button>
+          </div>
         </div>
 
-        <div className="modal-content">
+        <div className="modal-content" style={{ position: "relative" }}>
           {actual.tipo === "imagen" && (
             <img src={actual.ruta} alt={titulo} className="modal-img" loading="lazy" />
           )}
@@ -63,21 +62,42 @@ function ModalPortal({
               <source src={actual.ruta} type={getVideoMime(actual.ruta)} />
             </video>
           )}
+
+          {total > 1 && (
+            <>
+              <button
+                className="modal-arrow modal-arrow-left"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prev();
+                }}
+                aria-label="Anterior"
+              >
+                ‹
+              </button>
+              <button
+                className="modal-arrow modal-arrow-right"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  next();
+                }}
+                aria-label="Siguiente"
+              >
+                ›
+              </button>
+            </>
+          )}
         </div>
 
-        {tieneVarios && (
-          <div className="modal-nav">
-            {items.map((it, i) => (
+        {total > 1 && (
+          <div className="modal-dots">
+            {archivos.map((archivo, i) => (
               <button
-                key={`${it.ruta}-${i}`}
-                className={`modal-dot ${i === idx ? "active" : ""}`}
+                key={`${archivo.ruta}-${i}`}
+                className={`modal-dot-mini ${i === idx ? "active" : ""}`}
                 onClick={() => setIdx(i)}
-              >
-                <span className="modal-dot-icon">
-                  {it.tipo === "pdf" ? "📄" : it.tipo === "video" ? "▶" : "🖼"}
-                </span>
-                <span>{it.label || (i === 0 ? "Principal" : "Adicional")}</span>
-              </button>
+                aria-label={`Ir a imagen ${i + 1}`}
+              />
             ))}
           </div>
         )}
@@ -93,7 +113,7 @@ function ModalPortal({
   );
 }
 
-export default function PreviewModal({ items, titulo, trigger, children }: PreviewModalProps) {
+export default function PreviewModal({ archivos, titulo, trigger, children }: PreviewModalProps) {
   const [abierto, setAbierto] = useState(false);
   const [idx, setIdx] = useState(0);
   const [mounted, setMounted] = useState(false);
@@ -102,7 +122,7 @@ export default function PreviewModal({ items, titulo, trigger, children }: Previ
     setMounted(true);
   }, []);
 
-  const validItems = items.filter((item) => !item.ruta.includes("PENDIENTE"));
+  const validItems = archivos.filter((item) => !item.ruta.includes("PENDIENTE"));
   const triggerNode = trigger ?? children;
 
   const cerrar = useCallback(() => {
@@ -118,6 +138,8 @@ export default function PreviewModal({ items, titulo, trigger, children }: Previ
 
     const handler = (e: KeyboardEvent) => {
       if (e.key === "Escape") cerrar();
+      if (e.key === "ArrowRight") setIdx((i) => (i + 1) % validItems.length);
+      if (e.key === "ArrowLeft") setIdx((i) => (i - 1 + validItems.length) % validItems.length);
     };
 
     document.addEventListener("keydown", handler);
@@ -126,7 +148,7 @@ export default function PreviewModal({ items, titulo, trigger, children }: Previ
       document.removeEventListener("keydown", handler);
       document.body.classList.remove("menu-open");
     };
-  }, [abierto, cerrar]);
+  }, [abierto, cerrar, validItems.length]);
 
   return (
     <>
@@ -153,12 +175,13 @@ export default function PreviewModal({ items, titulo, trigger, children }: Previ
                   : "🔍"}
             </span>
             <span className="cover-hint-text">
-              Ver{" "}
-              {validItems[0].tipo === "pdf"
-                ? "documento"
-                : validItems[0].tipo === "video"
-                  ? "video"
-                  : "imagen"}
+              {validItems.length > 1
+                ? `Ver ${validItems.length} archivos`
+                : `Ver ${validItems[0].tipo === "pdf"
+                    ? "documento"
+                    : validItems[0].tipo === "video"
+                      ? "video"
+                      : "imagen"}`}
             </span>
           </div>
         )}
@@ -166,7 +189,7 @@ export default function PreviewModal({ items, titulo, trigger, children }: Previ
 
       {mounted && abierto && validItems.length > 0 && (
         <ModalPortal
-          items={validItems}
+          archivos={validItems}
           titulo={titulo}
           idx={idx}
           setIdx={setIdx}

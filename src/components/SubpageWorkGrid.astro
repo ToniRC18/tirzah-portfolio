@@ -1,5 +1,6 @@
 ---
 import type { ArchivoRef } from "../data/portafolios";
+import type { ArchivoItem } from "../data/repositorio";
 import PreviewModal from "./PreviewModal";
 import Reveal from './Reveal';
 
@@ -30,10 +31,10 @@ const gradients = [
       <article class="work-card">
         <PreviewModal
           titulo={work.title}
-          items={[
+          archivos={[
             work.archivo && { tipo: work.archivo.tipo, ruta: work.archivo.ruta },
-            work.archivo2 && { tipo: work.archivo2.tipo, ruta: work.archivo2.ruta, label: "Adicional" },
-          ].filter(Boolean)}
+            work.archivo2 && { tipo: work.archivo2.tipo, ruta: work.archivo2.ruta },
+          ].filter((archivo): archivo is ArchivoItem => Boolean(archivo))}
           client:load
         >
           <div

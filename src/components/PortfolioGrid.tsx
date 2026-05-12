@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { ArchivoRef } from '../data/portafolios';
+import type { ArchivoItem } from '../data/repositorio';
 import Icon from './Icon';
 import PreviewModal from './PreviewModal';
 import Reveal from './Reveal';
@@ -15,6 +16,7 @@ interface Work {
   reflexion?: string;
   archivo?: ArchivoRef;
   archivo2?: ArchivoRef;
+  archivo3?: ArchivoRef;
 }
 
 interface PortfolioData {
@@ -95,10 +97,11 @@ export default function PortfolioGrid({ data, which }: Props) {
             <article className="work-card">
               <PreviewModal
                 titulo={w.title}
-                items={[
-                  w.archivo && { tipo: w.archivo.tipo, ruta: w.archivo.ruta },
-                  w.archivo2 && { tipo: w.archivo2.tipo, ruta: w.archivo2.ruta, label: "Adicional" },
-                ].filter(Boolean)}
+                archivos={[
+                  w.archivo ? { tipo: w.archivo.tipo, ruta: w.archivo.ruta } : undefined,
+                  w.archivo2 ? { tipo: w.archivo2.tipo, ruta: w.archivo2.ruta } : undefined,
+                  w.archivo3 ? { tipo: w.archivo3.tipo, ruta: w.archivo3.ruta } : undefined,
+                ].filter((x): x is ArchivoItem => x !== undefined)}
               >
                 <div className="placeholder-photo" style={{
                   width:'100%', height:'100%',

@@ -40,7 +40,6 @@ const COMPETENCIA_FILTROS: CompetenciaFiltro[] = ["Todas", ...COMPETENCIAS];
 export default function RepositorioGrid({ evidencias }: { evidencias: Evidencia[] }) {
   const [tipoFiltro, setTipoFiltro] = useState<TipoFiltro>("Todos");
   const [compFiltro, setCompFiltro] = useState<CompetenciaFiltro>("Todas");
-  const [expandida, setExpandida] = useState<string | null>(null);
 
   const filtered = evidencias.filter((e) => {
     const matchTipo = tipoFiltro === "Todos" || e.tipo === tipoFiltro;
@@ -99,14 +98,14 @@ export default function RepositorioGrid({ evidencias }: { evidencias: Evidencia[
             <div key={ev.id} className="repo-card">
               <PreviewModal
                 titulo={ev.titulo}
-                items={[ev.archivo && { tipo: ev.archivo.tipo, ruta: ev.archivo.ruta }].filter(Boolean)}
+                archivos={ev.archivos}
               >
                 <div className="repo-card-cover" style={{ background: TIPO_COLORS[ev.tipo] }}>
-                  {ev.archivo?.tipo === "imagen" ? (
-                    <img src={ev.archivo.ruta} alt={ev.titulo} style={coverMediaStyle} />
+                  {ev.archivos[0]?.tipo === "imagen" ? (
+                    <img src={ev.archivos[0].ruta} alt={ev.titulo} style={coverMediaStyle} />
                   ) : (
                     <span className="repo-tipo-icon">
-                      {ev.archivo?.tipo === "pdf" ? "📄" : ev.archivo?.tipo === "video" ? "▶" : TIPO_ICONS[ev.tipo]}
+                      {ev.archivos[0]?.tipo === "pdf" ? "📄" : ev.archivos[0]?.tipo === "video" ? "▶" : TIPO_ICONS[ev.tipo]}
                     </span>
                   )}
                   <span className="repo-tipo-badge">{ev.tipo}</span>
@@ -118,41 +117,9 @@ export default function RepositorioGrid({ evidencias }: { evidencias: Evidencia[
                   <span className="tag" style={{ fontSize: 11 }}>
                     {ev.competencia}
                   </span>
-                  {ev.semestre && (
-                    <span className="text-muted" style={{ fontSize: 12 }}>
-                      {ev.semestre}
-                    </span>
-                  )}
                 </div>
                 <h3 className="repo-card-title">{ev.titulo}</h3>
                 <p className="repo-card-desc">{ev.descripcion}</p>
-                {ev.tipo === "Texto" && ev.contenido && (
-                  <>
-                    {expandida === ev.id && (
-                      <div className="repo-texto-content">{ev.contenido}</div>
-                    )}
-                    <button
-                      type="button"
-                      className="repo-toggle-btn"
-                      onClick={() => setExpandida(expandida === ev.id ? null : ev.id)}
-                    >
-                      {expandida === ev.id ? "Leer menos ↑" : "Leer más ↓"}
-                    </button>
-                  </>
-                )}
-
-                <div className="repo-card-foot">
-                  {ev.tipo === "Enlace" && ev.url && (
-                    <a
-                      href={ev.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="btn btn-secondary btn-sm"
-                    >
-                      Abrir enlace →
-                    </a>
-                  )}
-                </div>
               </div>
             </div>
           ))}
