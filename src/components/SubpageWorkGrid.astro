@@ -9,6 +9,7 @@ interface Work {
   competencias: string[];
   reflexion: string;
   archivo?: ArchivoRef;
+  archivo2?: ArchivoRef;
 }
 
 const { works, finalReflection } = Astro.props as {
@@ -54,8 +55,8 @@ const gradients = [
           {work.archivo && (
             <FilePreview
               nombre={work.archivo.nombre}
-              tipo={work.archivo.tipo}
-              ruta={work.archivo.ruta}
+              archivo={work.archivo}
+              archivo2={work.archivo2}
               client:visible
             />
           )}

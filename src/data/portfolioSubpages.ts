@@ -6,6 +6,7 @@ export interface TrabajoSubpagina {
   competencias: string[];
   reflexion: string;
   archivo?: ArchivoRef;
+  archivo2?: ArchivoRef;
 }
 
 export const PORTFOLIO_SUBPAGES = {
@@ -24,9 +25,9 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Me gusta mucho lo que hago. Mi fortaleza es que ya tuve experiencias como maestra de la Escuela Sabática. Mi debilidad es que a veces siento que hablo mucho y no doy suficiente oportunidad para que las personas puedan contestar las preguntas que hago. Mis clases deben ser más interactivas.",
           archivo: {
-            nombre: "p1-eclesiastico-english-sabbath-school.jpg",
+            nombre: "english sabbath school.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-i/eclesiastico/english sabbath school.jpg",
           },
         },
         {
@@ -39,9 +40,9 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Cantar siempre fue una gran parte de mi vida. Desde chiquita formé parte de un coro. Mi debilidad es que por muchas responsabilidades no tengo tanto tiempo de repasar las canciones durante la semana. Mi fortaleza es que procuro asistir a todos los ensayos, poner atención para aprender mi voz y dar todo lo que tengo para alabar a Dios.",
           archivo: {
-            nombre: "p1-eclesiastico-canticum-femenil.jpg",
+            nombre: "canticum femenil.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-i/eclesiastico/canticum femenil.jpg",
           },
         },
         {
@@ -54,9 +55,14 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Cada retiro espiritual es una bendición y te permite renovar tu pacto con Dios. Mi debilidad fue creer mucho en mis habilidades de hablar en público en un idioma extranjero. Todavía es un desafío expresarme en otros idiomas cuando tengo que improvisar. Mi fortaleza fue que tuve la valentía de participar.",
           archivo: {
-            nombre: "p1-eclesiastico-retiro-nacidos-para-servir.jpg",
+            nombre: "retiro espiritual.JPG",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-i/eclesiastico/retiro espiritual.JPG",
+          },
+          archivo2: {
+            nombre: "p1-eclesiastico-retiro-video.mp4",
+            tipo: "video",
+            ruta: "/assets/portafolio-i/eclesiastico/p1-eclesiastico-retiro-video.mp4",
           },
         },
         {
@@ -71,7 +77,7 @@ export const PORTFOLIO_SUBPAGES = {
           archivo: {
             nombre: "p1-eclesiastico-ministerio-solista.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-i/eclesiastico/p1-eclesiastico-ministerio-solista.jpg",
           },
         },
       ],
@@ -90,9 +96,9 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Todo lo que tiene que ver con el arte me fascina y esta exposición fue una de mis favoritas porque las obras abstractas son mis favoritas. Mi fortaleza fue que vi todas las obras expuestas. Mi debilidad fue que por tiempo no pude disfrutar un poco más de la exposición.",
           archivo: {
-            nombre: "p1-artistico-abstraccion-construccion.jpg",
+            nombre: "abstraccion construccion.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-i/artistico/abstraccion construccion.jpg",
           },
         },
         {
@@ -104,11 +110,11 @@ export const PORTFOLIO_SUBPAGES = {
           archivo: {
             nombre: "p1-artistico-encuentro-03.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-i/artistico/p1-artistico-encuentro-03.jpg",
           },
         },
         {
-          title: "Presentación de libro 'Lo Profundo de lo Superficial, lo Superficial de lo Profundo'",
+          title: "Presentación de libro",
           desc: "Presentación de un libro sobre vestimenta de la autora Greisy de García de Murillo, diseñadora y costurera.",
           competencias: ["Al desarrollar un gusto sano por la recreación, las manifestaciones artísticas y culturales y los medios."],
           reflexion:
@@ -116,7 +122,7 @@ export const PORTFOLIO_SUBPAGES = {
           archivo: {
             nombre: "p1-artistico-presentacion-libro.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-i/artistico/p1-artistico-presentacion-libro.jpg",
           },
         },
         {
@@ -126,9 +132,9 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Este legado cultural es uno de mis favoritos. Me identifiqué con la cantante porque yo canto soprano en el coro. Mi fortaleza fue que puse atención todo el concierto. Mi debilidad fue que estuve tan emocionada que no pude estar en absoluto silencio.",
           archivo: {
-            nombre: "p1-artistico-concierto-reino-revolucion.jpg",
-            tipo: "imagen",
-            ruta: "PENDIENTE",
+            nombre: "p1-artistico-reino-revolucion.mp4",
+            tipo: "video",
+            ruta: "/assets/portafolio-i/artistico/p1-artistico-reino-revolucion.mp4",
           },
         },
       ],
@@ -150,9 +156,9 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Primero no me gustó mucho, pero practicando empecé a apreciar el instrumento. Mi fortaleza fue tener la valentía de tocar aunque no practiqué mucho. Mi debilidad fue no practicarlo tanto como debería.",
           archivo: {
-            nombre: "p1-personal-tocar-cuarta.jpg",
+            nombre: "tocar cuarta.png",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-i/personal/tocar cuarta.png",
           },
         },
         {
@@ -165,9 +171,9 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Fue muy emocionante representar mi país con su traje típico y cargando la bandera. Me sentí muy feliz exponiendo mi país a personas que no lo conocen. Mi fortaleza fue disfrutar cada momento representando a mi país. Mi debilidad fue caminar con la ropa típica porque era muy larga y la pisaba.",
           archivo: {
-            nombre: "p1-personal-unidos-por-la-paz.jpg",
+            nombre: "unidos por la paz.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-i/personal/unidos por la paz.jpg",
           },
         },
         {
@@ -181,9 +187,9 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Escuchar podcasts me ayuda a relajarme y es mi tiempo para el desarrollo personal. Mi fortaleza es que aprendo algo nuevo en cada episodio. Mi debilidad es que cuando los temas no me interesan, me desanimo y dejo de escuchar.",
           archivo: {
-            nombre: "p1-personal-podcasts.jpg",
+            nombre: "podcasts.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-i/personal/podcasts.jpg",
           },
         },
       ],
@@ -198,7 +204,7 @@ export const PORTFOLIO_SUBPAGES = {
         "Doy gracias a Dios por todas las habilidades que Él me ha dado y también por las oportunidades que me dio para seguir mejorando a través de servirle a Él.",
       works: [
         {
-          title: "Curso de misiones — Intérprete",
+          title: "Curso de misiones",
           desc: "Tuve la oportunidad de participar en el curso de misiones anual como intérprete. Traduje de inglés a español y de español a inglés para los inscritos y para los invitados que presentaron.",
           competencias: [
             "Al proyectar una vida profesional, personal y familiar en el marco de un compromiso moral y misional.",
@@ -207,13 +213,13 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Doy gracias a Dios por esta oportunidad que me sirvió para practicar y mejorar los idiomas que hablo. Mi fortaleza es que ya tuve experiencia en traducción. Mi debilidad fue que a veces los presentadores hablaban muy rápido y me costaba conjugar los verbos y se me olvidaban algunas palabras.",
           archivo: {
-            nombre: "p2-eclesiastico-curso-misiones.jpg",
+            nombre: "curso de misiones.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-ii/eclesiastico/curso de misiones.jpg",
           },
         },
         {
-          title: "Jóvenes Adventistas Misioneros (JAM)",
+          title: "JAM",
           desc: "Pertenezco al ministerio JAM. Damos talleres de valores para niños, entregamos despensas a comunidades de bajos recursos y también visitamos a personas que se sienten solas, cantamos y oramos con ellos.",
           competencias: [
             "Tomar decisiones sabias basadas en los principios de la Santa Biblia.",
@@ -225,7 +231,12 @@ export const PORTFOLIO_SUBPAGES = {
           archivo: {
             nombre: "p2-eclesiastico-jam.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-ii/eclesiastico/p2-eclesiastico-jam.jpg",
+          },
+          archivo2: {
+            nombre: "jovenes adventistas misioneros 2.JPG",
+            tipo: "imagen",
+            ruta: "/assets/portafolio-ii/eclesiastico/jovenes adventistas misioneros 2.JPG",
           },
         },
         {
@@ -238,13 +249,13 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Mi fortaleza fue que planifiqué lo que iba a decir para no ponerme nerviosa y perder las palabras. Mi debilidad fue que hablé rápido.",
           archivo: {
-            nombre: "p2-eclesiastico-acto-generoso.jpg",
+            nombre: "acto generoso para la mision.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-ii/eclesiastico/acto generoso para la mision.jpg",
           },
         },
         {
-          title: "'Felis Sabat'",
+          title: "Felis Sabat",
           desc: "Tuve la oportunidad de dar la bienvenida en la iglesia de parte del ministerio JAM. Hicimos una dinámica donde la congregación tenía que desear feliz sábado en dos idiomas: Papiamentu y Nepalí.",
           competencias: [
             "Tomar decisiones sabias basadas en los principios de la Santa Biblia.",
@@ -255,7 +266,7 @@ export const PORTFOLIO_SUBPAGES = {
           archivo: {
             nombre: "p2-eclesiastico-felis-sabat.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-ii/eclesiastico/p2-eclesiastico-felis-sabat.jpg",
           },
         },
       ],
@@ -279,11 +290,11 @@ export const PORTFOLIO_SUBPAGES = {
           archivo: {
             nombre: "p2-artistico-corridos-mexicanos.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-ii/artistico/p2-artistico-corridos-mexicanos.jpg",
           },
         },
         {
-          title: "'Velada Lírica: obras selectas del canto'",
+          title: "Velada Lírica",
           desc: "Concierto donde un tenor cantó obras de autores conocidos como Bach, Handel y otros.",
           competencias: ["Al desarrollar un gusto sano por la recreación, las manifestaciones artísticas y culturales y los medios."],
           reflexion:
@@ -291,7 +302,7 @@ export const PORTFOLIO_SUBPAGES = {
           archivo: {
             nombre: "p2-artistico-velada-lirica.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-ii/artistico/p2-artistico-velada-lirica.jpg",
           },
         },
         {
@@ -304,9 +315,9 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Me encantan las obras teatrales, ir a verlas es una de mis actividades favoritas. Esta obra me hizo reflexionar mucho y te da un punto de vista diferente. Mi fortaleza fue que puse atención absoluta a la obra. Mi debilidad fue que no quise participar en una actividad durante la obra.",
           archivo: {
-            nombre: "p2-artistico-dekonstrukshon-edsel.jpg",
+            nombre: "e dekonstrukshon.JPG",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-ii/artistico/e dekonstrukshon.JPG",
           },
         },
         {
@@ -319,9 +330,9 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "No me gustó mucho porque tenía más expectativas. Siento que utilizaron muy poca información y no había dramatización como tal. Mi fortaleza fue que traté de poner atención. Mi debilidad fue que no aprendí nada nuevo y nos fuimos antes de que terminara.",
           archivo: {
-            nombre: "p2-artistico-musical-curazao.jpg",
-            tipo: "imagen",
-            ruta: "PENDIENTE",
+            nombre: "musical.mov",
+            tipo: "video",
+            ruta: "/assets/portafolio-ii/artistico/musical.mov",
           },
         },
       ],
@@ -343,9 +354,9 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Me encanta mi trabajo y trabajar con los niños. Mi debilidad fue que es mi primera vez como maestra y me costó un poco preparar las clases. Mi fortaleza es que puedo utilizar mis habilidades de enseñar a otros.",
           archivo: {
-            nombre: "p2-personal-english-teacher.jpg",
+            nombre: "english teacher.JPG",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-ii/personal/english teacher.JPG",
           },
         },
         {
@@ -358,9 +369,9 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Me sentí honrada de poder compartir lo que aprendí en 3 semestres. Mi fortaleza fue que tengo habilidad de hablar en público y tuve dominio del tema. Mi debilidad fue adaptar la información para la población a quien hablé.",
           archivo: {
-            nombre: "p2-personal-platica-salud-mental.jpg",
+            nombre: "platica.JPG",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-ii/personal/platica.JPG",
           },
         },
         {
@@ -374,9 +385,9 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Me sentí muy honrada de poder participar, me encantó ese reto. Mi fortaleza fue el apoyo de mi coordinadora, colegas y compañeros. Mi debilidad fue que era un reto bastante grande con muy poco tiempo para armarlo, pero al final todo salió bien, gracias a Dios.",
           archivo: {
-            nombre: "p2-personal-universidad-manana.jpg",
+            nombre: "universidad del mañana.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-ii/personal/universidad del mañana.jpg",
           },
         },
       ],
@@ -391,7 +402,7 @@ export const PORTFOLIO_SUBPAGES = {
         "A través del canto he encontrado una forma íntima y profunda de conectar con Jesús. Participar en actividades donde pude usar este don me recordó que Él usa lo que somos para tocar corazones, incluyendo el mío. Estas experiencias fortalecieron mi fe y me ayudaron a ver que servir también es una forma de adorar.",
       works: [
         {
-          title: "Participación vocal en mi iglesia",
+          title: "Participación vocal",
           desc: "El canto es lo que más me acerca a Dios. En las vacaciones de invierno que fui a Curazao, en uno de los servicios me llamaron al frente para cantar en el worship.",
           competencias: [
             "Tomar decisiones sabias basadas en los principios de la Santa Biblia.",
@@ -401,13 +412,13 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Mi fortaleza fue mi habilidad para el canto. Mi debilidad fue que no pude estar en los ensayos y no sabía todos los cantos ni cómo los iban a cantar.",
           archivo: {
-            nombre: "p3-eclesiastico-participacion-vocal.jpg",
+            nombre: "participacion vocal.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-iii/eclesiastico/participacion vocal.jpg",
           },
         },
         {
-          title: "'Rescatada por Jesús'",
+          title: "Rescatada por Jesús",
           desc: "Serie de charlas del Ministerio de la Mujer enfocada en la salud mental: cómo manejar la depresión, la pérdida y el bienestar espiritual.",
           competencias: [
             "Tomar decisiones sabias basadas en los principios de la Santa Biblia.",
@@ -416,13 +427,13 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Mi fortaleza fue que fui a todas las pláticas. Mi debilidad es que en algunas no ponía toda la atención por estar cansada.",
           archivo: {
-            nombre: "p3-eclesiastico-rescatada-por-jesus.jpg",
+            nombre: "rescatada por jesus.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-iii/eclesiastico/rescatada por jesus.jpg",
           },
         },
         {
-          title: "Retiro espiritual #3",
+          title: "Retiro espiritual 3",
           desc: "Mi penúltimo retiro espiritual junto a la Facultad de Psicología. Disfruto mucho este evento que nos acerca más a Dios y nos permite reflexionar y aprender sobre Jesús de maneras diferentes.",
           competencias: [
             "Tomar decisiones sabias basadas en los principios de la Santa Biblia.",
@@ -432,9 +443,9 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Mi fortaleza fue que puse atención y fui muy participativa en las actividades. Mi debilidad fue que no estuve presente en todas las actividades.",
           archivo: {
-            nombre: "p3-eclesiastico-retiro-espiritual-3.jpg",
+            nombre: "retiro espiritual 3.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-iii/eclesiastico/retiro espiritual 3.jpg",
           },
         },
       ],
@@ -447,7 +458,7 @@ export const PORTFOLIO_SUBPAGES = {
         "El arte me ha permitido verme desde otros ojos y reconocer partes de mí que el día a día no me deja mirar. Ha sido una forma de conectar con mi historia, con mi identidad y con la fuerza que llevo dentro. No se trata solo de mirar o crear algo bello, sino de sentir, recordar y sanar. En cada experiencia artística he comprendido que la belleza también puede ser resistencia, y que expresarse es, muchas veces, una forma de cuidar lo que somos.",
       works: [
         {
-          title: "'Ellas en concierto'",
+          title: "Ellas en concierto",
           desc: "Concierto donde cuatro talentosas mujeres interpretaron piezas de un amplio repertorio musical usando instrumentos de viento. Una experiencia que resaltó la fuerza de las mujeres en el arte.",
           competencias: ["Al desarrollar un gusto sano por la recreación, las manifestaciones artísticas y culturales y los medios."],
           reflexion:
@@ -455,11 +466,11 @@ export const PORTFOLIO_SUBPAGES = {
           archivo: {
             nombre: "p3-artistico-ellas-en-concierto.jpg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-iii/artistico/p3-artistico-ellas-en-concierto.jpg",
           },
         },
         {
-          title: "'Coraje'",
+          title: "Coraje",
           desc: "Tuve el honor de ser modelo para esta obra, creada por una artista que reflexiona sobre la identidad de las mujeres negras y las heridas que dejó la esclavitud. Coraje representa la lucha por no perder lo que somos, por sanar, reconstruirnos y encontrar un equilibrio entre lo que fuimos obligadas a ser y lo que realmente somos.",
           competencias: [
             "Al desarrollar un gusto sano por la recreación, las manifestaciones artísticas y culturales y los medios.",
@@ -468,9 +479,9 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Mi fortaleza fue mi valentía y apertura emocional. Mi debilidad fueron mis nervios en la sesión de fotos.",
           archivo: {
-            nombre: "p3-artistico-coraje.jpg",
+            nombre: "coraje.JPG",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-iii/artistico/coraje.JPG",
           },
         },
       ],
@@ -492,9 +503,9 @@ export const PORTFOLIO_SUBPAGES = {
           reflexion:
             "Mi fortaleza fue mi compromiso con el rol. Mis debilidades fueron la comunicación en contextos complejos y la motivación sostenida.",
           archivo: {
-            nombre: "p3-personal-asociacion-estudiantil.jpg",
+            nombre: "asociacion estudiantil .jpeg",
             tipo: "imagen",
-            ruta: "PENDIENTE",
+            ruta: "/assets/portafolio-iii/personal/asociacion estudiantil .jpeg",
           },
         },
       ],

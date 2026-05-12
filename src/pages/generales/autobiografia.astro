@@ -1,15 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageHeader from '../../components/PageHeader';
-import Reveal from '../../components/Reveal';
-
-const subs = [
-  { key: 'autobiografia', label: 'Autobiografía', icon: 'users' },
-  { key: 'cv', label: 'Curriculum Vitae', icon: 'file-text' },
-  { key: 'tarjeta', label: 'Tarjeta de presentación', icon: 'id-card' },
-  { key: 'declaracion', label: 'Declaración de afirmación', icon: 'quote' },
-  { key: 'datos', label: 'Datos actuales UM', icon: 'bar-chart' },
-];
 ---
 
 <Base title="Autobiografía — Tirzah S. Kook">
@@ -23,78 +14,45 @@ const subs = [
     />
 
     <section class="container" style="padding-bottom: var(--pad-section)">
-      <div class="with-sidebar">
-        <aside class="sidebar-nav">
-          {subs.map((s, i) => (
-            <a
-              class={`sidebar-link ${s.key === 'autobiografia' ? 'active' : ''}`}
-              href={`/generales/${s.key}`}
-            >
-              <span class="idx">0{i + 1}</span>{s.label}
-            </a>
-          ))}
-        </aside>
-
-        <article>
+      <article>
           <span class="eyebrow">Autobiografía</span>
           <h2 style="margin-top:8px; margin-bottom:24px">Cómo llegué hasta aquí</h2>
 
-          <div class="autobio-grid">
-            <div class="cosmo-content" style="max-width:none">
-              <p>
-                Mi nombre es Tirzah Kook. Nací el 26 de enero de 2004 en Curazao en el Hospital
-                St. Elisabeth (SEHOS). Empecé a viajar muy temprano. Cuando tenía 1 año fui a
-                Estados Unidos con mis padres de vacaciones. Cuando tenía 2 años, fuimos a Orlando
-                y en 2007 fui a los Países Bajos por primera vez junto con mis padres y mi hermana
-                recién nacida. Viajar siempre fue una gran parte de mi vida y todavía es una de mis
-                aficiones favoritas.
-              </p>
-              <p>
-                Cuando cumplí 4 años, mis padres decidieron dejarme ir a un preescolar. El preescolar
-                se llamaba Bambi, fue un período muy agradable. En agosto de 2008 empecé la escuela
-                primaria "Adventschool". Mi período de escuela primaria también fue un período
-                divertido. Siempre fui una persona tranquila pero social.
-              </p>
-              <p>
-                Mi familia siempre fue agradable. Mis padres son curazoleños. Mi papá trabaja como
-                pastor de la Iglesia Adventista del Séptimo Día y mi mamá es secretaria ejecutiva.
-                Desde chiquita me gustaba mucho cantar así que mis padres me metieron en un coro de
-                la iglesia. Durante el período navideño organizábamos un musical navideño en el que
-                tuve que cerrar al final. Fue muy emocionante para mí porque era tímida.
-              </p>
-              <p>
-                Nunca estuve en un equipo deportivo, pero tomé clases de natación y tengo títulos A
-                y B. Estuve en un club de aventureros, donde aprendí mucho: cómo levantar y bajar una
-                bandera, sobre la naturaleza y sobre Jesús.
-              </p>
-              <p>
-                En el año 2016 terminé la secundaria y empecé la preparatoria en la escuela "Maria
-                Immaculata Lyceum". También disfruté mucho esa etapa. En el año 2022 terminé la
-                preparatoria y en agosto del mismo año empecé la carrera en Psicología Clínica en la
-                Universidad de Montemorelos.
-              </p>
-            </div>
-
-            <aside style="position:sticky; top:100px">
-              <div style="aspect-ratio:3/4; border-radius:var(--radius-card); overflow:hidden; margin-bottom:16px">
-                <div class="placeholder-photo" style="width:100%; height:100%">
-                  retrato 3:4
-                  <!-- TODO: reemplazar con <Image> real -->
-                </div>
-              </div>
-              <div class="card" style="padding:20px">
-                <span class="eyebrow" style="display:block; margin-bottom:8px">Datos rápidos</span>
-                <div class="stack-2" style="font-size:14px">
-                  <div><span class="text-muted">Origen:</span> Curazao 🇨🇼 / México 🇲🇽</div>
-                  <div><span class="text-muted">Idiomas:</span> Papiamentu, Holandés, Inglés, Español, Francés</div>
-                  <div><span class="text-muted">Ingreso UM:</span> Agosto 2022</div>
-                  <div><span class="text-muted">Carrera:</span> Psicología Clínica</div>
-                </div>
-              </div>
-            </aside>
+          <div class="cosmo-content" style="max-width:none">
+            <p>
+              Mi nombre es Tirzah Kook. Nací el 26 de enero de 2004 en Curazao en el Hospital
+              St. Elisabeth (SEHOS). Empecé a viajar muy temprano. Cuando tenía 1 año fui a
+              Estados Unidos con mis padres de vacaciones. Cuando tenía 2 años, fuimos a Orlando
+              y en 2007 fui a los Países Bajos por primera vez junto con mis padres y mi hermana
+              recién nacida. Viajar siempre fue una gran parte de mi vida y todavía es una de mis
+              aficiones favoritas.
+            </p>
+            <p>
+              Cuando cumplí 4 años, mis padres decidieron dejarme ir a un preescolar. El preescolar
+              se llamaba Bambi, fue un período muy agradable. En agosto de 2008 empecé la escuela
+              primaria "Adventschool". Mi período de escuela primaria también fue un período
+              divertido. Siempre fui una persona tranquila pero social.
+            </p>
+            <p>
+              Mi familia siempre fue agradable. Mis padres son curazoleños. Mi papá trabaja como
+              pastor de la Iglesia Adventista del Séptimo Día y mi mamá es secretaria ejecutiva.
+              Desde chiquita me gustaba mucho cantar así que mis padres me metieron en un coro de
+              la iglesia. Durante el período navideño organizábamos un musical navideño en el que
+              tuve que cerrar al final. Fue muy emocionante para mí porque era tímida.
+            </p>
+            <p>
+              Nunca estuve en un equipo deportivo, pero tomé clases de natación y tengo títulos A
+              y B. Estuve en un club de aventureros, donde aprendí mucho: cómo levantar y bajar una
+              bandera, sobre la naturaleza y sobre Jesús.
+            </p>
+            <p>
+              En el año 2016 terminé la secundaria y empecé la preparatoria en la escuela "Maria
+              Immaculata Lyceum". También disfruté mucho esa etapa. En el año 2022 terminé la
+              preparatoria y en agosto del mismo año empecé la carrera en Psicología Clínica en la
+              Universidad de Montemorelos.
+            </p>
           </div>
-        </article>
-      </div>
+      </article>
     </section>
   </div>
 </Base>

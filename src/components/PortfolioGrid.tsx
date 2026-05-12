@@ -14,6 +14,7 @@ interface Work {
   competencias?: string[];
   reflexion?: string;
   archivo?: ArchivoRef;
+  archivo2?: ArchivoRef;
 }
 
 interface PortfolioData {
@@ -123,8 +124,8 @@ export default function PortfolioGrid({ data, which }: Props) {
                 {w.archivo && (
                   <FilePreview
                     nombre={w.archivo.nombre}
-                    tipo={w.archivo.tipo}
-                    ruta={w.archivo.ruta}
+                    archivo={w.archivo}
+                    archivo2={w.archivo2}
                   />
                 )}
                 <div className="work-foot">

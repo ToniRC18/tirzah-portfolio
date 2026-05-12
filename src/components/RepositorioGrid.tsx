@@ -111,8 +111,7 @@ export default function RepositorioGrid({ evidencias }: { evidencias: Evidencia[
                 {ev.archivo && (
                   <FilePreview
                     nombre={ev.archivo.nombre}
-                    tipo={ev.archivo.tipo}
-                    ruta={ev.archivo.ruta}
+                    archivo={ev.archivo}
                   />
                 )}
 

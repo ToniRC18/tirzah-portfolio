@@ -117,6 +117,8 @@ Cada portafolio tiene cinco secciones:
 - Todos los recursos públicos viven bajo `public/assets/`
 - Convención obligatoria: `[portafolio]-[seccion]-[slug-del-titulo].[ext]`
 - Extensiones válidas: `.jpg`, `.jpeg`, `.png`, `.webp`, `.pdf`
+- Script de procesamiento disponible en `scripts/process-assets.mjs` para convertir HEIC/JPG, comprimir imágenes pesadas y recortar videos a 30 segundos
+- Los assets reales del portafolio ya quedaron mapeados en los archivos de datos correspondientes
 - Mientras el archivo no exista físicamente, en los datos se usa `ruta: "PENDIENTE"`
 - Cuando Tirzah suba el archivo, debe cambiar `ruta` por la ruta real desde `/public`, por ejemplo:
   - `/assets/portafolio-i/academico/p1-academico-proyecto-integrador-1.pdf`

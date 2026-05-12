@@ -1,6 +1,6 @@
 export interface ArchivoRef {
   nombre: string;
-  tipo: "imagen" | "pdf";
+  tipo: "imagen" | "pdf" | "video";
   ruta: string;
 }
 
@@ -14,6 +14,7 @@ export interface Trabajo {
   competencias: string[];
   reflexion: string;
   archivo?: ArchivoRef;
+  archivo2?: ArchivoRef;
 }
 
 export interface Portafolio {
@@ -45,9 +46,14 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "En esta actividad mi debilidad fue tener miedo de hablar en español delante de un público desconocido. Solo leí las preguntas de una actividad que hicimos. Tenía 2 meses y medio en México y el español es mi cuarto idioma. Pienso que hubiera tomado responsabilidad de hablar para practicar. Mi fortaleza fue mi disposición de hacer todo lo que esperaban de mí.",
         archivo: {
-          nombre: "p1-academico-proyecto-integrador-1.pdf",
-          tipo: "pdf",
-          ruta: "PENDIENTE",
+          nombre: "p1-academico-proyecto-integrador1.jpg",
+          tipo: "imagen",
+          ruta: "/assets/portafolio-i/academico/p1-academico-proyecto-integrador1.jpg",
+        },
+        archivo2: {
+          nombre: "proyecto-integrador2.jpg",
+          tipo: "imagen",
+          ruta: "/assets/portafolio-i/academico/proyecto-integrador2.jpg",
         },
       },
       {
@@ -63,9 +69,14 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi debilidad fue no tener mucha paciencia, la actividad duró 3 horas pero teníamos que esperar para pasar a dar la plática. Mi fortaleza fue hablar en español por primera vez enfrente de un público desconocido.",
         archivo: {
-          nombre: "p1-academico-proyecto-integrador-2.pdf",
-          tipo: "pdf",
-          ruta: "PENDIENTE",
+          nombre: "proyecto-integrador2.jpg",
+          tipo: "imagen",
+          ruta: "/assets/portafolio-i/academico/proyecto-integrador2.jpg",
+        },
+        archivo2: {
+          nombre: "proyecto-integrador2.2.jpg",
+          tipo: "imagen",
+          ruta: "/assets/portafolio-i/academico/proyecto-integrador2.2.jpg",
         },
       },
       {
@@ -82,9 +93,14 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi debilidad fue tomar responsabilidades que no eran mías. Mi fortaleza fue presentar mi actividad de modo comprensible para que los adultos mayores pudieran realizarla.",
         archivo: {
-          nombre: "p1-academico-visita-comedor-adultos-mayores.jpg",
+          nombre: "visita-adultos.jpg",
           tipo: "imagen",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-i/academico/visita-adultos.jpg",
+        },
+        archivo2: {
+          nombre: "visita-adultos2.jpg",
+          tipo: "imagen",
+          ruta: "/assets/portafolio-i/academico/visita-adultos2.jpg",
         },
       },
       {
@@ -100,9 +116,9 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Esta actividad te da la oportunidad de poner los orígenes históricos de la psicología en orden cronológico. Mi fortaleza fue compilar las informaciones de los teóricos. Mi debilidad fue no tener paciencia para poner todos los teóricos y sus aportaciones.",
         archivo: {
-          nombre: "p1-academico-origenes-historicos-psicologia.pdf",
+          nombre: "origenes-historicos.psicologia.pdf",
           tipo: "pdf",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-i/academico/origenes-historicos.psicologia.pdf",
         },
       },
       {
@@ -119,9 +135,9 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Esta actividad da una panorama más amplia sobre los principales teóricos de la psicología. Mi fortaleza fue poner atención en clase. Mi debilidad fue estructurar el mapa.",
         archivo: {
-          nombre: "p1-academico-mapa-mental-teoricos.pdf",
-          tipo: "pdf",
-          ruta: "PENDIENTE",
+          nombre: "mapa-mental.png",
+          tipo: "imagen",
+          ruta: "/assets/portafolio-i/academico/mapa-mental.png",
         },
       },
       {
@@ -137,9 +153,9 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Esta actividad fue muy interesante porque nunca había escuchado que el fútbol americano puede causar lesión en el lóbulo prefrontal. Mi fortaleza fue aprender a investigar usando películas y artículos. Mi debilidad fue que no vi la película completa.",
         archivo: {
-          nombre: "p1-academico-funciones-corticales.pdf",
+          nombre: "funciones-corticales.pdf",
           tipo: "pdf",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-i/academico/funciones-corticales.pdf",
         },
       },
       {
@@ -155,9 +171,14 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Me gustó esta actividad porque pudimos investigar sobre el oído y también hacer una maqueta. Mi fortaleza fue comunicarme bien con mi equipo. Mi debilidad fue sentirme un poco perdida y no pedir ayuda.",
         archivo: {
-          nombre: "p1-academico-organos-sentidos-oido.jpg",
+          nombre: "oido-imagen.jpg",
           tipo: "imagen",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-i/academico/oido-imagen.jpg",
+        },
+        archivo2: {
+          nombre: "oido.pdf",
+          tipo: "pdf",
+          ruta: "/assets/portafolio-i/academico/oido.pdf",
         },
       },
       {
@@ -173,9 +194,9 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Esta actividad era simple pero importante porque relacionas los conceptos que necesitas para tu trabajo. Mi fortaleza fue tener mi información bien organizada. Mi debilidad fue que no sabía cómo hacer el cuadro muy bien.",
         archivo: {
-          nombre: "p1-academico-cuadro-sinoptico.pdf",
+          nombre: "cuadro-sinoptico.pdf",
           tipo: "pdf",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-i/academico/cuadro-sinoptico.pdf",
         },
       },
       {
@@ -191,9 +212,9 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Como futura psicóloga es muy importante estar al tanto de todos los avances. Mi fortaleza fue saber realizar un informe en estilo APA. Mi debilidad fue encontrar artículos científicos confiables sobre el tema.",
         archivo: {
-          nombre: "p1-academico-avances-psicologia.pdf",
+          nombre: "Avances en la Psicología.pdf",
           tipo: "pdf",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-i/academico/Avances en la Psicología.pdf",
         },
       },
       {
@@ -209,9 +230,9 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Era uno de mis primeros trabajos. Mi debilidad fue que no investigué mucho sobre el tema. Mi fortaleza fue saber cómo realizar un informe en estilo APA.",
         archivo: {
-          nombre: "p1-academico-metafora-neuronal.pdf",
+          nombre: "Una metafora neuronal.pdf",
           tipo: "pdf",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-i/academico/Una metafora neuronal.pdf",
         },
       },
       {
@@ -228,13 +249,13 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Es importante saber qué instrumentos te pueden servir para el bienestar de tus pacientes. Mi fortaleza fue poner atención en clase. Mi debilidad fue la falta de conocimiento de redacción en estilo APA.",
         archivo: {
-          nombre: "p1-academico-metodos-estudio-cerebro.pdf",
+          nombre: "metodos de estudio.pdf",
           tipo: "pdf",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-i/academico/metodos de estudio.pdf",
         },
       },
       {
-        title: "Tercer Congreso de Salud Mental — Bienestar Psicológico: Restaurando el Equilibrio",
+        title: "Congreso Salud Mental III",
         subj: "Actividad extracurricular",
         cat: "Congreso",
         periodo: "2do semestre",
@@ -247,9 +268,9 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi fortaleza fue que hice anotaciones sobre algunos temas. Mi debilidad fue que los 2 días que asistí los temas eran muy largos y perdí la atención.",
         archivo: {
-          nombre: "p1-academico-congreso-salud-mental-iii.jpg",
+          nombre: "congreso salud mental.png",
           tipo: "imagen",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-i/academico/congreso salud mental.png",
         },
       },
       {
@@ -266,9 +287,9 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Me gustó mucho porque fuimos introducidos a instrumentos que podemos utilizar para diagnosticar. Mi fortaleza fue pedir ayuda cuando andaba perdida. Mi debilidad fue no imprimir la lámina correcta para interpretar el 16FP.",
         archivo: {
-          nombre: "p1-academico-informe-16fp-estres-beck.pdf",
+          nombre: "informe 16fp.pdf",
           tipo: "pdf",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-i/academico/informe 16fp.pdf",
         },
       },
       {
@@ -285,9 +306,55 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi fortaleza fue usar los medios correctamente para llegar a la información. Mi debilidad fue entender los aspectos y características de cada test.",
         archivo: {
-          nombre: "p1-academico-catalogo-test.pdf",
+          nombre: "catalogo de test.pdf",
           tipo: "pdf",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-i/academico/catalogo de test.pdf",
+        },
+      },
+      {
+        title: "Análisis sociométrico",
+        subj: "Psicología Social",
+        cat: "Investigación",
+        periodo: "2do semestre",
+        desc: "TODO: Tirzah agrega descripción",
+        competencias: [],
+        reflexion: "TODO: Tirzah agrega reflexión",
+        archivo: {
+          nombre: "analisis sociometrico.pdf",
+          tipo: "pdf",
+          ruta: "/assets/portafolio-i/academico/analisis sociometrico.pdf",
+        },
+      },
+      {
+        title: "Manual de actividades estimulatorias",
+        subj: "Psicología del Desarrollo",
+        cat: "Manual",
+        periodo: "2do semestre",
+        desc: "TODO: Tirzah agrega descripción",
+        competencias: [],
+        reflexion: "TODO: Tirzah agrega reflexión",
+        archivo: {
+          nombre: "manual actividades estimulatorias.pdf",
+          tipo: "pdf",
+          ruta: "/assets/portafolio-i/academico/manual actividades estimulatorias.pdf",
+        },
+      },
+      {
+        title: "10 tips para sobrevivir la adolescencia",
+        subj: "Material audiovisual",
+        cat: "Video",
+        periodo: "2do semestre",
+        desc: "Video recortado a 30 segundos como evidencia audiovisual del trabajo realizado.",
+        competencias: [
+          "Al comunicarse en forma oral y escrita en español.",
+          "Al usar correctamente las tecnologías de la información y comunicación.",
+        ],
+        reflexion:
+          "Este video resume una parte práctica de mi formación y me permite conservar la evidencia en un formato ligero y accesible.",
+        archivo: {
+          nombre: "p1-academico-10-tips-adolescencia.mp4",
+          tipo: "video",
+          ruta: "/assets/portafolio-i/academico/p1-academico-10-tips-adolescencia.mp4",
         },
       },
     ],
@@ -311,9 +378,9 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Esta actividad nos dio la oportunidad de familiarizarnos con los instrumentos. Mi fortaleza fue que los teníamos bien organizados. Mi debilidad fue que podríamos haber organizado mejor la logística.",
         archivo: {
-          nombre: "p1-academico-proyecto-integrador-1.pdf",
-          tipo: "pdf",
-          ruta: "PENDIENTE",
+          nombre: "proyecto integrador 1.JPG",
+          tipo: "imagen",
+          ruta: "/assets/portafolio-ii/academico/proyecto integrador 1.JPG",
         },
       },
       {
@@ -328,9 +395,9 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi fortaleza fue aplicar todo lo que aprendí en Técnicas y estrategias para la entrevista clínica. Mi debilidad fue que en la primera entrevista terminé antes del tiempo y no sabía qué hacer.",
         archivo: {
-          nombre: "p1-academico-proyecto-integrador-2.pdf",
-          tipo: "pdf",
-          ruta: "PENDIENTE",
+          nombre: "proyecto integrador 2.JPG",
+          tipo: "imagen",
+          ruta: "/assets/portafolio-ii/academico/proyecto integrador 2.JPG",
         },
       },
       {
@@ -345,13 +412,13 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Me gustaron mucho las ponencias, me hicieron reflexionar sobre cómo los traumas de la infancia dejan una huella marcada. Mi fortaleza fue que puse atención y gané un premio. Mi debilidad fue que tuve que trabajar y no pude escuchar todas las ponencias.",
         archivo: {
-          nombre: "p2-academico-congreso-salud-mental-iv.jpg",
+          nombre: "congreso de salud mental.PNG",
           tipo: "imagen",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-ii/academico/congreso de salud mental.PNG",
         },
       },
       {
-        title: "Caso clínico 1 — Depresión infantil",
+        title: "Caso clínico 1",
         subj: "Psicopatología",
         cat: "Estudio de caso",
         desc: "Realizamos un caso clínico sobre un niño con depresión, incluyendo el caso, examen del estado mental y el diagnóstico.",
@@ -362,13 +429,13 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi fortaleza fue utilizar mi conocimiento acerca de la enfermedad. Mi debilidad fue que me costó un poco porque debía tener en cuenta que era un caso de un niño y no de un adulto.",
         archivo: {
-          nombre: "p2-academico-caso-clinico-depresion.pdf",
+          nombre: "Caso Clinico 1 .pdf",
           tipo: "pdf",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-ii/academico/Caso Clinico 1 .pdf",
         },
       },
       {
-        title: "Intervención — Plan para niño con TDAH",
+        title: "Intervención — Plan TDAH",
         subj: "Intervención Psicológica",
         cat: "Plan de intervención",
         desc: "A partir de un caso de un niño con TDAH, tuvimos que armar un plan de intervención comenzando con el análisis funcional.",
@@ -379,13 +446,13 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi fortaleza fue que entendí qué era el análisis funcional. Mi debilidad fue que fue desafiante armar un plan de intervención porque era la primera vez.",
         archivo: {
-          nombre: "p2-academico-intervencion-tdah.pdf",
+          nombre: "intervencion primera parte.pdf",
           tipo: "pdf",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-ii/academico/intervencion primera parte.pdf",
         },
       },
       {
-        title: "Feria para adultos mayores",
+        title: "Feria adultos mayores",
         subj: "Servicio Comunitario",
         cat: "Servicio",
         desc: "Organizamos una feria para adultos mayores con actividades físicas, cognitivas y socioemocionales.",
@@ -396,13 +463,13 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Siempre me gustan estas actividades porque nos dan la oportunidad de socializar con otra población. Mi fortaleza fue que estuve proactiva. Mi debilidad fue que no planeamos las actividades con mucha anticipación.",
         archivo: {
-          nombre: "p2-academico-feria-adultos-mayores.jpg",
+          nombre: "feria adultos mayores.JPG",
           tipo: "imagen",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-ii/academico/feria adultos mayores.JPG",
         },
       },
       {
-        title: "Manual preventivo de problemas emocionales en el adulto",
+        title: "Manual preventivo adulto",
         subj: "Psicología del Adulto",
         cat: "Manual",
         desc: "Armamos un manual preventivo con actividades para las áreas de sexualidad, duelo, abuso y abandono.",
@@ -414,13 +481,13 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi fortaleza fue que tuvimos suficientes fuentes para sacar información. Mi debilidad fue adaptar las actividades según la población de adultos mayores.",
         archivo: {
-          nombre: "p2-academico-manual-preventivo-adulto.pdf",
+          nombre: "manual preventivo problemas .pdf",
           tipo: "pdf",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-ii/academico/manual preventivo problemas .pdf",
         },
       },
       {
-        title: "Resolución de caso — Diagnóstico DSM-5",
+        title: "Resolución de caso DSM-5",
         subj: "Psicodiagnóstico",
         cat: "Estudio de caso",
         desc: "Realizamos un estudio de caso para sacar un diagnóstico presuntivo según los criterios diagnósticos del DSM-5.",
@@ -431,13 +498,13 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi fortaleza fue el apoyo de mis compañeros. Mi debilidad fue que no estaba segura de mi diagnóstico presuntivo.",
         archivo: {
-          nombre: "p2-academico-resolucion-caso-dsm5.pdf",
+          nombre: "resolucion de caso.pdf",
           tipo: "pdf",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-ii/academico/resolucion de caso.pdf",
         },
       },
       {
-        title: "Análisis crítico — Patriarcas y Profetas",
+        title: "Análisis crítico Patriarcas",
         subj: "Ciencia y Religión",
         cat: "Análisis crítico",
         desc: "Leímos cuatro capítulos del libro Patriarcas y Profetas de Elena G. de White y realizamos un análisis de lo que leímos.",
@@ -448,13 +515,13 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi fortaleza fue que entendí lo que leí y lo pude redactar bien. Mi debilidad fue que me faltó hacer un listado de los conceptos que venían en los capítulos.",
         archivo: {
-          nombre: "p2-academico-analisis-critico-patriarcas.pdf",
+          nombre: "analisis critico 1.pdf",
           tipo: "pdf",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-ii/academico/analisis critico 1.pdf",
         },
       },
       {
-        title: "Glosario de trastornos neuropsicológicos",
+        title: "Glosario trastornos",
         subj: "Neuropsicología",
         cat: "Glosario",
         desc: "Realizamos un glosario sobre los trastornos neuropsicológicos con su etiología.",
@@ -465,13 +532,13 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi fortaleza fue que tuve suficientes fuentes. Mi debilidad fue que me cansé de buscar todas las palabras una por una y ponerlas en una tabla.",
         archivo: {
-          nombre: "p2-academico-glosario-trastornos.pdf",
+          nombre: "glosario de los trastornos.pdf",
           tipo: "pdf",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-ii/academico/glosario de los trastornos.pdf",
         },
       },
       {
-        title: "Ensayo — Trastorno por Déficit de Atención e Hiperactividad",
+        title: "Ensayo TDAH",
         subj: "Psicopatología",
         cat: "Ensayo",
         desc: "Realizamos un ensayo sobre uno de los trastornos del desarrollo. Elegí el TDAH.",
@@ -482,9 +549,9 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi fortaleza fue que me interesó mucho el tema e investigué bien. Mi debilidad fue que pude redactar mejor.",
         archivo: {
-          nombre: "p2-academico-ensayo-tdah.pdf",
+          nombre: "ensayo de los trastornos de desarrollo.pdf",
           tipo: "pdf",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-ii/academico/ensayo de los trastornos de desarrollo.pdf",
         },
       },
       {
@@ -499,9 +566,9 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi fortaleza fue que me interesaban los temas del foro. Mi debilidad fue que a veces no los terminaba de ver por motivos de sueño.",
         archivo: {
-          nombre: "p2-academico-foro-ciencia-religion.pdf",
-          tipo: "pdf",
-          ruta: "PENDIENTE",
+          nombre: "foro ciencia y religion.png",
+          tipo: "imagen",
+          ruta: "/assets/portafolio-ii/academico/foro ciencia y religion.png",
         },
       },
       {
@@ -517,13 +584,13 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi fortaleza fue tener control de la entrevista y hacer buenas preguntas. Mi debilidad fue que debí trabajar más en la empatía y el lenguaje no verbal.",
         archivo: {
-          nombre: "p2-academico-primera-entrevista-clinica.pdf",
-          tipo: "pdf",
-          ruta: "PENDIENTE",
+          nombre: "primera entrevista.jpg",
+          tipo: "imagen",
+          ruta: "/assets/portafolio-ii/academico/primera entrevista.jpg",
         },
       },
       {
-        title: "Análisis DOFA — Epistemología posmoderna",
+        title: "Análisis DOFA",
         subj: "Epistemología",
         cat: "Análisis",
         desc: "Realizamos un análisis DOFA sobre la epistemología posmoderna.",
@@ -535,13 +602,13 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi fortaleza fue que me gustó el tema y tuve interés en hacer el análisis. Mi debilidad fue que tuve que estimular mi pensamiento crítico y filosófico para este tema desafiante.",
         archivo: {
-          nombre: "p2-academico-analisis-dofa.pdf",
-          tipo: "pdf",
-          ruta: "PENDIENTE",
+          nombre: "analisis dofa.png",
+          tipo: "imagen",
+          ruta: "/assets/portafolio-ii/academico/analisis dofa.png",
         },
       },
       {
-        title: "Estadística — Hipótesis y correlación en Jamovi",
+        title: "Estadística Jamovi",
         subj: "Estadística",
         cat: "Investigación",
         desc: "Planteamos hipótesis y sacamos la correlación entre dos variables utilizando Excel y Jamovi.",
@@ -553,13 +620,13 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi fortaleza fue que me gusta mucho la estadística y la llevé en la prepa. Mi debilidad fue que era la primera vez que usé Jamovi.",
         archivo: {
-          nombre: "p2-academico-estadistica-jamovi.pdf",
+          nombre: "estadistica.pdf",
           tipo: "pdf",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-ii/academico/estadistica.pdf",
         },
       },
       {
-        title: "Caso práctico — Plan de intervención según Teoría Cognitivo Social",
+        title: "Caso práctico TCS",
         subj: "Psicología Social Cognitiva",
         cat: "Plan de intervención",
         desc: "Realizamos un caso de cambio de comportamiento y armamos un plan de intervención según la Teoría Cognitivo Social.",
@@ -571,9 +638,26 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi fortaleza fue que entendí los puntos clave de la teoría y pude armar el plan. Mi debilidad fue que era la primera vez realizando un plan según una teoría específica.",
         archivo: {
-          nombre: "p2-academico-caso-practico-tcs.pdf",
+          nombre: "casi practico.pdf",
           tipo: "pdf",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-ii/academico/casi practico.pdf",
+        },
+      },
+      {
+        title: "Compilación textos bíblicos",
+        subj: "Ciencia y Religión",
+        cat: "Compilación",
+        desc: "Buscamos diez textos bíblicos y diez citas relacionadas con la psicología.",
+        competencias: [
+          "Tomar decisiones sabias basadas en los principios de la Santa Biblia.",
+          "Al usar correctamente las tecnologías de la información y comunicación.",
+        ],
+        reflexion:
+          "Este trabajo me permitió conectar la formación académica con la fe y organizar referencias relevantes para mi carrera.",
+        archivo: {
+          nombre: "compilacion textos biblicos.pdf",
+          tipo: "pdf",
+          ruta: "/assets/portafolio-ii/academico/compilacion textos biblicos.pdf",
         },
       },
     ],
@@ -586,24 +670,7 @@ export const PORTFOLIO_DATA = {
       "Mirar hacia atrás y ver todo lo que he aprendido a lo largo de mi formación académica me llena de orgullo, pero también de humildad. Cada tarea, cada proyecto y cada desafío fue una oportunidad para conocerme mejor como futura psicóloga. Aprendí a confiar más en mis capacidades, a ser paciente con mis errores y a seguir construyendo desde ahí. Aunque hubo momentos de cansancio y duda, reconozco que también hubo muchos de crecimiento y descubrimiento. Esta etapa me dio herramientas que no solo usaré en mi profesión, sino también en mi vida.",
     works: [
       {
-        title: "Compilación de textos bíblicos y citas del Espíritu de profecía",
-        subj: "Ciencia y Religión",
-        cat: "Compilación",
-        desc: "Buscamos diez textos bíblicos y diez citas de los libros de Elena G. de White (Espíritu de profecía) relacionados con la psicología.",
-        competencias: [
-          "Al usar correctamente las tecnologías de la información y comunicación.",
-          "Al comunicarse en forma oral y escrita en español.",
-        ],
-        reflexion:
-          "Mi fortaleza fue que pude encontrar las citas bíblicas fácilmente. Mi debilidad fue que las citas del Espíritu de profecía eran más difíciles de encontrar porque no tengo los libros y tenía que buscar en internet.",
-        archivo: {
-          nombre: "p3-academico-compilacion-textos-biblicos.pdf",
-          tipo: "pdf",
-          ruta: "PENDIENTE",
-        },
-      },
-      {
-        title: "Servicio comunitario — Jardín de Niños Pablo Neruda",
+        title: "Servicio comunitario Neruda",
         subj: "Servicio Comunitario",
         cat: "Servicio",
         desc: "Participé en actividades con el Jardín de Niños Pablo Neruda, donde hicimos talleres sobre hábitos saludables para los niños y ayudamos con el mantenimiento de las áreas verdes.",
@@ -614,13 +681,13 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi fortaleza fue mi disposición para servir a la comunidad y aprender cosas nuevas. Mi debilidad fue la comunicación en contextos complejos.",
         archivo: {
-          nombre: "p3-academico-servicio-comunitario-neruda.jpg",
+          nombre: "servicio comunitario .jpg",
           tipo: "imagen",
-          ruta: "PENDIENTE",
+          ruta: "/assets/portafolio-iii/academico/servicio comunitario .jpg",
         },
       },
       {
-        title: "Caso forense — Peritaje psicológico (Juana Barraza)",
+        title: "Caso forense Juana Barraza",
         subj: "Psicología Forense",
         cat: "Estudio de caso",
         desc: "Elaboramos un peritaje psicológico basado en el caso de Juana Barraza. Esta ha sido una de mis materias favoritas, ya que me permitió acercarme al lado legal de la psicología.",
@@ -632,13 +699,13 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi fortaleza fue mi interés por la materia y la tarea. Mi debilidad fue la organización para llegar al resultado final.",
         archivo: {
-          nombre: "p3-academico-caso-forense-barraza.pdf",
-          tipo: "pdf",
-          ruta: "PENDIENTE",
+          nombre: "caso forense.png",
+          tipo: "imagen",
+          ruta: "/assets/portafolio-iii/academico/caso forense.png",
         },
       },
       {
-        title: "Programa de intervención psicológica",
+        title: "Programa de intervención",
         subj: "Intervención Psicológica",
         cat: "Plan de intervención",
         desc: "Desarrollamos un programa completo de intervención psicológica desde la primera entrevista hasta la última sesión, incluyendo objetivos terapéuticos y metas de seguimiento post-terapia.",
@@ -650,13 +717,18 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mis fortalezas fueron la empatía profesional y la aplicación teórica. Mi debilidad fue mi experiencia limitada a la práctica como profesional.",
         archivo: {
-          nombre: "p3-academico-programa-intervencion.pdf",
-          tipo: "pdf",
-          ruta: "PENDIENTE",
+          nombre: "programa intervencion psicologica.png",
+          tipo: "imagen",
+          ruta: "/assets/portafolio-iii/academico/programa intervencion psicologica.png",
+        },
+        archivo2: {
+          nombre: "programa intervencion psicologia 2.png",
+          tipo: "imagen",
+          ruta: "/assets/portafolio-iii/academico/programa intervencion psicologia 2.png",
         },
       },
       {
-        title: "Proyecto Integrador — Primeras entrevistas a estudiantes de secundaria",
+        title: "Proyecto Integrador",
         subj: "Proyecto Integrador",
         cat: "Proyecto",
         desc: "Realizamos primeras entrevistas a estudiantes de secundaria en Montemorelos, practicando habilidades terapéuticas básicas: escucha activa, empatía y formulación de preguntas.",
@@ -667,13 +739,13 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mis fortalezas fueron la escucha activa y la alianza terapéutica que creé. Mi debilidad fue la dificultad para profundizar bien.",
         archivo: {
-          nombre: "p3-academico-proyecto-integrador-secundaria.pdf",
-          tipo: "pdf",
-          ruta: "PENDIENTE",
+          nombre: "proyecto integrador.jpg",
+          tipo: "imagen",
+          ruta: "/assets/portafolio-iii/academico/proyecto integrador.jpg",
         },
       },
       {
-        title: "Manual de Trastornos Somáticos",
+        title: "Manual TSS",
         subj: "Psicología Clínica II",
         cat: "Manual",
         desc: "Elaboramos un manual sobre los trastornos somáticos con diferentes enfoques teóricos, síntomas y actividades prácticas para el manejo terapéutico.",
@@ -685,13 +757,18 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mi fortaleza fue el trabajo estructurado. Mi debilidad fue la dificultad para delimitar el contenido.",
         archivo: {
-          nombre: "p3-academico-manual-tss.pdf",
-          tipo: "pdf",
-          ruta: "PENDIENTE",
+          nombre: "manual tss.png",
+          tipo: "imagen",
+          ruta: "/assets/portafolio-iii/academico/manual tss.png",
+        },
+        archivo2: {
+          nombre: "manual tss 2.png",
+          tipo: "imagen",
+          ruta: "/assets/portafolio-iii/academico/manual tss 2.png",
         },
       },
       {
-        title: "Psicodiagnóstico — Proceso completo de evaluación",
+        title: "Psicodiagnóstico",
         subj: "Psicodiagnóstico",
         cat: "Evaluación",
         desc: "Llevamos a cabo un proceso completo de evaluación psicológica: desde la primera entrevista, pasando por la aplicación e interpretación de pruebas, hasta la elaboración del informe final.",
@@ -703,9 +780,9 @@ export const PORTFOLIO_DATA = {
         reflexion:
           "Mis fortalezas fueron la responsabilidad, el compromiso ético y la capacidad de análisis. Mi debilidad fue la gestión del tiempo.",
         archivo: {
-          nombre: "p3-academico-psicodiagnostico.pdf",
-          tipo: "pdf",
-          ruta: "PENDIENTE",
+          nombre: "psicodiagnostico.jpg",
+          tipo: "imagen",
+          ruta: "/assets/portafolio-iii/academico/psicodiagnostico.jpg",
         },
       },
     ],
